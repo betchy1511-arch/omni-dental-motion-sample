@@ -38,12 +38,19 @@
   /* ---- Hero video: desktop, motion allowed, no data saver. Mobile keeps the poster ---- */
   var video = document.querySelector('.stage-video');
   var vidBtn = document.querySelector('.vid-toggle');
-  var userPaused = false, inView = true;
+  var userPaused = false, inView = true, heroGone = false;
+  var cardVid = document.querySelector('.vcard-video');
   function syncVideo() {
     if (!video) return;
     var on = desk.matches && !rm.matches && !saveData;
     if (vidBtn) vidBtn.hidden = !on;
-    if (on && !userPaused && inView) {
+    if (cardVid) {
+      if (on && !userPaused && inView && !heroGone) {
+        if (!cardVid.getAttribute('src')) cardVid.src = 'assets/img/omni-card.mp4';
+        var cq = cardVid.play(); if (cq && cq.catch) cq.catch(function () {});
+      } else if (!cardVid.paused) cardVid.pause();
+    }
+    if (on && !userPaused && inView && !heroGone) {
       if (!video.getAttribute('src')) { video.src = 'assets/img/omni-hero.mp4'; video.muted = true; }
       var p = video.play();
       if (p && p.catch) p.catch(function () { /* autoplay refused: poster stays */ });
@@ -67,12 +74,6 @@
 
   /* ---- Hero video card: opens the practice video in a dialog ---- */
   var vcard = document.querySelector('.hero-vcard');
-  /* card preview: muted loop of the practice video, desktop with motion only */
-  var cv = vcard && vcard.querySelector('.vcard-video');
-  if (cv && desk.matches && !rm.matches && !saveData) {
-    cv.src = 'assets/img/omni-hero.mp4#t=20';
-    var cp = cv.play(); if (cp && cp.catch) cp.catch(function () {});
-  }
   var dlg = document.getElementById('vid-dlg');
   if (vcard && dlg && dlg.showModal) {
     var dv = dlg.querySelector('video');
@@ -83,7 +84,7 @@
     });
     dlg.querySelector('.vid-dlg-x').addEventListener('click', function () { dlg.close(); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
-    dlg.addEventListener('close', function () { dv.pause(); vcard.focus({ preventScroll: true }); });
+    dlg.addEventListener('close', function () { dv.pause(); if (!heroEl || !heroEl.classList.contains('done')) vcard.focus({ preventScroll: true }); });
   } else if (vcard) {
     /* no <dialog> support: open the video file itself */
     vcard.addEventListener('click', function () { window.location.href = 'assets/img/omni-hero.mp4'; });
@@ -166,7 +167,7 @@
       var e = t * t * (3 - 2 * t); /* smoothstep: the panel rises evenly with the scroll */
       heroEl.style.setProperty('--e', e.toFixed(4));
       heroEl.classList.toggle('done', e > .92);
-      if (video) { var gone = e > .95; if (gone && !video.paused) video.pause(); else if (!gone && video.paused && inView && !userPaused && video.getAttribute('src')) { var rp = video.play(); if (rp && rp.catch) rp.catch(function () {}); } }
+      var g = e > .92; if (g !== heroGone) { heroGone = g; syncVideo(); }
     } else {
       heroEl.style.removeProperty('--e');
       heroEl.classList.remove('done');
