@@ -46,7 +46,7 @@
     if (vidBtn) vidBtn.hidden = !on;
     if (cardVid) {
       if (on && !userPaused && inView && !heroGone) {
-        if (!cardVid.getAttribute('src')) cardVid.src = 'assets/img/omni-card.mp4';
+        if (!cardVid.getAttribute('src')) { cardVid.muted = true; cardVid.src = 'assets/img/omni-card.mp4'; }
         var cq = cardVid.play(); if (cq && cq.catch) cq.catch(function () {});
       } else if (!cardVid.paused) cardVid.pause();
     }
@@ -171,6 +171,7 @@
     } else {
       heroEl.style.removeProperty('--e');
       heroEl.classList.remove('done');
+      if (heroGone) { heroGone = false; syncVideo(); }
     }
 
     var live = desk.matches && !rm.matches;
