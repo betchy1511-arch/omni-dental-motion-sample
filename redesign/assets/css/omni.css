@@ -658,3 +658,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 .ins-tray .logo-tile,.ins-tray .logo-tile:nth-child(n){padding:20px 26px}
 .ins-tray .logo-tile img{width:100%;height:clamp(44px,3.8vw,58px);max-width:150px}
 @media(max-width:600px){.ins-tray .logo-tile,.ins-tray .logo-tile:nth-child(n){padding:16px 18px}.ins-tray .logo-tile img{height:44px}}
+
+/* Round 10c (Beth): portrait removed from the end banner */
+.end-top,.end-top:nth-child(n){grid-template-columns:minmax(0,1fr) auto;align-items:center}
+@media(max-width:600px){.end-top{grid-template-columns:1fr}}
+@media(max-width:1024px){.end-top:nth-child(n){grid-template-columns:1fr}.end-top .end-actions{justify-self:start;flex-direction:row;flex-wrap:wrap;min-width:0}}
+@media(max-width:600px){.end-top .end-actions{flex-direction:column;justify-self:stretch;width:100%}}
