@@ -32,17 +32,17 @@
     </nav>
     <div class="head-cta">
       <a class="btn btn-line btn-sm head-phone" href="tel:+18053666000">(805) 366-6000</a>
-      <a class="btn btn-gold btn-sm" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online</a>
+      <a class="btn btn-gold btn-sm" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online<span class="vh"> (opens in a new tab)</span></a>
     </div>
-    <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Open menu"><span></span><span></span></button>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><span></span><span></span></button>
   </div>
   <nav class="mnav" id="mnav" aria-label="Mobile" hidden>
-    <a href="#top">Home</a>
+    <a href="#top" aria-current="page">Home</a>
     <a href="#services">Services</a>
     <a href="#dentist">Dr. Keihani</a>
     <a href="#insurance">Insurance</a>
     <a href="#contact">Contact</a>
-    <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online</a>
+    <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online<span class="vh"> (opens in a new tab)</span></a>
     <a class="btn btn-line" href="tel:+18053666000">Call (805) 366-6000</a>
   </nav>
 </header>
@@ -57,8 +57,9 @@
         <video class="stage-video" muted loop playsinline preload="none" poster="assets/img/omni-reception.jpg"></video>
         <div class="stage-veil"></div>
       </div>
+      <button type="button" class="vid-toggle" aria-pressed="false" hidden>Pause video</button>
       <a class="hero-card" href="#dentist">
-        <img src="assets/img/dentist.jpg" alt="Dr. Kourosh Keihani, DDS, in black scrubs" width="400" height="400">
+        <img src="assets/img/dentist.jpg" alt="" width="400" height="400">
         <span class="hero-card-cap"><span class="cap-k">Meet your Oxnard dentist</span>Dr. Kourosh Keihani, DDS</span>
       </a>
     </div>
@@ -67,10 +68,10 @@
       <h1 id="h1" class="hero-h1">Gentle, Modern Dentistry in <em>Oxnard, CA</em></h1>
       <p class="hero-sub">General and cosmetic dental care for the whole family, led by Dr. Kourosh Keihani, DDS. Denti-Cal, most PPO plans and HMOs accepted.</p>
       <div class="hero-actions">
-        <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online</a>
+        <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online<span class="vh"> (opens in a new tab)</span></a>
         <a class="btn btn-line btn-on-dark" href="tel:+18053666000">Call (805) 366-6000</a>
       </div>
-      <p class="hero-trust"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Rated Excellent on Google, based on 555 reviews</p>
+      <p class="hero-trust"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Excellent, based on 555 Google reviews</p>
     </div>
   </section>
 </div>
@@ -79,6 +80,98 @@
 <section class="statement" aria-label="Our approach">
   <div class="wrap">
     <p class="statement-text" data-words>Clear answers, a gentle exam and modern technology, for families across Oxnard, El Rio and Camarillo.</p>
+  </div>
+</section>
+
+<!-- ============ OFFICE STRIP (moves sideways on scroll) ============ -->
+<section class="strip" aria-labelledby="strip-h">
+  <div class="wrap strip-head rv">
+    <p class="eyebrow">Inside our office</p>
+    <h2 id="strip-h">A Look Inside Our <em>Oxnard</em> Dental Office</h2>
+  </div>
+  <div class="strip-rail">
+    <div class="strip-track">
+      <figure class="sp sp-a"><img src="assets/img/strip-1.jpg" alt="Omni Dental Specialty logo on the reception wall" width="960" height="540" loading="lazy"></figure>
+      <figure class="sp sp-b"><img src="assets/img/strip-2.jpg" alt="Front desk team greeting a patient at reception" width="960" height="540" loading="lazy"></figure>
+      <figure class="sp sp-c"><img src="assets/img/strip-3.jpg" alt="Glass entrance to the treatment area" width="960" height="540" loading="lazy"></figure>
+      <figure class="sp sp-d"><img src="assets/img/strip-4.jpg" alt="Hallway leading to the treatment rooms" width="960" height="540" loading="lazy"></figure>
+      <figure class="sp sp-e"><img src="assets/img/strip-5.jpg" alt="Treatment room with a dental chair and large window" width="960" height="540" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOATING PHOTOS ============ -->
+<section class="float" aria-label="Our care">
+  <div class="float-pin">
+    <div class="float-stage">
+      <p class="float-text" data-words>So you feel at ease from the front desk to the treatment chair.</p>
+      <figure class="fp fp-1" aria-hidden="true"><img src="assets/img/float-1.jpg" alt="" width="960" height="540" loading="lazy"></figure>
+      <figure class="fp fp-2" aria-hidden="true"><img src="assets/img/float-2.jpg" alt="" width="960" height="540" loading="lazy"></figure>
+      <figure class="fp fp-3" aria-hidden="true"><img src="assets/img/float-3.jpg" alt="" width="960" height="540" loading="lazy"></figure>
+      <figure class="fp fp-4" aria-hidden="true"><img src="assets/img/float-4.jpg" alt="" width="960" height="540" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services" aria-labelledby="services-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">What we offer</p>
+      <h2 id="services-h">Dental Services in <em>Oxnard, CA</em></h2>
+      <p class="sec-lead">Routine care, smile makeovers and tooth replacement under one roof at 1690 E. Gonzales Road.</p>
+    </div>
+    <div class="svc-grid">
+      <a class="svc rv" href="https://omnidentalspecialty.com/services/dental-implants/">
+        <span class="svc-photo"><img src="assets/img/implant-model.jpg" alt="Model of a dental implant between two natural teeth" width="800" height="533" loading="lazy"></span>
+        <span class="svc-body"><span class="svc-name">Dental Implants</span><span class="svc-desc">Titanium implants that replace missing teeth with stable, natural-looking restorations.</span><span class="btn btn-quiet">View Dental Implants</span></span>
+      </a>
+      <a class="svc rv" href="https://omnidentalspecialty.com/services/cosmetic-dentistry/">
+        <span class="svc-photo"><img src="assets/img/shade-guide.jpg" alt="Tooth shade guide used to match veneer and whitening color" width="800" height="534" loading="lazy"></span>
+        <span class="svc-body"><span class="svc-name">Cosmetic Dentistry and Veneers</span><span class="svc-desc">Porcelain veneers, dental bonding, teeth whitening and smile makeovers.</span><span class="btn btn-quiet">View Cosmetic Dentistry</span></span>
+      </a>
+      <a class="svc rv" href="https://omnidentalspecialty.com/services/invisalign/">
+        <span class="svc-photo"><img src="assets/img/tooth-casts.jpg" alt="Plaster tooth models used to plan aligner treatment" width="800" height="501" loading="lazy"></span>
+        <span class="svc-body"><span class="svc-name">Invisalign</span><span class="svc-desc">Clear aligners that straighten teeth gradually, without metal brackets.</span><span class="btn btn-quiet">View Invisalign</span></span>
+      </a>
+      <a class="svc rv" href="https://omnidentalspecialty.com/services/">
+        <span class="svc-photo"><img src="assets/img/toothbrush.jpg" alt="Toothbrush with toothpaste on a marble counter" width="800" height="533" loading="lazy"></span>
+        <span class="svc-body"><span class="svc-name">General Dentistry</span><span class="svc-desc">Exams, dental crowns and root canals for patients from youngsters to seniors.</span><span class="btn btn-quiet">View General Dentistry</span></span>
+      </a>
+      <a class="svc rv" href="https://omnidentalspecialty.com/services/emergency-dentistry/">
+        <span class="svc-photo"><img src="assets/img/svc-emergency.jpg" alt="Patient walking into the Omni Dental Specialty storefront in Oxnard" width="800" height="450" loading="lazy"></span>
+        <span class="svc-body"><span class="svc-name">Emergency Dentistry</span><span class="svc-desc">Prompt, compassionate emergency dental care to address your pain.</span><span class="btn btn-quiet">View Emergency Dentistry</span></span>
+      </a>
+      <a class="svc rv" href="https://omnidentalspecialty.com/services/root-canal/">
+        <span class="svc-photo"><img src="assets/img/svc-root-canal.jpg" alt="Dr. Keihani treating a patient in an Omni Dental Specialty treatment room" width="800" height="450" loading="lazy"></span>
+        <span class="svc-body"><span class="svc-name">Root Canal</span><span class="svc-desc">Treatment that saves a damaged tooth by cleaning out the pulp.</span><span class="btn btn-quiet">View Root Canal</span></span>
+      </a>
+      <a class="svc rv" href="https://omnidentalspecialty.com/services/dental-crown/">
+        <span class="svc-photo"><img src="assets/img/svc-crowns.jpg" alt="Dr. Keihani preparing to treat a patient" width="800" height="450" loading="lazy"></span>
+        <span class="svc-body"><span class="svc-name">Dental Crowns</span><span class="svc-desc">A tooth-shaped cap that restores the shape, size, strength and appearance of a damaged tooth.</span><span class="btn btn-quiet">View Dental Crowns</span></span>
+      </a>
+      <a class="svc rv" href="https://omnidentalspecialty.com/services/periodontics/">
+        <span class="svc-photo"><img src="assets/img/svc-gum-care.jpg" alt="Treatment room with a dental chair and window at the Oxnard office" width="800" height="450" loading="lazy"></span>
+        <span class="svc-body"><span class="svc-name">Gum (Periodontal) Care</span><span class="svc-desc">Scaling and root planing, gum grafting and other treatment for gum disease.</span><span class="btn btn-quiet">View Gum Care</span></span>
+      </a>
+      <a class="svc rv" href="https://omnidentalspecialty.com/services/wisdom-teeth/">
+        <span class="svc-photo"><img src="assets/img/svc-wisdom-teeth.jpg" alt="Dr. Keihani greeting a patient in the dental chair" width="800" height="450" loading="lazy"></span>
+        <span class="svc-body"><span class="svc-name">Wisdom Teeth</span><span class="svc-desc">Care for wisdom teeth that lack space or come in incorrectly.</span><span class="btn btn-quiet">View Wisdom Teeth</span></span>
+      </a>
+      <a class="svc rv" href="https://omnidentalspecialty.com/services/teeth-whitening/">
+        <span class="svc-photo"><img src="assets/img/svc-whitening.jpg" alt="Patient taking a seat in a treatment room at the Oxnard office" width="800" height="450" loading="lazy"></span>
+        <span class="svc-body"><span class="svc-name">Teeth Whitening</span><span class="svc-desc">Whitening treatments, including custom at-home whitening kits.</span><span class="btn btn-quiet">View Teeth Whitening</span></span>
+      </a>
+      <a class="svc rv" href="https://omnidentalspecialty.com/services/tmj-therapy/">
+        <span class="svc-photo"><img src="assets/img/svc-tmj.jpg" alt="Patient waiting in the Omni Dental Specialty lounge" width="800" height="450" loading="lazy"></span>
+        <span class="svc-body"><span class="svc-name">TMJ Therapy</span><span class="svc-desc">Custom night guards and splints to protect your teeth and jaw.</span><span class="btn btn-quiet">View TMJ Therapy</span></span>
+      </a>
+      <div class="svc svc-cta rv">
+        <span class="svc-body"><span class="eyebrow eyebrow-dark">Not sure what you need?</span><span class="svc-name">Start With an Exam in Oxnard</span><span class="svc-desc">Dr. Keihani will look at what is going on and explain your options.</span><a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online<span class="vh"> (opens in a new tab)</span></a></span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -98,48 +191,7 @@
     <div class="fact rv">
       <p class="fact-k">Insurance</p>
       <p class="fact-v">Denti-Cal, most PPOs and HMOs</p>
-      <p class="fact-s"><a href="https://omnidentalspecialty.com/financing-options/">Financing options</a> are available too.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section class="services" id="services" aria-labelledby="services-h">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow">What we offer</p>
-      <h2 id="services-h">Dental Services in <em>Oxnard, CA</em></h2>
-      <p class="sec-lead">Routine care, smile makeovers and tooth replacement under one roof at 1690 E. Gonzales Road.</p>
-    </div>
-    <div class="svc-grid">
-      <a class="svc rv" href="https://omnidentalspecialty.com/services/dental-implants/">
-        <span class="svc-photo"><img src="assets/img/implant-model.jpg" alt="Model of a dental implant between two natural teeth" width="800" height="533" loading="lazy"></span>
-        <span class="svc-body"><span class="svc-name">Dental Implants</span><span class="svc-desc">Replace a missing tooth with an implant-supported crown that looks and works like a natural tooth.</span><span class="btn btn-quiet">View Dental Implants</span></span>
-      </a>
-      <a class="svc rv" href="https://omnidentalspecialty.com/services/cosmetic-dentistry/">
-        <span class="svc-photo"><img src="assets/img/shade-guide.jpg" alt="Tooth shade guide used to match veneer and whitening colour" width="800" height="534" loading="lazy"></span>
-        <span class="svc-body"><span class="svc-name">Cosmetic Dentistry and Veneers</span><span class="svc-desc">Veneers, bonding and whitening planned around the shade and shape you want.</span><span class="btn btn-quiet">View Cosmetic Dentistry</span></span>
-      </a>
-      <a class="svc rv" href="https://omnidentalspecialty.com/services/invisalign/">
-        <span class="svc-photo"><img src="assets/img/tooth-casts.jpg" alt="Plaster tooth models used to plan aligner treatment" width="800" height="501" loading="lazy"></span>
-        <span class="svc-body"><span class="svc-name">Invisalign</span><span class="svc-desc">Clear aligners that straighten teeth gradually, without metal brackets.</span><span class="btn btn-quiet">View Invisalign</span></span>
-      </a>
-      <a class="svc rv" href="https://omnidentalspecialty.com/services/">
-        <span class="svc-photo"><img src="assets/img/toothbrush.jpg" alt="Toothbrush with toothpaste on a marble counter" width="800" height="533" loading="lazy"></span>
-        <span class="svc-body"><span class="svc-name">General Dentistry</span><span class="svc-desc">Exams, cleanings, fillings, crowns and root canals for adults and children.</span><span class="btn btn-quiet">View General Dentistry</span></span>
-      </a>
-    </div>
-    <div class="svc-more rv">
-      <p class="svc-more-k">Also at our Oxnard office</p>
-      <ul class="chips">
-        <li><a href="https://omnidentalspecialty.com/services/emergency-dentistry/">Emergency Dentistry</a></li>
-        <li><a href="https://omnidentalspecialty.com/services/root-canal/">Root Canal</a></li>
-        <li><a href="https://omnidentalspecialty.com/services/dental-crown/">Dental Crowns</a></li>
-        <li><a href="https://omnidentalspecialty.com/services/periodontics/">Gum (Periodontal) Care</a></li>
-        <li><a href="https://omnidentalspecialty.com/services/wisdom-teeth/">Wisdom Teeth</a></li>
-        <li><a href="https://omnidentalspecialty.com/services/teeth-whitening/">Teeth Whitening</a></li>
-        <li><a href="https://omnidentalspecialty.com/services/tmj-therapy/">TMJ Therapy</a></li>
-      </ul>
+      <p class="fact-s">Ask about <a href="https://omnidentalspecialty.com/financing-options/">financing options</a>.</p>
     </div>
   </div>
 </section>
@@ -150,13 +202,13 @@
     <div class="sec-head rv">
       <p class="eyebrow eyebrow-dark">Inside the office</p>
       <h2 id="tech-h">Modern Dental Technology at Our <em>Oxnard</em> Office</h2>
-      <p class="sec-lead">Better pictures mean clearer answers, so you see what we see before deciding on treatment.</p>
+      <p class="sec-lead">Tools that help with diagnosis and comfort, used at every stage of your care.</p>
     </div>
     <ol class="tech-list">
-      <li class="rv"><span class="tech-n" aria-hidden="true">01</span><span class="tech-name">CT scan</span><span class="tech-desc">Three-dimensional images that help plan implants and other treatment.</span></li>
-      <li class="rv"><span class="tech-n" aria-hidden="true">02</span><span class="tech-name">Intraoral camera</span><span class="tech-desc">Close-up photos of your teeth that we look at together.</span></li>
-      <li class="rv"><span class="tech-n" aria-hidden="true">03</span><span class="tech-name">Digital X-rays</span><span class="tech-desc">X-ray images captured and viewed digitally.</span></li>
-      <li class="rv"><span class="tech-n" aria-hidden="true">04</span><span class="tech-name">Aerosol machine</span><span class="tech-desc">Helps control the spray created during dental treatment.</span></li>
+      <li class="rv"><span class="tech-n" aria-hidden="true">01</span><span class="tech-name">CT scan</span><span class="tech-desc">Used for CT-guided implant placement.</span></li>
+      <li class="rv"><span class="tech-n" aria-hidden="true">02</span><span class="tech-name">Intraoral camera</span><span class="tech-desc">A closer look inside your mouth.</span></li>
+      <li class="rv"><span class="tech-n" aria-hidden="true">03</span><span class="tech-name">Digital X-rays</span><span class="tech-desc">Digital imaging for your exam.</span></li>
+      <li class="rv"><span class="tech-n" aria-hidden="true">04</span><span class="tech-name">Aerosol machine</span><span class="tech-desc">Part of our modern treatment rooms.</span></li>
     </ol>
   </div>
 </section>
@@ -170,14 +222,14 @@
     <div class="dentist-copy rv">
       <p class="eyebrow">Your dentist</p>
       <h2 id="dentist-h">Meet Dr. Kourosh Keihani, Your <em>Oxnard</em> Dentist</h2>
-      <p>Dr. Keihani completed his education at the USC School of Dentistry and practised general dentistry in Beverly Hills before caring for patients in Oxnard.</p>
+      <p>Dr. Keihani completed his education at the USC School of Dentistry and practiced general dentistry in Beverly Hills before caring for patients in Oxnard.</p>
       <p>He offers general, restorative and cosmetic dentistry for patients from children to seniors, and keeps his skills current through continuing education courses.</p>
       <ul class="tags" aria-label="Memberships">
         <li>American Dental Association</li>
         <li>California Dental Association</li>
         <li>Los Angeles Dental Society</li>
       </ul>
-      <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online</a>
+      <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online<span class="vh"> (opens in a new tab)</span></a>
     </div>
   </div>
 </section>
@@ -190,29 +242,32 @@
         <p class="eyebrow">Patient reviews</p>
         <h2 id="reviews-h">What Oxnard Patients Say</h2>
       </div>
-      <p class="badge"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Excellent on Google, based on 555 reviews</p>
+      <p class="badge"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Excellent, based on 555 Google reviews</p>
     </div>
     <div class="rev-grid">
       <figure class="rev rv"><blockquote>&ldquo;Dr. Keihani is an excellent dentist, experienced and talented to give solutions to my varied dental needs.&rdquo;</blockquote><figcaption>Gabriele K., Google review</figcaption></figure>
       <figure class="rev rv"><blockquote>&ldquo;Such a great attitude, attention, atmosphere, you can&rsquo;t ask for more!&rdquo;</blockquote><figcaption>Daniel A., Google review</figcaption></figure>
-      <figure class="rev rv"><blockquote>&ldquo;Waiting time was 5mins, office staff friendly, doctor let you know what&rsquo;s going on.&rdquo;</blockquote><figcaption>Kim P., Google review</figcaption></figure>
+      <figure class="rev rv"><blockquote>&ldquo;Waiting time was 5mins, office staff friendly, doctor let you know what&rsquo;s going on&hellip;&rdquo;</blockquote><figcaption>Kim P., Google review</figcaption></figure>
     </div>
   </div>
 </section>
 
-<!-- ============ FIRST VISIT ============ -->
-<section class="visit" aria-labelledby="visit-h">
-  <div class="wrap">
-    <div class="sec-head sec-center rv">
-      <p class="eyebrow">What to expect</p>
-      <h2 id="visit-h">Your First Visit to Our Oxnard Dental Office</h2>
+<!-- ============ FIRST VISIT (dial on desktop, list on phones) ============ -->
+<section class="journey" id="first-visit" aria-labelledby="visit-h">
+  <div class="journey-pin">
+    <div class="journey-stage">
+      <div class="wrap journey-head">
+        <p class="eyebrow eyebrow-dark">What to expect</p>
+        <h2 id="visit-h">Your First Visit to Our <em>Oxnard</em> Dental Office</h2>
+      </div>
+      <div class="dial" aria-hidden="true"><div class="dial-wheel"></div></div>
+      <ol class="jsteps">
+        <li class="jstep"><span class="step-n" aria-hidden="true">01</span><span class="step-t">Book online or call</span><span class="step-d">Pick a time on Zocdoc or call (805) 366-6000. Saturday visits are by appointment.</span></li>
+        <li class="jstep"><span class="step-n" aria-hidden="true">02</span><span class="step-t">Exam and images</span><span class="step-d">A comprehensive, gentle exam using digital X-rays and modern imaging tools.</span></li>
+        <li class="jstep"><span class="step-n" aria-hidden="true">03</span><span class="step-t">Your options explained</span><span class="step-d">Dr. Keihani walks you through what he found and what each option involves.</span></li>
+        <li class="jstep"><span class="step-n" aria-hidden="true">04</span><span class="step-t">Care that fits your plan</span><span class="step-d">Ask about Denti-Cal, PPO and HMO coverage, and about financing.</span></li>
+      </ol>
     </div>
-    <ol class="steps">
-      <li class="step rv"><span class="step-n" aria-hidden="true">01</span><span class="step-t">Book online or call</span><span class="step-d">Pick a time on Zocdoc or call (805) 366-6000. Saturday visits are by appointment.</span></li>
-      <li class="step rv"><span class="step-n" aria-hidden="true">02</span><span class="step-t">Exam and images</span><span class="step-d">A gentle exam with digital X-rays and intraoral photos, plus a CT scan when needed.</span></li>
-      <li class="step rv"><span class="step-n" aria-hidden="true">03</span><span class="step-t">Your options explained</span><span class="step-d">Dr. Keihani walks you through what he found and what each option involves.</span></li>
-      <li class="step rv"><span class="step-n" aria-hidden="true">04</span><span class="step-t">Care that fits your plan</span><span class="step-d">Ask about Denti-Cal, PPO and HMO coverage, and financing options if you need them.</span></li>
-    </ol>
   </div>
 </section>
 
@@ -224,7 +279,7 @@
       <h2 id="band-h">Emergency Dental Appointments in <em>Oxnard</em></h2>
       <p>Tooth pain, a broken tooth or a lost filling? We are open for emergency dental appointments. Call the office to arrange a visit.</p>
       <div class="band-actions">
-        <a class="btn btn-gold" href="tel:+18053666000">Call (805) 366-6000</a>
+        <a class="btn btn-line btn-on-dark" href="tel:+18053666000">Call (805) 366-6000</a>
       </div>
     </div>
     <div class="band-ins rv">
@@ -246,8 +301,22 @@
       <p class="eyebrow">Areas we serve</p>
       <h2 id="areas-h">Serving Oxnard and Nearby Communities</h2>
     </div>
-    <ul class="area-list rv">
-      <li>Oxnard</li><li>El Rio</li><li>Camarillo</li><li>Ormond Beach</li><li>Lemonwood</li><li>Eastmont</li><li>Oxnard Shores</li><li>Cabrillo</li><li>Sierra Linda</li><li>College Park</li><li>Mar Vista</li><li>Fremont South</li><li>West Village</li><li>East Village</li><li>Nyeland Acres</li>
+    <ul class="area-grid">
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Oxnard</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>El Rio</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Camarillo</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Ormond Beach</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Lemonwood</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Eastmont</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Oxnard Shores</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Cabrillo</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Sierra Linda</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>College Park</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Mar Vista</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Fremont South</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>West Village</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>East Village</span></li>
+      <li class="area rv"><svg class="pin" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 22s7-7.2 7-12.5A7 7 0 0 0 5 9.5C5 14.8 12 22 12 22z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Nyeland Acres</span></li>
     </ul>
   </div>
 </section>
@@ -264,13 +333,17 @@
         <div><dt>Hours</dt><dd>Monday to Friday, 9am to 5pm<br>Saturday by appointment only<br>Sunday closed</dd></div>
       </dl>
       <div class="contact-actions">
-        <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online</a>
-        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Omni+Dental+Specialty+1690+E+Gonzales+Rd+Oxnard+CA+93036" target="_blank" rel="noopener">Get Directions</a>
+        <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online<span class="vh"> (opens in a new tab)</span></a>
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Omni+Dental+Specialty+1690+E+Gonzales+Rd+Oxnard+CA+93036" target="_blank" rel="noopener">Get Directions<span class="vh"> (opens in a new tab)</span></a>
       </div>
     </div>
-    <figure class="contact-photo rv">
-      <img src="assets/img/omni-building.jpg" alt="Aerial view of the Omni Dental Specialty office sign on E. Gonzales Road in Oxnard" width="1280" height="720" loading="lazy">
-    </figure>
+    <div class="contact-map rv">
+      <iframe title="Map of Omni Dental Specialty, 1690 E. Gonzales Road, Oxnard" src="https://www.google.com/maps?q=Omni+Dental+Specialty,+1690+E+Gonzales+Rd,+Oxnard,+CA+93036&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <figure class="map-card">
+        <img src="assets/img/omni-building.jpg" alt="Aerial view of the Omni Dental Specialty office sign on E. Gonzales Road in Oxnard" width="1280" height="720" loading="lazy">
+        <figcaption>Look for the Omni Dental Specialty sign on E. Gonzales Road</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -312,10 +385,10 @@
 </footer>
 
 <!-- Floating CTA (desktop) and sticky bar (mobile) -->
-<a class="float-cta btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online</a>
+<a class="float-cta btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online<span class="vh"> (opens in a new tab)</span></a>
 <div class="mbar" role="navigation" aria-label="Quick contact">
   <a class="btn btn-line" href="tel:+18053666000">Call</a>
-  <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online</a>
+  <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online<span class="vh"> (opens in a new tab)</span></a>
 </div>
 
 <script src="assets/js/omni.js"></script>

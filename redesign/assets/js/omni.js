@@ -37,13 +37,33 @@
 
   /* ---- Hero video: desktop, motion allowed, no data saver. Mobile keeps the poster ---- */
   var video = document.querySelector('.stage-video');
-  if (video && desk.matches && !rm.matches && !saveData) {
-    video.src = 'assets/img/omni-hero.mp4';
-    video.muted = true;
-    var p = video.play();
-    if (p && p.catch) p.catch(function () { /* autoplay refused: poster stays */ });
+  var vidBtn = document.querySelector('.vid-toggle');
+  var userPaused = false, inView = true;
+  function syncVideo() {
+    if (!video) return;
+    var on = desk.matches && !rm.matches && !saveData;
+    if (vidBtn) vidBtn.hidden = !on;
+    if (on && !userPaused && inView) {
+      if (!video.getAttribute('src')) { video.src = 'assets/img/omni-hero.mp4'; video.muted = true; }
+      var p = video.play();
+      if (p && p.catch) p.catch(function () { /* autoplay refused: poster stays */ });
+    } else if (!video.paused) {
+      video.pause();
+    }
   }
-  if (rm.addEventListener) rm.addEventListener('change', function (e) { if (e.matches && video) video.pause(); });
+  /* Pause control (WCAG 2.2.2) and pause when the hero is off screen */
+  if (vidBtn) vidBtn.addEventListener('click', function () {
+    userPaused = !userPaused;
+    vidBtn.setAttribute('aria-pressed', String(userPaused));
+    vidBtn.textContent = userPaused ? 'Play video' : 'Pause video';
+    syncVideo();
+  });
+  if (video && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { inView = en[0].isIntersecting; syncVideo(); }).observe(video);
+  }
+  syncVideo();
+  if (desk.addEventListener) desk.addEventListener('change', syncVideo);
+  if (rm.addEventListener) rm.addEventListener('change', syncVideo);
 
   /* ---- Header: transparent over the dark hero, pearl after ---- */
   var head = document.getElementById('head');
@@ -68,6 +88,31 @@
     });
   }
 
+  /* ---- Office strip, floating photos and first-visit dial ---- */
+  var strip = document.querySelector('.strip');
+  var track = document.querySelector('.strip-track');
+  var floatPin = document.querySelector('.float-pin');
+  var fps = Array.prototype.slice.call(document.querySelectorAll('.fp'));
+  var speeds = [0.9, 1.3, 1.6, 1.1];
+  var jPin = document.querySelector('.journey-pin');
+  var wheel = document.querySelector('.dial-wheel');
+  var jsteps = Array.prototype.slice.call(document.querySelectorAll('.jstep'));
+  var STEP_DEG = 32, pts = [];
+  if (wheel) {
+    jsteps.forEach(function (st, i) {
+      var pt = document.createElement('span');
+      pt.className = 'dial-pt';
+      pt.style.setProperty('--a', (i * STEP_DEG) + 'deg');
+      pt.innerHTML = '<span class="dial-dot"></span><span class="dial-badge">' + (i + 1) + '</span>';
+      wheel.appendChild(pt);
+      pts.push(pt);
+    });
+  }
+  function prog(el, vh) {
+    var r = el.getBoundingClientRect();
+    return Math.min(1, Math.max(0, -r.top / Math.max(1, el.offsetHeight - vh)));
+  }
+
   var ticking = false;
   function update() {
     ticking = false;
@@ -83,6 +128,31 @@
       stage.style.setProperty('--e', e.toFixed(4));
     } else {
       stage.style.removeProperty('--e');
+    }
+
+    var live = desk.matches && !rm.matches;
+    if (strip && track) {
+      if (live) {
+        var sr = strip.getBoundingClientRect();
+        var sq = Math.min(1, Math.max(0, (vh - sr.top) / (vh + sr.height)));
+        var maxX = Math.max(0, track.scrollWidth - document.documentElement.clientWidth);
+        track.style.setProperty('--x', (-sq * maxX).toFixed(1) + 'px');
+      } else track.style.removeProperty('--x');
+    }
+    if (floatPin) {
+      var fq = prog(floatPin, vh);
+      fps.forEach(function (f, i) {
+        if (live) f.style.setProperty('--y', ((0.35 - fq) * speeds[i % speeds.length] * vh).toFixed(1) + 'px');
+        else f.style.removeProperty('--y');
+      });
+    }
+    if (jPin && wheel) {
+      var jq = live ? prog(jPin, vh) : 0;
+      var pos = jq * (jsteps.length - 1);
+      var active = Math.round(pos);
+      wheel.style.setProperty('--rot', (-pos * STEP_DEG).toFixed(2) + 'deg');
+      jsteps.forEach(function (st, i) { st.classList.toggle('on', i === active); });
+      pts.forEach(function (pt, i) { pt.classList.toggle('on', i === active); });
     }
 
     head.classList.toggle('on-dark', desk.matches && pr.bottom > 90);
@@ -117,12 +187,12 @@
   var burger = document.querySelector('.burger');
   var mnav = document.getElementById('mnav');
   if (burger && mnav) {
-    function closeMenu() { mnav.hidden = true; burger.setAttribute('aria-expanded', 'false'); burger.setAttribute('aria-label', 'Open menu'); }
+    function closeMenu() { mnav.hidden = true; burger.setAttribute('aria-expanded', 'false'); }
+    if (desk.addEventListener) desk.addEventListener('change', function (e) { if (e.matches) closeMenu(); });
     burger.addEventListener('click', function () {
       var open = mnav.hidden;
       mnav.hidden = !open;
       burger.setAttribute('aria-expanded', String(open));
-      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
     mnav.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !mnav.hidden) { closeMenu(); burger.focus(); } });
