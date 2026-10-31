@@ -251,7 +251,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .intro .hero-sub{animation:up .9s var(--ease) 1.25s both}
 .intro .hero-actions{animation:up .9s var(--ease) 1.4s both}
 .intro .hero-trust{animation:up .9s var(--ease) 1.55s both}
-@media(min-width:1025px){.intro .stage-video{animation:fade 1.6s ease 1.75s both}}
+
 
 /* ---------- Tablet and phone ---------- */
 @media(max-width:1024px){
@@ -700,7 +700,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .vid-dlg-x{position:absolute;top:-48px;right:0;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;font-size:1.6rem;line-height:1;cursor:pointer}
 @media(min-width:1025px){
   .hero{align-items:flex-start}
-  .stage{clip-path:inset(0 0 calc(30% + var(--e)*70%) calc(var(--pl,55)*1%));transform:translateY(calc(var(--e)*-8vh))}
   .stage-veil{opacity:0}
   .hero-card{left:calc(var(--pl,55)*1vw - min(17vw,270px)*.62);top:52vh;transform:translateY(calc(var(--e)*-26vh)) scale(calc(1 - var(--e)*.35));transform-origin:center top}
   .hero-copy{min-height:100vh;display:flex;flex-direction:column;opacity:calc(1 - var(--e)*1.4);transform:translateY(calc(var(--e)*-6vh))}
@@ -709,7 +708,6 @@ ul,ol{margin:0;padding:0;list-style:none}
   .intro .stage{animation:panelIn 1.4s cubic-bezier(.77,0,.18,1) 2.2s backwards}
 }
 @keyframes panelIn{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
-@media(min-width:1025px) and (prefers-reduced-motion:no-preference){.hero-pin{height:180vh}}
 @media(max-width:1024px){.hero-vcard{width:clamp(170px,42%,260px)}}
 .hero{--e:0}
 /* Round 12b: text holds while the panel rises; card fades at the end; shade behind the menu */
@@ -718,6 +716,14 @@ ul,ol{margin:0;padding:0;list-style:none}
   .hero-card{opacity:calc(1 - max(0, var(--e) - .6) * 2.6)}
   .stage-veil{opacity:1;background:linear-gradient(rgba(23,22,20,.5),rgba(23,22,20,0) 26%)}
 }
-@media(min-width:1025px) and (prefers-reduced-motion:no-preference){.hero-pin{height:165vh}}
-@media(min-width:1025px){.stage{clip-path:inset(0 0 calc(24% + var(--e)*76%) calc(var(--pl,55)*1%))}}
+@media(min-width:1025px){.stage{clip-path:inset(0 0 calc(var(--e)*100%) calc(var(--pl,55)*1%));transform:none}}
 @media(min-width:1025px) and (prefers-reduced-motion:no-preference){.hero-pin{height:150vh}}
+
+/* Round 12c (Sonnet): panel runs to the bottom; controls retire with the panel; card previews the video */
+.hero-vcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 30%}
+@media(min-width:1025px){
+  .vid-toggle{opacity:calc(1 - var(--e)*3)}
+  .hero.done .vid-toggle,.hero.done .hero-card,.hero.done .hero-copy{visibility:hidden}
+}
+.vid-dlg{width:min(92vw,160vh)}
+.vid-dlg-x{top:12px;right:12px;z-index:2;background:rgba(0,0,0,.55)}

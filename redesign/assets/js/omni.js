@@ -67,6 +67,12 @@
 
   /* ---- Hero video card: opens the practice video in a dialog ---- */
   var vcard = document.querySelector('.hero-vcard');
+  /* card preview: muted loop of the practice video, desktop with motion only */
+  var cv = vcard && vcard.querySelector('.vcard-video');
+  if (cv && desk.matches && !rm.matches && !saveData) {
+    cv.src = 'assets/img/omni-hero.mp4#t=20';
+    var cp = cv.play(); if (cp && cp.catch) cp.catch(function () {});
+  }
   var dlg = document.getElementById('vid-dlg');
   if (vcard && dlg && dlg.showModal) {
     var dv = dlg.querySelector('video');
@@ -77,7 +83,10 @@
     });
     dlg.querySelector('.vid-dlg-x').addEventListener('click', function () { dlg.close(); });
     dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
-    dlg.addEventListener('close', function () { dv.pause(); vcard.focus(); });
+    dlg.addEventListener('close', function () { dv.pause(); vcard.focus({ preventScroll: true }); });
+  } else if (vcard) {
+    /* no <dialog> support: open the video file itself */
+    vcard.addEventListener('click', function () { window.location.href = 'assets/img/omni-hero.mp4'; });
   }
 
   /* ---- Header: transparent over the dark hero, pearl after ---- */
@@ -133,6 +142,7 @@
     var w = document.documentElement.clientWidth;
     stage.parentNode.style.setProperty('--pl', Math.min(70, Math.max(55, (right + 40) / w * 100)).toFixed(2));
   }
+  panelLeft();
   window.addEventListener('resize', panelLeft);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(panelLeft);
   setTimeout(panelLeft, 2600); /* after the headline words finish arriving */
@@ -149,14 +159,17 @@
     var pr = pin.getBoundingClientRect();
     var lineRects = lines.map(function (l) { return l.el.getBoundingClientRect(); });
 
-    /* pinned stage progress: 0 at the top, 1 when the photo has settled into its panel */
+    /* hero progress: 0 at the top (panel showing), 1 when the panel has risen away */
     if (desk.matches && !rm.matches) {
       var travel = Math.max(1, pin.offsetHeight - vh);
       var t = Math.min(1, Math.max(0, -pr.top / travel));
       var e = t * t * (3 - 2 * t); /* smoothstep: the panel rises evenly with the scroll */
       heroEl.style.setProperty('--e', e.toFixed(4));
+      heroEl.classList.toggle('done', e > .92);
+      if (video) { var gone = e > .95; if (gone && !video.paused) video.pause(); else if (!gone && video.paused && inView && !userPaused && video.getAttribute('src')) { var rp = video.play(); if (rp && rp.catch) rp.catch(function () {}); } }
     } else {
       heroEl.style.removeProperty('--e');
+      heroEl.classList.remove('done');
     }
 
     var live = desk.matches && !rm.matches;
