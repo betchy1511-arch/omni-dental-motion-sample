@@ -436,17 +436,17 @@ ul,ol{margin:0;padding:0;list-style:none}
 .svc .svc-photo{position:relative;aspect-ratio:4/3}
 .svc .svc-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,22,20,0) 40%,rgba(23,22,20,.78) 100%);pointer-events:none}
 .svc-n{position:absolute;z-index:1;top:14px;left:14px;min-width:38px;height:38px;padding:0 10px;border-radius:999px;display:grid;place-items:center;background:rgba(245,242,237,.92);color:var(--gold-ink);font:700 .75rem/1 var(--sans);letter-spacing:.08em}
-.svc .svc-name{position:absolute;z-index:1;left:18px;right:18px;bottom:16px;margin:0;color:var(--on-dark);font:500 1.55rem/1.1 var(--serif);text-wrap:balance}
+.svc-photo .svc-name{position:absolute;z-index:1;left:18px;right:18px;bottom:16px;margin:0;color:var(--on-dark);font:500 1.55rem/1.1 var(--serif);text-wrap:balance}
 .svc .svc-body{gap:16px;padding:20px 20px 22px}
 .svc .svc-desc{margin:0;font-size:.9375rem;color:var(--ink-2)}
 .svc-link{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:40px;padding:0 16px;border:1px solid var(--gold-line);border-radius:999px;font:600 .8125rem/1.2 var(--sans);color:var(--ink);text-decoration:none;transition:background .3s,border-color .3s}
-.svc-link::before{content:'';position:absolute;inset:0;border-radius:inherit;z-index:2}
+.svc-link::before{content:'';position:absolute;inset:0;border-radius:var(--r);z-index:2}
 .svc{border-radius:var(--r)}
 .svc-link .arr{transition:transform .35s var(--ease)}
 .svc:hover .svc-link{background:var(--gold);border-color:var(--gold)}
 .svc:hover .svc-link .arr{transform:translateX(4px)}
 .svc:focus-within{outline:2px solid var(--gold);outline-offset:3px}
-.svc::before{content:'';position:absolute;z-index:3;left:0;right:0;top:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.svc::before{content:'';position:absolute;z-index:3;pointer-events:none;left:0;right:0;top:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
 .svc:hover::before{transform:scaleX(1)}
 .svc-cta{border:0}
 
@@ -475,3 +475,6 @@ ul,ol{margin:0;padding:0;list-style:none}
   .why-card{min-height:0;padding:32px 24px 32px 48px}
   .why-n{left:-28px;width:56px;height:56px;font-size:1.6rem}
 }
+
+.svc.svc-cta .svc-desc{color:var(--on-dark-2)}
+.why-card{min-height:300px}
