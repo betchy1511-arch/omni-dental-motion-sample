@@ -78,7 +78,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero{position:relative;min-height:100vh;min-height:100svh;background:var(--graphite);color:var(--on-dark);overflow:hidden;display:flex;align-items:center}
 .hero-media{position:absolute;inset:0}
 .stage{position:absolute;inset:0;
-  --e:0;
   clip-path:inset(calc(var(--e)*16%) 0 calc(var(--e)*14%) calc(var(--e)*var(--pl,55)*1%) round calc(var(--e)*20px) 0 0 calc(var(--e)*20px));
 }
 .stage-video{width:100%;height:100%;object-fit:cover;object-position:center 45%}
@@ -297,7 +296,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .stage{--e:1}
+  .hero{--e:0!important}
   .js .rv{opacity:1;transform:none}
   .w{opacity:1}
   .step::before{transform:scaleX(1)}
@@ -687,3 +686,38 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media(max-width:1024px){.areas-in{grid-template-columns:1fr}}
 @media(max-width:600px){.area-words,.area-group + .area-group .area-words{font-size:1.1rem}}
 @media(max-width:400px){.area-words li{white-space:normal}}
+
+/* Round 12 (31 Oct, Beth: opening should look like Lava Dental). Clean right-half video panel that
+   fades in after the headline, small video card, and on scroll the panel slides up and away */
+.hero-vcard{padding:0;border:0;cursor:pointer;background:var(--graphite-3);aspect-ratio:16/10;width:min(17vw,270px)}
+.hero-vcard img{object-position:30% 30%}
+.vcard-play{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;display:grid;place-items:center;background:rgba(255,253,249,.92);color:var(--graphite);box-shadow:0 10px 26px rgba(0,0,0,.3);transition:transform .4s var(--ease)}
+.hero-vcard:hover .vcard-play,.hero-vcard:focus-visible .vcard-play{transform:scale(1.1)}
+.hero-vcard:focus-visible{outline:2px solid var(--gold-2);outline-offset:4px}
+.vid-dlg{width:min(92vw,1100px);padding:0;border:0;border-radius:var(--r);background:#000;overflow:visible}
+.vid-dlg::backdrop{background:rgba(10,10,9,.82)}
+.vid-dlg video{display:block;width:100%;height:auto;border-radius:var(--r)}
+.vid-dlg-x{position:absolute;top:-48px;right:0;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;font-size:1.6rem;line-height:1;cursor:pointer}
+@media(min-width:1025px){
+  .hero{align-items:flex-start}
+  .stage{clip-path:inset(0 0 calc(30% + var(--e)*70%) calc(var(--pl,55)*1%));transform:translateY(calc(var(--e)*-8vh))}
+  .stage-veil{opacity:0}
+  .hero-card{left:calc(var(--pl,55)*1vw - min(17vw,270px)*.62);top:52vh;transform:translateY(calc(var(--e)*-26vh)) scale(calc(1 - var(--e)*.35));transform-origin:center top}
+  .hero-copy{min-height:100vh;display:flex;flex-direction:column;opacity:calc(1 - var(--e)*1.4);transform:translateY(calc(var(--e)*-6vh))}
+  .hero-copy .hero-sub{margin-top:auto}
+  .hero-copy{padding-bottom:clamp(40px,7vh,72px)}
+  .intro .stage{animation:panelIn 1.4s cubic-bezier(.77,0,.18,1) 2.2s backwards}
+}
+@keyframes panelIn{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:none}}
+@media(min-width:1025px) and (prefers-reduced-motion:no-preference){.hero-pin{height:180vh}}
+@media(max-width:1024px){.hero-vcard{width:clamp(170px,42%,260px)}}
+.hero{--e:0}
+/* Round 12b: text holds while the panel rises; card fades at the end; shade behind the menu */
+@media(min-width:1025px){
+  .hero-copy{opacity:calc(1 - max(0, var(--e) - .45) * 1.9);transform:translateY(calc(max(0, var(--e) - .45) * -12vh))}
+  .hero-card{opacity:calc(1 - max(0, var(--e) - .6) * 2.6)}
+  .stage-veil{opacity:1;background:linear-gradient(rgba(23,22,20,.5),rgba(23,22,20,0) 26%)}
+}
+@media(min-width:1025px) and (prefers-reduced-motion:no-preference){.hero-pin{height:165vh}}
+@media(min-width:1025px){.stage{clip-path:inset(0 0 calc(24% + var(--e)*76%) calc(var(--pl,55)*1%))}}
+@media(min-width:1025px) and (prefers-reduced-motion:no-preference){.hero-pin{height:150vh}}

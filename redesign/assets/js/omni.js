@@ -65,10 +65,26 @@
   if (desk.addEventListener) desk.addEventListener('change', syncVideo);
   if (rm.addEventListener) rm.addEventListener('change', syncVideo);
 
+  /* ---- Hero video card: opens the practice video in a dialog ---- */
+  var vcard = document.querySelector('.hero-vcard');
+  var dlg = document.getElementById('vid-dlg');
+  if (vcard && dlg && dlg.showModal) {
+    var dv = dlg.querySelector('video');
+    vcard.addEventListener('click', function () {
+      if (!dv.getAttribute('src')) dv.src = 'assets/img/omni-hero.mp4';
+      dlg.showModal();
+      var pp = dv.play(); if (pp && pp.catch) pp.catch(function () {});
+    });
+    dlg.querySelector('.vid-dlg-x').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('close', function () { dv.pause(); vcard.focus(); });
+  }
+
   /* ---- Header: transparent over the dark hero, pearl after ---- */
   var head = document.getElementById('head');
   var pin = document.querySelector('.hero-pin');
   var stage = document.querySelector('.stage');
+  var heroEl = document.querySelector('.hero');
   var floatCta = document.querySelector('.float-cta');
 
   /* ---- Statement: wrap words so they light up in reading order ---- */
@@ -115,7 +131,7 @@
     var right = 0;
     Array.prototype.forEach.call(rg.getClientRects(), function (r) { right = Math.max(right, r.right); });
     var w = document.documentElement.clientWidth;
-    stage.style.setProperty('--pl', Math.min(70, Math.max(55, (right + 40) / w * 100)).toFixed(2));
+    stage.parentNode.style.setProperty('--pl', Math.min(70, Math.max(55, (right + 40) / w * 100)).toFixed(2));
   }
   window.addEventListener('resize', panelLeft);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(panelLeft);
@@ -136,11 +152,11 @@
     /* pinned stage progress: 0 at the top, 1 when the photo has settled into its panel */
     if (desk.matches && !rm.matches) {
       var travel = Math.max(1, pin.offsetHeight - vh);
-      var t = Math.min(1, Math.max(0, -pr.top / (travel * 0.8)));
-      var e = 1 - Math.pow(1 - t, 3);
-      stage.style.setProperty('--e', e.toFixed(4));
+      var t = Math.min(1, Math.max(0, -pr.top / travel));
+      var e = t * t * (3 - 2 * t); /* smoothstep: the panel rises evenly with the scroll */
+      heroEl.style.setProperty('--e', e.toFixed(4));
     } else {
-      stage.style.removeProperty('--e');
+      heroEl.style.removeProperty('--e');
     }
 
     var live = desk.matches && !rm.matches;
