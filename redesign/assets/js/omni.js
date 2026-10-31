@@ -42,7 +42,10 @@
   var cardVid = document.querySelector('.vcard-video');
   var cardGone = false;
   var cardEl = document.querySelector('.hero-card');
-  if (cardEl) cardEl.addEventListener('animationend', function (ev) { if (ev.animationName === 'cardOut') { cardGone = true; syncVideo(); } });
+  if (cardEl) {
+    cardEl.addEventListener('animationend', function (ev) { if (ev.target === cardEl && ev.animationName === 'cardOut') { cardGone = true; syncVideo(); } });
+    cardEl.addEventListener('animationstart', function (ev) { if (ev.target === cardEl && ev.animationName === 'cardGrow') { cardGone = false; syncVideo(); } });
+  }
   function syncVideo() {
     if (!video) return;
     var on = desk.matches && !rm.matches && !saveData;
@@ -150,8 +153,8 @@
     var copy = document.querySelector('.hero-copy');
     if (copy && h1) {
       var cardW = Math.min(w * 0.26, 520);
-      var textRight = h1.getBoundingClientRect().left + Math.min(w * 0.27, 520);
-      var cardLeft = Math.max(w * pl / 100 - cardW / 2, textRight + 32);
+      var textRight = Math.max(right, h1.getBoundingClientRect().left + Math.min(w * 0.27, 520));
+      var cardLeft = Math.min(Math.max(w * pl / 100 - cardW / 2, textRight + 32), w - cardW - 24);
       stage.parentNode.style.setProperty('--cardx', Math.round(cardLeft) + 'px');
     }
   }
