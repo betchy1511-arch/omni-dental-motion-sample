@@ -478,3 +478,43 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 .svc.svc-cta .svc-desc{color:var(--on-dark-2)}
 @media(min-width:1025px){.why-card{min-height:300px}}
+
+/* Round 5 (31 Oct, Beth): 5 steps on the dial + calls to action under the step text */
+.journey-cta{display:flex;flex-direction:column;align-items:center;gap:12px;margin:40px auto 0;padding-inline:max(24px,env(safe-area-inset-left,0px))}
+.journey-cta .btn{min-width:230px}
+.journey-cta .journey-call{min-width:min(340px,100%)}
+@media(min-width:1025px) and (prefers-reduced-motion:no-preference){
+  .js .journey-pin{height:500vh}
+  .js .journey-cta{position:absolute;left:50%;top:calc(40vh + 22vh + 150px);transform:translateX(-50%);margin:0;padding:0;z-index:2}
+}
+@media(max-width:1024px){.journey-cta{align-items:stretch}.journey-cta .btn{min-width:0}}
+
+/* Round 5: end banner (Tend style). Marbled band, pearl card split by a moving gold strip */
+@keyframes marble{0%{background-position:0% 0%,100% 0%,50% 100%,0 0}50%{background-position:30% 40%,70% 30%,40% 60%,0 0}100%{background-position:0% 0%,100% 0%,50% 100%,0 0}}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.endband{position:relative;padding-top:clamp(56px,7vw,96px);background:linear-gradient(var(--pearl-2) 0 0) top/100% 62% no-repeat,var(--graphite)}
+.endband-bg{position:absolute;inset:0 0 38% 0;overflow:hidden;
+  background:
+    radial-gradient(60% 80% at 20% 30%,rgba(201,168,76,.55),transparent 60%),
+    radial-gradient(50% 70% at 80% 20%,rgba(23,22,20,.55),transparent 60%),
+    radial-gradient(70% 90% at 50% 90%,rgba(220,194,122,.6),transparent 65%),
+    repeating-linear-gradient(115deg,rgba(255,253,249,.10) 0 18px,rgba(255,253,249,0) 18px 46px),
+    var(--graphite-3);
+  background-size:160% 160%,160% 160%,160% 160%,auto;
+  animation:marble 18s ease-in-out infinite}
+.endband .wrap{position:relative;z-index:1}
+.end-card{background:var(--white);border-radius:var(--r) var(--r) 0 0;padding:clamp(36px,5vw,64px) clamp(28px,5vw,64px)}
+.end-card-low{border-radius:0 0 var(--r) var(--r);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-block:clamp(28px,4vw,44px);box-shadow:0 30px 60px rgba(0,0,0,.25)}
+.end-top{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.end-top h2{font-size:clamp(2.2rem,4.4vw,3.8rem);max-width:18ch;color:var(--ink)}
+.end-brand{font:500 clamp(2rem,3.4vw,2.8rem)/1 var(--serif);color:var(--ink)}
+.end-brand span{font-style:italic;color:var(--gold-ink)}
+.mq{position:relative;z-index:2;background:var(--gold);color:var(--graphite);overflow:hidden;border-block:1px solid rgba(23,22,20,.12)}
+.mq-track{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mq:hover .mq-track{animation-play-state:paused}
+.mq-row{display:flex;flex-shrink:0}
+.mq-item{display:inline-flex;align-items:center;gap:22px;padding:14px 0 14px 22px;font:600 .9375rem/1 var(--sans);white-space:nowrap}
+.mq-item::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--graphite);opacity:.55}
+.endband + * , .endband{margin-bottom:0}
+@media(prefers-reduced-motion:reduce){.mq-track{animation:none}.mq{overflow-x:auto}.endband-bg{animation:none}}
+@media(max-width:600px){.end-top .btn,.end-card-low .btn{width:100%}}
