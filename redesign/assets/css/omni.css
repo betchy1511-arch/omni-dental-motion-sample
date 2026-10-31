@@ -477,4 +477,4 @@ ul,ol{margin:0;padding:0;list-style:none}
 }
 
 .svc.svc-cta .svc-desc{color:var(--on-dark-2)}
-.why-card{min-height:300px}
+@media(min-width:1025px){.why-card{min-height:300px}}
