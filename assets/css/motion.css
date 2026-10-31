@@ -82,6 +82,42 @@
 .doctor-photo-wrap.is-visible .doctor-photo-frame{clip-path:inset(0 0 0 0 round var(--radius-card))}
 .doctor-photo-wrap.is-visible .doctor-photo-frame img{transform:none}
 
+/* ---- Round 2 (31 Oct): ideas borrowed in spirit from Lava Dental and Premier Arts Dental ---- */
+
+/* 6. Header settles into a floating pearl bar once the page scrolls (desktop) */
+@media(min-width:1024px){
+  .site-header{transition:top .5s cubic-bezier(.16,1,.3,1),left .5s cubic-bezier(.16,1,.3,1),right .5s cubic-bezier(.16,1,.3,1),border-radius .5s ease,padding .4s ease,box-shadow .4s ease}
+  .site-header.scrolled{top:12px;left:24px;right:24px;border-radius:999px;border:1px solid var(--border-gold-dim)}
+}
+
+/* 7. Intro lines light up word by word as they scroll into view (delays set in motion.js) */
+.om-w{opacity:.4;transition:opacity .45s ease}
+.om-w.on{opacity:1}
+
+/* 8. Service photos drift slightly inside their frames (offset set in motion.js) */
+@media(min-width:769px){
+  /* translate follows the scroll with no easing; only the hover zoom eases */
+  .service-card-photo img{transform:none;translate:0 var(--om-py,0px);scale:1.16;transition:scale .5s ease}
+  .service-card:hover .service-card-photo img{transform:none;scale:1.2}
+}
+
+/* 9. Large outlined step numbers rise in behind each step */
+.om-bignum{
+  position:absolute;bottom:calc(100% - .12em);left:-.04em;z-index:0;
+  font-family:var(--font-serif);font-weight:500;line-height:1;
+  font-size:clamp(3rem,4.4vw,4.25rem);
+  color:transparent;-webkit-text-stroke:1px var(--gold-dim);
+  opacity:0;transform:translateY(18px);
+  transition:opacity 1s ease,transform 1.2s cubic-bezier(.16,1,.3,1);
+  pointer-events:none;user-select:none;
+}
+.step-card > :not(.om-bignum){position:relative;z-index:1}
+#your-visit .steps-grid{margin-top:var(--sp-12);row-gap:calc(var(--sp-12) + 2rem)}
+.step-card.is-visible .om-bignum{opacity:.45;transform:none}
+.steps-grid .step-card:nth-child(2) .om-bignum{transition-delay:.15s}
+.steps-grid .step-card:nth-child(3) .om-bignum{transition-delay:.3s}
+.steps-grid .step-card:nth-child(4) .om-bignum{transition-delay:.45s}
+
 /* Sample label (not part of the design) */
 .om-sample-pill{
   position:fixed;z-index:9999;
@@ -99,4 +135,9 @@
   .step-card::after{display:none}
   .doctor-photo-wrap .doctor-photo-frame{clip-path:none;transition:none}
   .doctor-photo-wrap .doctor-photo-frame img{transform:none;transition:none}
+  .site-header{transition:none}
+  .om-w{opacity:1;transition:none}
+  .service-card-photo img,.service-card:hover .service-card-photo img{transform:none;translate:none;scale:1}
+  .step-card .step-num,.step-card:not(.is-visible) .step-num{transition:none;letter-spacing:var(--tracking-widest)}
+  .om-bignum{opacity:.45;transform:none;transition:none}
 }

@@ -46,4 +46,63 @@
       });
     });
   }
+
+  /* Big outlined step numbers (decorative, hidden from screen readers) */
+  document.querySelectorAll('.steps-grid .step-card').forEach(function (card, i) {
+    var b = document.createElement('span');
+    b.className = 'om-bignum';
+    b.setAttribute('aria-hidden', 'true');
+    b.textContent = ('0' + (i + 1)).slice(-2);
+    card.insertBefore(b, card.firstChild);
+  });
+
+  if (reduced) return;
+
+  /* Intro lines: wrap each word so it can light up in reading order */
+  var lines = [];
+  document.querySelectorAll('#services .section-intro, #your-visit .section-header-center p').forEach(function (p) {
+    if (p.children.length) return; /* plain text only */
+    var words = p.textContent.trim().split(/\s+/);
+    p.textContent = '';
+    words.forEach(function (w, i) {
+      var s = document.createElement('span');
+      s.className = 'om-w';
+      s.textContent = w;
+      p.appendChild(s);
+      if (i < words.length - 1) p.appendChild(document.createTextNode(' '));
+    });
+    lines.push({ el: p, words: p.querySelectorAll('.om-w') });
+  });
+
+  /* Service photos: gentle drift, desktop only (checked live so a resize or rotation is respected) */
+  var wideMq = window.matchMedia('(min-width: 769px)');
+  var photos = Array.prototype.slice.call(document.querySelectorAll('.service-card-photo img'));
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var vh = window.innerHeight;
+    lines.forEach(function (l) {
+      var r = l.el.getBoundingClientRect();
+      /* 0 when the line enters the lower part of the screen, 1 by the middle */
+      var p = Math.min(1, Math.max(0, (vh * 0.9 - r.top) / (vh * 0.4)));
+      var lit = Math.round(p * l.words.length);
+      for (var i = 0; i < l.words.length; i++) l.words[i].classList.toggle('on', i < lit);
+    });
+    var drift = wideMq.matches;
+    /* read every frame position first, then write, so the browser lays out once */
+    var rects = photos.map(function (img) { return img.parentNode.getBoundingClientRect(); });
+    photos.forEach(function (img, i) {
+      if (!drift) { img.style.removeProperty('--om-py'); return; }
+      var r = rects[i];
+      if (r.bottom < 0 || r.top > vh) return;
+      /* clamp so the shift never exceeds the zoom headroom (14px at scale 1.16) */
+      var c = Math.max(-0.5, Math.min(0.5, (r.top + r.height / 2 - vh / 2) / vh));
+      img.style.setProperty('--om-py', (c * -26).toFixed(1) + 'px');
+    });
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
 })();
