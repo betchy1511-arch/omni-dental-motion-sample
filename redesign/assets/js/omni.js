@@ -108,6 +108,19 @@
       pts.push(pt);
     });
   }
+  /* Final panel edge: 55% of the width, or further right if the headline would sit under it */
+  function panelLeft() {
+    if (!h1 || !stage) return;
+    var rg = document.createRange(); rg.selectNodeContents(h1);
+    var right = 0;
+    Array.prototype.forEach.call(rg.getClientRects(), function (r) { right = Math.max(right, r.right); });
+    var w = document.documentElement.clientWidth;
+    stage.style.setProperty('--pl', Math.min(70, Math.max(55, (right + 40) / w * 100)).toFixed(2));
+  }
+  window.addEventListener('resize', panelLeft);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(panelLeft);
+  setTimeout(panelLeft, 2600); /* after the headline words finish arriving */
+
   function prog(el, vh) {
     var r = el.getBoundingClientRect();
     return Math.min(1, Math.max(0, -r.top / Math.max(1, el.offsetHeight - vh)));

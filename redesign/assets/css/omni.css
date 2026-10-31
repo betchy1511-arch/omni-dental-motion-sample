@@ -79,7 +79,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero-media{position:absolute;inset:0}
 .stage{position:absolute;inset:0;
   --e:0;
-  clip-path:inset(calc(var(--e)*16%) 0 calc(var(--e)*14%) calc(var(--e)*55%) round calc(var(--e)*20px) 0 0 calc(var(--e)*20px));
+  clip-path:inset(calc(var(--e)*16%) 0 calc(var(--e)*14%) calc(var(--e)*var(--pl,55)*1%) round calc(var(--e)*20px) 0 0 calc(var(--e)*20px));
 }
 .stage-video{width:100%;height:100%;object-fit:cover;object-position:center 45%}
 .stage-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,22,20,.92) 0%,rgba(23,22,20,.78) 45%,rgba(23,22,20,.55) 100%);opacity:calc(1 - var(--e)*.85)}
@@ -417,3 +417,15 @@ ul,ol{margin:0;padding:0;list-style:none}
   .strip-track{transform:none}
   .strip-rail{overflow-x:auto}
 }
+
+/* Round 3 (31 Oct, Beth): wider headings. Hero H1 on two lines, section headings run wide */
+.hero-h1{text-wrap:wrap}
+@media(min-width:1025px){
+  .hero-copy > .hero-h1{max-width:min(60vw,920px);font-size:clamp(2.75rem,4.6vw,4.6rem)}
+  .sec-head{max-width:980px}
+  .sec-head h2,.strip-head h2,.journey-head h2{max-width:none}
+  .float-text{max-width:24ch}
+  .statement-text{max-width:28ch}
+}
+@media(max-width:1024px){.br-d{display:none}}
+
