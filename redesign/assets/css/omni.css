@@ -429,3 +429,49 @@ ul,ol{margin:0;padding:0;list-style:none}
 }
 @media(max-width:1024px){.br-d{display:none}}
 
+
+/* Round 4 (31 Oct, Beth "improve this design"): service cards. Title sits on the photo,
+   numbered, Oxnard link as a small button; the whole card is clickable via the link */
+.svc{position:relative;border:1px solid var(--line)}
+.svc .svc-photo{position:relative;aspect-ratio:4/3}
+.svc .svc-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,22,20,0) 40%,rgba(23,22,20,.78) 100%);pointer-events:none}
+.svc-n{position:absolute;z-index:1;top:14px;left:14px;min-width:38px;height:38px;padding:0 10px;border-radius:999px;display:grid;place-items:center;background:rgba(245,242,237,.92);color:var(--gold-ink);font:700 .75rem/1 var(--sans);letter-spacing:.08em}
+.svc .svc-name{position:absolute;z-index:1;left:18px;right:18px;bottom:16px;margin:0;color:var(--on-dark);font:500 1.55rem/1.1 var(--serif);text-wrap:balance}
+.svc .svc-body{gap:16px;padding:20px 20px 22px}
+.svc .svc-desc{margin:0;font-size:.9375rem;color:var(--ink-2)}
+.svc-link{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;min-height:40px;padding:0 16px;border:1px solid var(--gold-line);border-radius:999px;font:600 .8125rem/1.2 var(--sans);color:var(--ink);text-decoration:none;transition:background .3s,border-color .3s}
+.svc-link::before{content:'';position:absolute;inset:0;border-radius:inherit;z-index:2}
+.svc{border-radius:var(--r)}
+.svc-link .arr{transition:transform .35s var(--ease)}
+.svc:hover .svc-link{background:var(--gold);border-color:var(--gold)}
+.svc:hover .svc-link .arr{transform:translateX(4px)}
+.svc:focus-within{outline:2px solid var(--gold);outline-offset:3px}
+.svc::before{content:'';position:absolute;z-index:3;left:0;right:0;top:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.svc:hover::before{transform:scaleX(1)}
+.svc-cta{border:0}
+
+/* Round 4: Why choose, stacking cards (Dental Boutique style, our palette).
+   Left column stays put; cards slide up and stack, each with a number on its edge */
+.why{padding:clamp(80px,10vw,128px) 0;background:var(--white);border-block:1px solid var(--line)}
+.why-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,7vw,110px);align-items:start}
+.why-side{align-self:stretch}
+.why-sticky h2{font-size:clamp(2.2rem,3.8vw,3.3rem);margin-bottom:22px}
+.why-lead{color:var(--ink-2);font-size:1.0625rem;max-width:46ch;margin-bottom:16px}
+.why-sticky .btn{margin-top:14px}
+.why-cards{display:flex;flex-direction:column;gap:28px;padding-left:44px}
+.why-card{position:relative;background:var(--white);border:1px solid var(--gold-line);border-radius:28px;padding:44px 44px 48px 56px;min-height:360px;box-shadow:0 -10px 30px rgba(28,27,25,.04)}
+.why-card h3{font:500 clamp(1.8rem,2.6vw,2.4rem)/1.1 var(--serif);margin-bottom:18px}
+.why-card p{color:var(--ink-2);font-size:1.0625rem;max-width:52ch}
+.why-card p + p{margin-top:12px}
+.why-n{position:absolute;left:-44px;top:50%;transform:translateY(-50%);width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:var(--white);border:1px solid var(--gold-line);font:400 2.4rem/1 var(--serif);color:var(--ink)}
+@media(min-width:1025px) and (prefers-reduced-motion:no-preference){
+  .why-sticky{position:sticky;top:calc(var(--head-h) + 48px)}
+  .why-card{position:sticky;top:calc(var(--head-h) + 32px)}
+  .why-cards{padding-bottom:12vh}
+}
+@media(max-width:1024px){
+  .why-in{grid-template-columns:1fr}
+  .why-cards{padding-left:28px}
+  .why-card{min-height:0;padding:32px 24px 32px 48px}
+  .why-n{left:-28px;width:56px;height:56px;font-size:1.6rem}
+}
