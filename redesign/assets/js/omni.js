@@ -23,7 +23,7 @@
             var s = document.createElement('span');
             s.className = 'hw';
             s.textContent = p;
-            s.style.animationDelay = (0.45 + n++ * 0.09).toFixed(2) + 's';
+            s.style.animationDelay = (1.0 + n++ * 0.24).toFixed(2) + 's';
             frag.appendChild(s);
           });
           node.replaceChild(frag, c);
@@ -141,7 +141,7 @@
     var right = 0;
     Array.prototype.forEach.call(rg.getClientRects(), function (r) { right = Math.max(right, r.right); });
     var w = document.documentElement.clientWidth;
-    stage.parentNode.style.setProperty('--pl', Math.min(70, Math.max(55, (right + 40) / w * 100)).toFixed(2));
+    stage.parentNode.style.setProperty('--pl', Math.min(70, Math.max(49.5, (right + 40) / w * 100)).toFixed(2));
   }
   panelLeft();
   window.addEventListener('resize', panelLeft);

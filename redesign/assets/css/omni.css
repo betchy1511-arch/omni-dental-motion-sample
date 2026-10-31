@@ -734,3 +734,34 @@ ul,ol{margin:0;padding:0;list-style:none}
   .hero.done .vid-toggle{visibility:hidden}
   .hero-card{opacity:calc(1 - max(0, var(--e) - .6) * 3.4)}
 }
+
+/* Round 13 (31 Oct, Beth: "review the sample video again"). Measured off the Lava recording frame by frame:
+   small headline in the left third, large 16:9 card centred on the panel edge, the background starts as a
+   dim full-screen video and a bright window sweeps in from the left to settle as the right half, and on
+   scroll one rising edge cuts across the whole hero */
+@property --wl{syntax:'<percentage>';inherits:false;initial-value:0%}
+@property --wr{syntax:'<percentage>';inherits:false;initial-value:100%}
+@property --so{syntax:'<number>';inherits:false;initial-value:1}
+.stage-shade{display:none}
+@media(min-width:1025px){
+  .hero{clip-path:inset(0 0 calc(var(--e)*100%) 0)}
+  .stage,.stage:nth-child(n){clip-path:none;transform:none}
+  .stage-shade{display:block;position:absolute;inset:0;--wl:calc(var(--pl,49.5)*1%);--wr:100%;--so:1;
+    background:linear-gradient(90deg,rgba(23,22,20,var(--so)) 0 var(--wl),transparent var(--wl) var(--wr),rgba(23,22,20,var(--so)) var(--wr))}
+  .intro .stage-shade{animation:sweep 3.2s cubic-bezier(.65,0,.35,1) 2.3s both}
+  .intro .stage{animation:none}
+  .hero-copy,.hero-copy:nth-child(n){opacity:1;transform:none}
+  .hero-card,.hero-card:nth-child(n){left:calc(var(--pl,49.5)*1vw - 13vw);top:40vh;width:26vw;max-width:520px;aspect-ratio:16/9;transform:none;opacity:1}
+  .hero-copy > .hero-h1{font-size:clamp(2.3rem,3.3vw,3.4rem);max-width:38vw}
+  .hero-copy .hero-sub,.hero-copy .hero-actions,.hero-copy .hero-trust{max-width:30vw}
+  .intro .hero-card{animation:cardGrow 1.2s cubic-bezier(.16,1,.3,1) 1.1s both}
+  .intro .hero-h1 em::after{animation-delay:2.5s}
+  .vid-toggle{opacity:1}
+}
+@keyframes sweep{
+  0%{--so:1;--wl:0%;--wr:0%}
+  30%{--so:.74;--wl:0%;--wr:0%}
+  55%{--so:.8;--wl:6%;--wr:34%}
+  100%{--so:1;--wl:calc(var(--pl,49.5)*1%);--wr:100%}
+}
+@keyframes cardGrow{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
