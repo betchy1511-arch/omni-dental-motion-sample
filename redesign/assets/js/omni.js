@@ -199,6 +199,14 @@
     rvs.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* ---- Scrolling strip: pause button (WCAG 2.2.2) ---- */
+  var mqBtn = document.querySelector('.mq-pause');
+  if (mqBtn) mqBtn.addEventListener('click', function () {
+    var on = mqBtn.parentNode.classList.toggle('paused');
+    mqBtn.setAttribute('aria-pressed', String(on));
+    mqBtn.textContent = on ? 'Play' : 'Pause';
+  });
+
   /* ---- Mobile menu ---- */
   var burger = document.querySelector('.burger');
   var mnav = document.getElementById('mnav');
