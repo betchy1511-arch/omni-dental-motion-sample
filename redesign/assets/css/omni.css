@@ -590,3 +590,21 @@ ul,ol{margin:0;padding:0;list-style:none}
 }
 .logo-tile{display:flex;align-items:center;justify-content:center}
 .logo-tile img{min-height:0;flex:0 1 auto}
+
+/* Round 9 (31 Oct, Beth "1"): Dr. Keihani feature section */
+.dr{padding:clamp(88px,11vw,140px) 0;background:var(--pearl)}
+.dr-in{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:center}
+.dr-media{position:relative;padding:0 0 64px 0}
+.dr-main{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 60px rgba(28,27,25,.16)}
+.dr-main img{width:100%;height:100%;object-fit:cover;object-position:28% center}
+.dr-portrait{position:absolute;right:-28px;bottom:0;width:42%;margin:0;border-radius:var(--r-sm);overflow:hidden;border:6px solid var(--pearl);box-shadow:0 20px 44px rgba(28,27,25,.22)}
+.dr-portrait img{width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+.dr-copy h2{font-size:clamp(2.4rem,4.4vw,3.8rem);margin-bottom:12px}
+.dr-role{font:700 .75rem/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:24px}
+.dr-copy > p:not(.eyebrow):not(.dr-role){color:var(--ink-2);font-size:1.0625rem;max-width:56ch;margin-bottom:14px}
+.dr-creds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:26px 0 30px}
+.dr-creds li{background:var(--white);border:1px solid var(--line);border-radius:var(--r-sm);padding:16px 18px;font:500 1.15rem/1.2 var(--serif)}
+.dr-k{display:block;font:700 .65rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:8px}
+.dr-actions{display:flex;flex-wrap:wrap;gap:12px}
+@media(max-width:1024px){.dr-in{grid-template-columns:1fr}.dr-main{aspect-ratio:4/3}.dr-portrait{right:12px;width:36%}}
+@media(max-width:600px){.dr-creds{grid-template-columns:1fr}.dr-actions .btn{flex:1 1 100%}}
