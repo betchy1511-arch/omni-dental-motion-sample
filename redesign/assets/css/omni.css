@@ -662,3 +662,20 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media(max-width:600px){.end-top .end-actions{flex-direction:column;justify-self:stretch;width:100%}}
 
 .band-logos.in .logo-tile:hover{transition-delay:0s}
+
+/* Round 11 (31 Oct, Beth: "service areas look like ai made"): typeset neighborhood index, no identical boxes */
+.areas-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(40px,7vw,112px);align-items:start}
+.areas-side h2{font-size:clamp(2.2rem,3.8vw,3.3rem);margin-bottom:18px}
+.areas-lead{color:var(--ink-2);font-size:1.0625rem;max-width:40ch;margin-bottom:28px}
+@media(min-width:1025px){.areas-side{position:sticky;top:calc(var(--head-h) + 48px)}}
+.areas-index{display:flex;flex-direction:column;gap:clamp(36px,5vw,56px)}
+.area-k{display:flex;align-items:center;gap:14px;font:700 .72rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:18px}
+.area-k span{font:italic 500 1.6rem/1 var(--serif);letter-spacing:0;text-transform:none;color:var(--ink)}
+.area-k::after{content:'';flex:1;height:1px;background:var(--gold-line)}
+.area-words{display:flex;flex-wrap:wrap;align-items:baseline;row-gap:6px;font:400 clamp(1.7rem,3vw,2.6rem)/1.25 var(--serif);color:var(--ink)}
+.area-words li{display:inline-flex;align-items:baseline;transition:color .3s}
+.area-words li:not(:last-child)::after{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin:0 .55em;transform:translateY(-.32em)}
+.area-words li:hover{color:var(--gold-ink);font-style:italic}
+.area-group + .area-group .area-words{font-size:clamp(1.5rem,2.4vw,2.1rem);color:var(--ink-2)}
+@media(max-width:1024px){.areas-in{grid-template-columns:1fr}}
+@media(max-width:600px){.area-words{font-size:1.45rem}.area-group + .area-group .area-words{font-size:1.3rem}}
