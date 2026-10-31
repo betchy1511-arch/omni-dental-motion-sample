@@ -329,7 +329,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ---------- Floating photos around a line of text ---------- */
 .float{background:var(--pearl-2)}
 .float-stage{position:relative;padding:clamp(80px,10vw,128px) max(24px,env(safe-area-inset-left,0px))}
-.float-text{position:relative;z-index:1;font:500 clamp(2.2rem,5vw,4.4rem)/1.12 var(--serif);text-align:center;max-width:18ch;margin-inline:auto;text-wrap:balance}
+.float-text{position:relative;z-index:3;font:500 clamp(2.2rem,5vw,4.4rem)/1.12 var(--serif);text-align:center;max-width:18ch;margin-inline:auto;text-wrap:balance}
 .fp{margin:0;border-radius:var(--r-sm);overflow:hidden;box-shadow:0 24px 50px rgba(28,27,25,.18)}
 .fp img{width:100%;height:100%;object-fit:cover}
 
@@ -361,9 +361,9 @@ ul,ol{margin:0;padding:0;list-style:none}
 .area .pin{color:var(--gold-ink);flex-shrink:0}
 
 /* ---------- Contact: live map with the building as a card ---------- */
-.contact-map{position:relative;margin:0 0 40px 40px}
+.contact-map{position:relative;margin:36px 32px 0 0}
 .contact-map iframe{display:block;width:100%;aspect-ratio:4/3;border:0;border-radius:var(--r);box-shadow:0 30px 60px rgba(28,27,25,.14);background:var(--pearl-2)}
-.map-card{position:absolute;left:-40px;bottom:-40px;width:42%;margin:0;border-radius:var(--r-sm);overflow:hidden;background:var(--white);box-shadow:0 20px 44px rgba(28,27,25,.22)}
+.map-card{position:absolute;right:-32px;top:-36px;width:34%;margin:0;border-radius:var(--r-sm);overflow:hidden;background:var(--white);box-shadow:0 20px 44px rgba(28,27,25,.22)}
 .map-card img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
 .map-card figcaption{padding:10px 14px;font-size:.8125rem;font-weight:600;color:var(--ink-2)}
 
@@ -377,8 +377,9 @@ ul,ol{margin:0;padding:0;list-style:none}
   .fp{aspect-ratio:4/3}
   .jsteps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}
   .area-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .contact-map{margin:0 0 48px}
-  .map-card{left:12px;bottom:-32px;width:52%}
+  .contact-map{margin:0}
+  .map-card{position:static;transform:none;width:100%;margin-top:14px;display:grid;grid-template-columns:40% 1fr;align-items:center}
+  .map-card img{aspect-ratio:4/3}
 }
 @media(max-width:600px){
   .jsteps{grid-template-columns:1fr}
@@ -389,28 +390,28 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ---------- Pinned stages: desktop with motion only ---------- */
 @media(min-width:1025px) and (prefers-reduced-motion:no-preference){
   /* floating photos */
-  .float-pin{height:240vh}
-  .float-stage{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden;padding:0}
-  .fp{position:absolute;z-index:2;transform:translateY(var(--y,0px));will-change:transform}
-  .fp-1{left:5%;top:58%;width:21vw;aspect-ratio:4/3}
-  .fp-2{right:6%;top:14%;width:19vw;aspect-ratio:4/5}
-  .fp-3{left:24%;top:96%;width:15vw;aspect-ratio:1}
-  .fp-4{right:24%;top:72%;width:17vw;aspect-ratio:4/3}
+  .js .float-pin{height:240vh}
+  .js .float-stage{position:sticky;top:0;height:100vh;display:grid;place-items:center;overflow:hidden;padding:0}
+  .js .fp{position:absolute;z-index:2;transform:translateY(var(--y,0px));will-change:transform}
+  .js .fp-1{left:5%;top:58%;width:21vw;aspect-ratio:4/3}
+  .js .fp-2{right:6%;top:14%;width:19vw;aspect-ratio:4/5}
+  .js .fp-3{left:24%;top:96%;width:15vw;aspect-ratio:1}
+  .js .fp-4{right:24%;top:72%;width:17vw;aspect-ratio:4/3}
   /* dial */
-  .journey-pin{height:420vh}
-  .journey-stage{position:sticky;top:0;height:100vh;overflow:hidden;padding:calc(var(--head-h) + 32px) 0 0}
-  .dial{display:block;position:absolute;left:50%;top:40vh;width:min(112vh,1120px);aspect-ratio:1;transform:translateX(-50%);--R:calc(min(112vh,1120px) / 2)}
-  .dial-wheel{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(243,239,232,.22);transform:rotate(var(--rot,0deg));transition:transform .2s linear}
-  .dial-pt{position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(var(--a)) translateY(calc(-1 * var(--R)))}
-  .dial-dot{position:absolute;left:-6px;top:-6px;width:12px;height:12px;border-radius:50%;background:var(--gold)}
-  .dial-badge{position:absolute;left:-22px;top:-74px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(243,239,232,.5);font:600 1rem/1 var(--sans);color:var(--on-dark);transform:rotate(calc(-1 * (var(--a) + var(--rot,0deg))));transition:background .4s,color .4s}
-  .dial-pt.on .dial-badge{background:var(--on-dark);color:var(--graphite);border-color:var(--on-dark)}
-  .jsteps{display:block;position:absolute;left:50%;top:calc(40vh + 22vh);transform:translateX(-50%);width:min(640px,90vw);margin:0;padding:0}
-  .jstep{position:absolute;left:0;right:0;top:0;border-top:0;padding-top:0;align-items:center;text-align:center;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .6s var(--ease)}
-  .jstep.on{opacity:1;transform:none}
-  .jstep .step-n{display:none}
-  .jstep .step-t{font-size:clamp(2rem,3vw,2.6rem);color:var(--gold-2)}
-  .jstep .step-d{font-size:1.125rem;max-width:44ch}
+  .js .journey-pin{height:420vh}
+  .js .journey-stage{position:sticky;top:0;height:100vh;overflow:hidden;padding:calc(var(--head-h) + 32px) 0 0}
+  .js .dial{display:block;position:absolute;left:50%;top:40vh;width:min(112vh,1120px);aspect-ratio:1;transform:translateX(-50%);--R:calc(min(112vh,1120px) / 2)}
+  .js .dial-wheel{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(243,239,232,.22);transform:rotate(var(--rot,0deg));transition:transform .2s linear}
+  .js .dial-pt{position:absolute;left:50%;top:50%;width:0;height:0;transform:rotate(var(--a)) translateY(calc(-1 * var(--R)))}
+  .js .dial-dot{position:absolute;left:-6px;top:-6px;width:12px;height:12px;border-radius:50%;background:var(--gold)}
+  .js .dial-badge{position:absolute;left:-22px;top:-74px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(243,239,232,.5);font:600 1rem/1 var(--sans);color:var(--on-dark);transform:rotate(calc(-1 * (var(--a) + var(--rot,0deg))));transition:background .4s,color .4s}
+  .js .dial-pt.on .dial-badge{background:var(--on-dark);color:var(--graphite);border-color:var(--on-dark)}
+  .js .jsteps{display:block;position:absolute;left:50%;top:calc(40vh + 22vh);transform:translateX(-50%);width:min(640px,90vw);margin:0;padding:0}
+  .js .jstep{position:absolute;left:0;right:0;top:0;border-top:0;padding-top:0;align-items:center;text-align:center;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .6s var(--ease)}
+  .js .jstep.on{opacity:1;transform:none}
+  .js .jstep .step-n{display:none}
+  .js .jstep .step-t{font-size:clamp(2rem,3vw,2.6rem);color:var(--gold-2)}
+  .js .jstep .step-d{font-size:1.125rem;max-width:44ch}
 }
 @media(prefers-reduced-motion:reduce){
   .strip-track{transform:none}

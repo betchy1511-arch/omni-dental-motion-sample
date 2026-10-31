@@ -135,7 +135,7 @@
       if (live) {
         var sr = strip.getBoundingClientRect();
         var sq = Math.min(1, Math.max(0, (vh - sr.top) / (vh + sr.height)));
-        var maxX = Math.max(0, track.scrollWidth - document.documentElement.clientWidth);
+        var maxX = Math.max(0, track.scrollWidth - track.parentNode.clientWidth);
         track.style.setProperty('--x', (-sq * maxX).toFixed(1) + 'px');
       } else track.style.removeProperty('--x');
     }
@@ -151,7 +151,10 @@
       var pos = jq * (jsteps.length - 1);
       var active = Math.round(pos);
       wheel.style.setProperty('--rot', (-pos * STEP_DEG).toFixed(2) + 'deg');
-      jsteps.forEach(function (st, i) { st.classList.toggle('on', i === active); });
+      jsteps.forEach(function (st, i) {
+        st.classList.toggle('on', i === active);
+        if (live && i === active) st.setAttribute('aria-current', 'step'); else st.removeAttribute('aria-current');
+      });
       pts.forEach(function (pt, i) { pt.classList.toggle('on', i === active); });
     }
 
