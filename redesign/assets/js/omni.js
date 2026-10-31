@@ -40,12 +40,15 @@
   var vidBtn = document.querySelector('.vid-toggle');
   var userPaused = false, inView = true, heroGone = false;
   var cardVid = document.querySelector('.vcard-video');
+  var cardGone = false;
+  var cardEl = document.querySelector('.hero-card');
+  if (cardEl) cardEl.addEventListener('animationend', function (ev) { if (ev.animationName === 'cardOut') { cardGone = true; syncVideo(); } });
   function syncVideo() {
     if (!video) return;
     var on = desk.matches && !rm.matches && !saveData;
     if (vidBtn) vidBtn.hidden = !on;
     if (cardVid) {
-      if (on && !userPaused && inView && !heroGone) {
+      if (on && !userPaused && inView && !heroGone && !cardGone) {
         if (!cardVid.getAttribute('src')) { cardVid.muted = true; cardVid.src = 'assets/img/omni-card.mp4'; }
         var cq = cardVid.play(); if (cq && cq.catch) cq.catch(function () {});
       } else if (!cardVid.paused) cardVid.pause();
@@ -142,6 +145,15 @@
     Array.prototype.forEach.call(rg.getClientRects(), function (r) { right = Math.max(right, r.right); });
     var w = document.documentElement.clientWidth;
     stage.parentNode.style.setProperty('--pl', Math.min(70, Math.max(49.5, (right + 40) / w * 100)).toFixed(2));
+    /* the intro card sits centred on the panel edge, nudged right if it would touch the text column */
+    var pl = Math.min(70, Math.max(49.5, (right + 40) / w * 100));
+    var copy = document.querySelector('.hero-copy');
+    if (copy && h1) {
+      var cardW = Math.min(w * 0.26, 520);
+      var textRight = h1.getBoundingClientRect().left + Math.min(w * 0.27, 520);
+      var cardLeft = Math.max(w * pl / 100 - cardW / 2, textRight + 32);
+      stage.parentNode.style.setProperty('--cardx', Math.round(cardLeft) + 'px');
+    }
   }
   panelLeft();
   window.addEventListener('resize', panelLeft);
@@ -212,6 +224,8 @@
     lines.forEach(function (l, k) {
       var r = lineRects[k];
       var q = Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (vh * 0.45)));
+      /* while the hero's edge is still rising over the statement, light the words with the edge */
+      if (live && eNow < 1 && l.el.closest('.statement')) q = Math.min(1, Math.max(0, (eNow - 0.35) / 0.65));
       var lit = Math.round(q * l.words.length);
       for (var i = 0; i < l.words.length; i++) l.words[i].classList.toggle('on', i < lit);
     });

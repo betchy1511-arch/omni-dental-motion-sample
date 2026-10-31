@@ -770,7 +770,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media(min-width:1025px) and (prefers-reduced-motion:no-preference){
   .hero-pin{background:transparent;z-index:2;pointer-events:none}
   .hero-pin .hero{pointer-events:auto}
-  .statement{position:relative;z-index:1;margin-top:-100vh}
+  .js .statement{position:relative;z-index:1;margin-top:-100vh}
 }
 /* Round 13c (Sonnet vs the recording): 1s of pure dark, then header, card and first word together;
    dim and sweep as two animations so the window travels without stalling; smaller headline;
@@ -795,3 +795,11 @@ ul,ol{margin:0;padding:0;list-style:none}
   .intro .hero-card{animation:cardGrow .9s cubic-bezier(.16,1,.3,1) 1s both,cardOut .9s cubic-bezier(.65,0,.35,1) 5.8s forwards}
 }
 @media(min-width:1025px) and (prefers-reduced-motion:reduce){.hero-card{display:none}}
+/* Round 13e (Beth: "eliminate this" gap under the headline): the copy is one block, centred in the
+   left column; the text column stops short of the card's left edge while the card is on screen */
+@media(min-width:1025px){
+  .hero-copy{justify-content:center}
+  .hero-copy .hero-sub{margin-top:0}
+  .hero-copy .hero-sub,.hero-copy .hero-actions,.hero-copy .hero-trust{max-width:min(27vw,520px)}
+  .hero-card,.hero-card:nth-child(n){left:var(--cardx,calc(var(--pl,49.5)*1% - min(13vw,260px)))}
+}
