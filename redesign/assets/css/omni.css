@@ -765,3 +765,33 @@ ul,ol{margin:0;padding:0;list-style:none}
   100%{--so:1;--wl:calc(var(--pl,49.5)*1%);--wr:100%}
 }
 @keyframes cardGrow{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+/* Round 13b (Beth: "black screen when scrolling"): the next section sits under the pinned hero, so the
+   rising edge uncovers it instead of leaving an empty dark screen */
+@media(min-width:1025px) and (prefers-reduced-motion:no-preference){
+  .hero-pin{background:transparent;z-index:2;pointer-events:none}
+  .hero-pin .hero{pointer-events:auto}
+  .statement{position:relative;z-index:1;margin-top:-100vh}
+}
+/* Round 13c (Sonnet vs the recording): 1s of pure dark, then header, card and first word together;
+   dim and sweep as two animations so the window travels without stalling; smaller headline;
+   card sized and placed in % so it stays centred on the panel edge at any width */
+@keyframes dim{from{--so:1;--wl:0%;--wr:0%}to{--so:.74;--wl:0%;--wr:0%}}
+@keyframes sweep2{from{--so:.74;--wl:0%;--wr:0%}to{--so:1;--wl:calc(var(--pl,49.5)*1%);--wr:100%}}
+@keyframes wordFade{from{opacity:0;transform:translateY(.2em)}to{opacity:1;transform:none}}
+@media(min-width:1025px){
+  .intro .head{animation-delay:1s}
+  .intro .hero-eye{animation-delay:1.1s}
+  .intro .hero-card{animation:cardGrow .9s cubic-bezier(.16,1,.3,1) 1s both}
+  .intro .hero-card img{animation:none}
+  .intro .hw{animation-name:wordFade}
+  .intro .stage-shade{animation:dim 1s ease-out 2.3s both,sweep2 1.8s cubic-bezier(.65,0,.35,1) 3.6s forwards}
+  .hero-copy > .hero-h1{font-size:clamp(2rem,2.8vw,3rem);max-width:32vw}
+  .hero-card,.hero-card:nth-child(n){width:min(26vw,520px);left:calc(var(--pl,49.5)*1% - min(13vw,260px))}
+}
+/* Round 13d (Beth: "after all the animations appeared this should disappear"): the video card leaves
+   once the sweep has settled */
+@keyframes cardOut{to{opacity:0;visibility:hidden;transform:scale(.94)}}
+@media(min-width:1025px){
+  .intro .hero-card{animation:cardGrow .9s cubic-bezier(.16,1,.3,1) 1s both,cardOut .9s cubic-bezier(.65,0,.35,1) 5.8s forwards}
+}
+@media(min-width:1025px) and (prefers-reduced-motion:reduce){.hero-card{display:none}}

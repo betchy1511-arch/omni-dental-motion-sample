@@ -159,12 +159,14 @@
     var vh = window.innerHeight;
     var pr = pin.getBoundingClientRect();
     var lineRects = lines.map(function (l) { return l.el.getBoundingClientRect(); });
+    var eNow = 0;
 
     /* hero progress: 0 at the top (panel showing), 1 when the panel has risen away */
     if (desk.matches && !rm.matches) {
       var travel = Math.max(1, pin.offsetHeight - vh);
       var t = Math.min(1, Math.max(0, -pr.top / travel));
       var e = t * t * (3 - 2 * t); /* smoothstep: the panel rises evenly with the scroll */
+      eNow = e;
       heroEl.style.setProperty('--e', e.toFixed(4));
       heroEl.classList.toggle('done', e > .92);
       var g = e > .92; if (g !== heroGone) { heroGone = g; syncVideo(); }
@@ -202,8 +204,10 @@
       pts.forEach(function (pt, i) { pt.classList.toggle('on', i === active); });
     }
 
-    head.classList.toggle('on-dark', desk.matches && pr.bottom > 90);
-    if (floatCta) floatCta.classList.toggle('show', pr.bottom < vh * 0.4);
+    /* the visible hero ends at its rising edge, not at the bottom of the pin */
+    var heroBottom = (desk.matches && !rm.matches) ? Math.min(pr.bottom, (1 - eNow) * vh) : pr.bottom;
+    head.classList.toggle('on-dark', desk.matches && heroBottom > 90);
+    if (floatCta) floatCta.classList.toggle('show', heroBottom < vh * 0.4);
 
     lines.forEach(function (l, k) {
       var r = lineRects[k];
