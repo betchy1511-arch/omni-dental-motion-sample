@@ -152,6 +152,11 @@
 /* implant FAQ head: stretch the heading and lead across the column, no dead space */
 @media(min-width:1025px){.ifaq-head h2{font-size:clamp(2.6rem,4.2vw,3.7rem);max-width:none}.ifaq-head .faq-lead{max-width:none;font-size:1.125rem}}
 
+/* technology heading: "Advanced Implant Technology" stays on line 1, "in Oxnard" on line 2 (Beth, 11 Nov) */
+@media(min-width:1025px){.st-tech h2{font-size:clamp(2.2rem,3.9vw,3.4rem)}}
+.st-tech .br-t{display:none}
+@media(min-width:1025px){.st-tech .br-t{display:inline}}
+
 /* ---------- SAFETY + TECHNOLOGY (pearl) ---------- */
 .st{padding:clamp(88px,11vw,140px) 0;background:var(--pearl);overflow-x:clip}
 .st-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,7vw,110px);align-items:start}
