@@ -803,3 +803,59 @@ ul,ol{margin:0;padding:0;list-style:none}
   .hero-copy .hero-sub,.hero-copy .hero-actions,.hero-copy .hero-trust{max-width:min(27vw,520px)}
   .hero-card,.hero-card:nth-child(n){left:var(--cardx,calc(var(--pl,49.5)*1% - min(13vw,260px)))}
 }
+
+/* Round 14 (11 Nov, Beth: "redesign the review section ... it looks plain").
+   Dark score panel with the brand rings, one large featured quote, short cards with a 4-line
+   excerpt and a Read Full Review button, 2 more behind a Show More control. No carousel, no motion. */
+.rx{background:var(--white)}
+.rx-head{margin-bottom:40px}
+.rx-head h2{font-size:clamp(2.2rem,4vw,3.4rem)}
+.rx-top{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:20px;margin-bottom:20px}
+.rx-score{position:relative;overflow:hidden;isolation:isolate;background:var(--graphite);color:var(--on-dark);border-radius:28px;padding:40px 40px 36px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-height:340px}
+.rx-score::before,.rx-score::after{content:'';position:absolute;z-index:-1;border-radius:50%;border:1.5px solid rgba(201,168,76,.28);pointer-events:none}
+.rx-score::before{width:300px;height:300px;right:-110px;top:-110px}
+.rx-score::after{width:200px;height:200px;right:-60px;top:-60px;border-left-color:transparent;transform:rotate(-30deg)}
+.rx-score-k{font:700 .7rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.rx-score-word{font:500 clamp(3rem,5vw,4.4rem)/1 var(--serif);color:var(--on-dark)}
+.rx-score-stars{color:var(--gold-2);font-size:1.6rem;letter-spacing:6px;margin:10px 0 6px}
+.rx-score-n{color:var(--on-dark-2);font-size:1rem;margin-bottom:28px}
+.rx-score-n strong{color:var(--on-dark);font-weight:700}
+.rx-score .btn{margin-top:auto}
+.rx-feature{position:relative;margin:0;background:var(--pearl);border:1px solid var(--gold-line);border-radius:28px;padding:56px 60px 40px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;overflow:hidden}
+.rx-mark{position:absolute;right:44px;top:-34px;font:500 15rem/1 var(--serif);color:var(--gold);opacity:.32;pointer-events:none}
+.rx-feature blockquote{margin:0;position:relative}
+.rx-feature blockquote p{font:500 clamp(1.55rem,2.4vw,2.15rem)/1.32 var(--serif);color:var(--ink);max-width:34ch}
+.rx-feature figcaption,.rx-who{display:flex;align-items:center;gap:14px}
+.rx-av{width:46px;height:46px;flex-shrink:0;border-radius:50%;display:grid;place-items:center;background:var(--graphite);color:var(--gold-2);font:600 1.3rem/1 var(--serif)}
+.rx-name{display:flex;flex-direction:column;font-weight:700;font-size:.9375rem;line-height:1.35}
+.rx-name span{font-weight:500;font-size:.8125rem;color:var(--ink-3)}
+.rx-stars{margin-left:auto;color:#8A6A22;letter-spacing:2px;font-size:.95rem;white-space:nowrap}
+.rx-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.rx-card{position:relative;background:var(--white);border:1px solid var(--line);border-radius:22px;padding:30px 28px 26px;display:flex;flex-direction:column;gap:20px;transition:border-color .3s,box-shadow .3s}
+.rx-card::before{content:'';position:absolute;left:28px;top:-1px;width:44px;height:2px;background:var(--gold)}
+.rx-card:hover{border-color:var(--gold-line);box-shadow:0 18px 40px rgba(28,27,25,.07)}
+.rx-q{margin:0}
+.rx-q p{font:500 1.28rem/1.42 var(--serif);color:var(--ink)}
+.rx-q.clamp p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;line-clamp:4;overflow:hidden}
+.rx-toggle{align-self:flex-start;margin-top:auto;min-height:38px;padding:0 16px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);font:700 .72rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.rx-toggle:hover{background:var(--ink);color:var(--pearl);border-color:var(--ink)}
+.rx-toggle[hidden]{display:none}
+.rx-more{margin-top:20px}
+.rx-more > summary{list-style:none;cursor:pointer;display:inline-flex}
+.rx-more > summary::-webkit-details-marker{display:none}
+.rx-more .rx-more-c,.rx-more[open] .rx-more-o{display:none}
+.rx-more[open] .rx-more-c{display:inline}
+.rx-more[open] > summary{margin-bottom:20px}
+@media(max-width:1024px){
+  .rx-top{grid-template-columns:1fr}
+  .rx-score{min-height:0}
+  .rx-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rx-feature{padding:44px 32px 32px}
+}
+@media(max-width:600px){
+  .rx-cards{grid-template-columns:1fr}
+  .rx-score{padding:32px 24px 28px}
+  .rx-feature{padding:40px 22px 26px}
+  .rx-mark{font-size:10rem;right:16px;top:-24px}
+  .rx-stars{font-size:.85rem}
+}

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/omni.css?v=20261031-44">
+<link rel="stylesheet" href="assets/css/omni.css?v=20261111-1">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -134,7 +134,7 @@
     <div class="svc-grid">
       <article class="svc rv">
         <div class="svc-photo"><img src="assets/img/implant-model.jpg" alt="Model of a dental implant between two natural teeth" width="800" height="533" loading="lazy"><span class="svc-n" aria-hidden="true">01</span><h3 class="svc-name">Dental Implants</h3></div>
-        <div class="svc-body"><p class="svc-desc">Titanium implants that replace missing teeth with stable, natural-looking restorations.</p><a class="svc-link" href="https://omnidentalspecialty.com/services/dental-implants/">Dental implants in Oxnard<span class="arr" aria-hidden="true">&rarr;</span></a></div>
+        <div class="svc-body"><p class="svc-desc">Titanium implants that replace missing teeth with stable, natural-looking restorations.</p><a class="svc-link" href="services/dental-implants/">Dental implants in Oxnard<span class="arr" aria-hidden="true">&rarr;</span></a></div>
       </article>
       <article class="svc rv">
         <div class="svc-photo"><img src="assets/img/shade-guide.jpg" alt="Tooth shade guide used to match veneer and whitening color" width="800" height="534" loading="lazy"><span class="svc-n" aria-hidden="true">02</span><h3 class="svc-name">Cosmetic Dentistry and Veneers</h3></div>
@@ -284,21 +284,59 @@
   </div>
 </section>
 
-<!-- ============ REVIEWS ============ -->
-<section class="reviews" aria-labelledby="reviews-h">
+<!-- ============ REVIEWS (round 14, 11 Nov: score panel, featured quote, short cards) ============ -->
+<section class="reviews rx" aria-labelledby="reviews-h">
   <div class="wrap">
-    <div class="sec-head sec-head-row rv">
-      <div>
-        <p class="eyebrow">Patient reviews</p>
-        <h2 id="reviews-h">What Oxnard Patients Say</h2>
+    <div class="rx-head rv">
+      <p class="eyebrow">Patient reviews</p>
+      <h2 id="reviews-h">What Oxnard Patients <em>Say</em></h2>
+    </div>
+    <div class="rx-top">
+      <div class="rx-score rv">
+        <p class="rx-score-k">Rated on Google</p>
+        <p class="rx-score-word">Excellent</p>
+        <p class="rx-score-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+        <p class="rx-score-n">Based on <strong>555</strong> Google reviews</p>
+        <a class="btn btn-line btn-on-dark btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=Omni+Dental+Specialty+1690+E+Gonzales+Rd+Oxnard+CA+93036" target="_blank" rel="noopener">Read Reviews on Google<span class="vh"> (opens in a new tab)</span></a>
       </div>
-      <p class="badge"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> Excellent, based on 555 Google reviews</p>
+      <figure class="rx-feature rv">
+        <span class="rx-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote><p>Dr. Keihani is an excellent dentist, experienced and talented to give solutions to my varied dental needs. I&rsquo;m very thankful His staff is also very friendly and helpful. A well-run clinic.</p></blockquote>
+        <figcaption><span class="rx-av" aria-hidden="true">G</span><span class="rx-name">Gabriele K.<span>Google review</span></span><span class="rx-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></figcaption>
+      </figure>
     </div>
-    <div class="rev-grid">
-      <figure class="rev rv"><blockquote>&ldquo;Dr. Keihani is an excellent dentist, experienced and talented to give solutions to my varied dental needs.&rdquo;</blockquote><figcaption>Gabriele K., Google review</figcaption></figure>
-      <figure class="rev rv"><blockquote>&ldquo;Such a great attitude, attention, atmosphere, you can&rsquo;t ask for more!&rdquo;</blockquote><figcaption>Daniel A., Google review</figcaption></figure>
-      <figure class="rev rv"><blockquote>&ldquo;Waiting time was 5mins, office staff friendly, doctor let you know what&rsquo;s going on&hellip;&rdquo;</blockquote><figcaption>Kim P., Google review</figcaption></figure>
-    </div>
+    <ul class="rx-cards" role="list">
+        <li class="rx-card">
+          <div class="rx-who"><span class="rx-av" aria-hidden="true">K</span><span class="rx-name">Kim P.<span>Google review</span></span><span class="rx-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          <blockquote class="rx-q"><p>&ldquo;Waiting time was 5mins, office staff friendly, doctor let you know what&rsquo;s going on, and Alijah is happy! That&rsquo;s what counts to me!!!&rdquo;</p></blockquote>
+          <button type="button" class="rx-toggle" aria-expanded="false" hidden><span class="rx-t">Read Full Review</span><span class="vh"> by Kim P.</span></button>
+        </li>
+        <li class="rx-card">
+          <div class="rx-who"><span class="rx-av" aria-hidden="true">S</span><span class="rx-name">Susan F.<span>Google review</span></span><span class="rx-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          <blockquote class="rx-q"><p>&ldquo;I had very a good experience at Omni Dental. The staff is very friendly and caring. I highly recommend this office for dental treatment.&rdquo;</p></blockquote>
+          <button type="button" class="rx-toggle" aria-expanded="false" hidden><span class="rx-t">Read Full Review</span><span class="vh"> by Susan F.</span></button>
+        </li>
+        <li class="rx-card">
+          <div class="rx-who"><span class="rx-av" aria-hidden="true">D</span><span class="rx-name">Daniel A.<span>Google review</span></span><span class="rx-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          <blockquote class="rx-q"><p>&ldquo;Such a great attitude, attention, atmosphere, you can&rsquo;t ask for more!&rdquo;</p></blockquote>
+          <button type="button" class="rx-toggle" aria-expanded="false" hidden><span class="rx-t">Read Full Review</span><span class="vh"> by Daniel A.</span></button>
+        </li>
+    </ul>
+    <details class="rx-more">
+      <summary class="btn btn-quiet"><span class="rx-more-o">Show 2 More Reviews</span><span class="rx-more-c">Show Fewer Reviews</span></summary>
+      <ul class="rx-cards" role="list">
+        <li class="rx-card">
+          <div class="rx-who"><span class="rx-av" aria-hidden="true">F</span><span class="rx-name">Felipe G.<span>Google review</span></span><span class="rx-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          <blockquote class="rx-q"><p>&ldquo;Crystal is very professional and curtious I highly recommend her as a hygenist office staff nice.&rdquo;</p></blockquote>
+          <button type="button" class="rx-toggle" aria-expanded="false" hidden><span class="rx-t">Read Full Review</span><span class="vh"> by Felipe G.</span></button>
+        </li>
+        <li class="rx-card">
+          <div class="rx-who"><span class="rx-av" aria-hidden="true">O</span><span class="rx-name">ofast 007<span>Google review</span></span><span class="rx-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          <blockquote class="rx-q"><p>&ldquo;The doctor was excellent the owner of the company very knowledgeable very experienced very hospitable he really knows his dental work very affordable I would recommend him to every person go see this doctor doctor that Omni dental Office&rdquo;</p></blockquote>
+          <button type="button" class="rx-toggle" aria-expanded="false" hidden><span class="rx-t">Read Full Review</span><span class="vh"> by ofast 007</span></button>
+        </li>
+      </ul>
+    </details>
   </div>
 </section>
 
@@ -535,5 +573,6 @@
 </div>
 
 <script src="assets/js/omni.js?v=20261031-44"></script>
+<script src="assets/js/reviews.js?v=20261111-1"></script>
 </body>
 </html>
