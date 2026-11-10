@@ -251,6 +251,36 @@
     rvs.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* ---- Office photos move on their own (Beth, 11 Nov): copy the row once so it loops, add a pause button ---- */
+  (function () {
+    var st = document.querySelector('.strip');
+    var tr = st && st.querySelector('.strip-track');
+    if (!tr || rm.matches) return;
+    Array.prototype.slice.call(tr.children).forEach(function (f) {
+      var c = f.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      c.classList.add('sp-clone');
+      c.querySelectorAll('img').forEach(function (i) { i.alt = ''; });
+      tr.appendChild(c);
+    });
+    st.classList.add('auto');
+    function speed() { st.style.setProperty('--dur', Math.max(30, Math.round(tr.scrollWidth / 2 / 45)) + 's'); }
+    speed();
+    window.addEventListener('resize', speed);
+    var head = st.querySelector('.strip-head');
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'btn btn-line btn-sm strip-pause';
+    b.setAttribute('aria-pressed', 'false');
+    b.textContent = 'Pause photos';
+    b.addEventListener('click', function () {
+      var on = st.classList.toggle('paused');
+      b.setAttribute('aria-pressed', String(on));
+      b.textContent = on ? 'Play photos' : 'Pause photos';
+    });
+    head.appendChild(b);
+  })();
+
   /* ---- Scrolling strip: pause button (WCAG 2.2.2) ---- */
   var mqBtn = document.querySelector('.mq-pause');
   if (mqBtn) mqBtn.addEventListener('click', function () {

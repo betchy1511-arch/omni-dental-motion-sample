@@ -948,3 +948,31 @@ ul,ol{margin:0;padding:0;list-style:none}
 .rx-score-k,.area-k,.brand-sub{font-size:.75rem}
 .nav-dd-btn:focus-visible{outline-offset:-4px;border-radius:10px}
 @media(max-width:1024px){.ins-note a,.nap dd a,.foot a,.contact a[href^="tel"]{display:inline-flex;align-items:center;min-height:44px}.foot nav{gap:0}.foot nav a{display:flex;min-height:44px}.brand{min-height:44px}}
+
+/* Round 21 (11 Nov, Beth on phones: "1 line", "this part is messed up", "moving on their own", "center"). */
+/* hero headline: one line on phones, sized to the column */
+.hero-copy{container-type:inline-size}
+@media(max-width:600px){.hero-h1{white-space:nowrap;font-size:calc(100cqi / 15.5)}.hero-h1 .br-d{display:none}}
+/* hero video card: sits inside the photo corner instead of hanging off it */
+@media(max-width:600px){.hero-card,.hero-vcard{left:12px;right:auto;bottom:12px;top:auto;width:44%;box-shadow:0 12px 30px rgba(0,0,0,.45);border:2px solid rgba(255,255,255,.85)}}
+/* office photos: a slow strip that moves on its own (pause button, stops on hover) */
+@media(max-width:1024px){
+  .strip.auto .strip-rail{overflow:hidden}
+  .strip.auto .strip-track{gap:0;padding-inline:0;animation:stripRun var(--dur,70s) linear infinite}
+  .strip.auto .sp{margin-right:24px}
+  .strip.auto.paused .strip-track,.strip.auto:focus-within .strip-track{animation-play-state:paused}
+}
+@media(min-width:1025px){.sp-clone,.strip-pause{display:none!important}}
+@keyframes stripRun{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.strip-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px 24px}
+.strip-pause{min-height:44px}
+/* phones: centre the section heads */
+@media(max-width:600px){
+  .strip-head,.why-sticky,.band-copy,.areas-side,.faq-sticky,.end-top{text-align:center}
+  .strip-head{flex-direction:column;align-items:center}
+  .contact-copy > .eyebrow,.contact-copy > h2{text-align:center}
+  .strip-head .eyebrow,.why-sticky .eyebrow,.band-copy .eyebrow,.areas-side .eyebrow,.faq-sticky .eyebrow,.contact-copy > .eyebrow{justify-content:center}
+  .strip-head .eyebrow::after,.why-sticky .eyebrow::after,.band-copy .eyebrow::after,.areas-side .eyebrow::after,.faq-sticky .eyebrow::after,.contact-copy > .eyebrow::after{content:'';width:28px;height:1px;background:currentColor}
+  .strip-head h2,.why-sticky h2,.band-copy h2,.areas-side h2,.faq-sticky h2,.contact-copy > h2,.end-top h2{margin-inline:auto}
+  .band-actions,.faq-actions,.end-actions{justify-content:center}
+}

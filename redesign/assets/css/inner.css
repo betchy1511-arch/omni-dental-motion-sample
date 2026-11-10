@@ -338,3 +338,9 @@
 @media(min-width:601px) and (max-width:900px){.d-labels text{font-size:14px}}
 @media(min-width:901px) and (max-width:1200px){.d-labels text{font-size:17px;letter-spacing:.06em}}
 @media(min-width:1201px){.d-labels text{font-size:14px}}
+
+/* Round 20 (11 Nov, Beth: "1 line", "buttons"). Technology heading on one line from tablet up (sized to its column), and two buttons under the implant explainer. */
+.st-tech{container-type:inline-size}
+@media(min-width:601px){.st-tech .it-h{white-space:nowrap;font-size:min(3.4rem,calc(100cqi / 15.4))}}
+.und-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+@media(max-width:600px){.und-actions .btn{flex:1 1 100%;justify-content:center}}
