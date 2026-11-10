@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/css/omni.css?v=20261111-10">
-<link rel="stylesheet" href="../../assets/css/inner.css?v=20261111-10">
+<link rel="stylesheet" href="../../assets/css/omni.css?v=20261111-12">
+<link rel="stylesheet" href="../../assets/css/inner.css?v=20261111-12">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body class="inner inner-dark">
@@ -25,7 +25,13 @@
     </a>
     <nav class="nav" aria-label="Primary">
       <a href="../../">Home</a>
-      <a href="../../#services" class="is-cur">Services</a>
+      <div class="nav-dd">
+        <a href="../../#services" class="nav-dd-top is-cur">Services</a><button type="button" class="nav-dd-btn" aria-expanded="false" aria-controls="dd-services"><span class="vh">Show the services menu</span><svg viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <ul class="nav-dd-menu" id="dd-services">
+          <li><a href="../../services/dental-implants/" aria-current="page">Dental Implants</a></li>
+          <li><a href="../../#services">All Dental Services</a></li>
+        </ul>
+      </div>
       <a href="../../#dentist">Dr. Keihani</a>
       <a href="../../#insurance">Insurance</a>
       <a href="#contact">Contact</a>
@@ -39,6 +45,7 @@
   <nav class="mnav" id="mnav" aria-label="Mobile" hidden>
     <a href="../../">Home</a>
     <a href="../../#services" class="is-cur">Services</a>
+    <a class="mnav-sub" href="../../services/dental-implants/" aria-current="page">Dental Implants</a>
     <a href="../../#dentist">Dr. Keihani</a>
     <a href="../../#insurance">Insurance</a>
     <a href="#contact">Contact</a>
@@ -100,7 +107,7 @@
       <p>Because an implant replaces both the visible tooth and the root underneath, it helps preserve bone and the natural shape of your face and jawline. Omni Dental Specialty uses high-quality materials backed by scientific research, so your implant looks natural and lasts for years.</p>
     </div>
     <figure class="diag rv" aria-labelledby="diag-cap">
-      <svg viewBox="0 0 420 440" role="img" aria-labelledby="diag-t">
+      <svg viewBox="0 0 480 440" role="img" aria-labelledby="diag-t">
         <title id="diag-t">Diagram of a dental implant: a crown on top, an abutment below it, and a titanium post set into the jawbone under the gum</title>
         <rect class="d-bone" x="40" y="262" width="340" height="150" rx="20"/>
         <g class="d-dots"><circle cx="80" cy="300" r="2"/><circle cx="120" cy="340" r="2"/><circle cx="95" cy="380" r="2"/><circle cx="150" cy="300" r="2"/><circle cx="300" cy="300" r="2"/><circle cx="330" cy="350" r="2"/><circle cx="270" cy="385" r="2"/><circle cx="350" cy="300" r="2"/><circle cx="140" cy="395" r="2"/><circle cx="290" cy="340" r="2"/></g>
@@ -433,6 +440,36 @@
     </div>
   </div>
 </section>
+
+<!-- ============ END BANNER (home page design, implant wording) ============ -->
+<section class="endband" aria-labelledby="end-h">
+  <div class="endband-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="end-card">
+      <div class="end-top">
+        <h2 id="end-h">Dental Implants in Oxnard That <em>Restore Your Smile</em></h2>
+        <div class="end-actions">
+          <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online<span class="vh"> (opens in a new tab)</span></a>
+          <a class="btn btn-line" href="tel:+18053666000">Call (805) 366-6000</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mq" aria-label="Dental implant care at Omni Dental Specialty">
+    <button type="button" class="mq-pause" aria-pressed="false">Pause</button>
+    <div class="mq-track"><div class="mq-row"><span class="mq-item">Dr. Kourosh Keihani, DDS</span><span class="mq-item">3D Cone Beam CT scanning</span><span class="mq-item">Computer-guided implant placement</span><span class="mq-item">CAD/CAM restorations</span><span class="mq-item">Digital Smile Design</span><span class="mq-item">PRF therapy</span><span class="mq-item">Flexible scheduling and financing options</span><span class="mq-item">1690 E. Gonzales Road, Oxnard</span></div><div class="mq-row" aria-hidden="true"><span class="mq-item">Dr. Kourosh Keihani, DDS</span><span class="mq-item">3D Cone Beam CT scanning</span><span class="mq-item">Computer-guided implant placement</span><span class="mq-item">CAD/CAM restorations</span><span class="mq-item">Digital Smile Design</span><span class="mq-item">PRF therapy</span><span class="mq-item">Flexible scheduling and financing options</span><span class="mq-item">1690 E. Gonzales Road, Oxnard</span></div></div>
+  </div>
+  <div class="wrap">
+    <div class="end-card end-card-low">
+      <div class="end-addr">
+        <p class="end-k">Visit us</p>
+        <p class="end-brand">1690 E. Gonzales Road, <span>Oxnard, CA 93036</span></p>
+      </div>
+      <a class="btn btn-line end-dir" href="https://www.google.com/maps/dir/?api=1&amp;destination=1690+E+Gonzales+Rd,+Oxnard,+CA+93036" target="_blank" rel="noopener">Get Directions<span class="vh"> (opens in a new tab)</span></a>
+      <p class="end-hours">Monday to Friday, 9am to 5pm<br>Saturday by appointment only</p>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="foot">
@@ -458,7 +495,8 @@
   <a class="btn btn-gold" href="https://www.zocdoc.com/practice/omni-dental-specialty-119596" target="_blank" rel="noopener">Book Online<span class="vh"> (opens in a new tab)</span></a>
 </div>
 
-<script src="../../assets/js/inner.js?v=20261111-10"></script>
-<script src="../../assets/js/reviews.js?v=20261111-10"></script>
+<script src="../../assets/js/nav.js?v=20261111-12"></script>
+<script src="../../assets/js/inner.js?v=20261111-12"></script>
+<script src="../../assets/js/reviews.js?v=20261111-12"></script>
 </body>
 </html>

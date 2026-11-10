@@ -325,3 +325,16 @@
   .it-big .it-ic{grid-row:auto}
   .rel-list{grid-template-columns:1fr}
 }
+
+/* touch screens: breadcrumb links and hero labels big enough to tap and read */
+@media(max-width:1024px){.crumbs a{display:inline-flex;align-items:center;min-height:44px}.crumbs ol{gap:0 10px}.sh-chip-k{font-size:.75rem}}
+.glance dt{font-size:.75rem}
+.sh-chip-k{font-size:.75rem}
+
+/* diagram labels stay at least 12px on phones (the SVG scales to about 0.78 at 390px) */
+@media(max-width:1024px){.crumbs a{min-width:44px;justify-content:center}}
+/* diagram labels: the SVG scales with its column, so size the labels per range to stay at least 12px on screen */
+@media(max-width:600px){.d-labels text{font-size:20px;letter-spacing:.04em}}
+@media(min-width:601px) and (max-width:900px){.d-labels text{font-size:14px}}
+@media(min-width:901px) and (max-width:1200px){.d-labels text{font-size:17px;letter-spacing:.06em}}
+@media(min-width:1201px){.d-labels text{font-size:14px}}

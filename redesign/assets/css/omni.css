@@ -883,3 +883,68 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* Round 17 (11 Nov, Beth: "move in the middle"): centred heads get a matching line after the label */
 .sec-center .eyebrow::after{content:'';width:28px;height:1px;background:currentColor}
 .rx-head.sec-center{max-width:760px}
+
+/* Round 18 (11 Nov, Dimi via Beth: home page "not mobile optimized"). Phones only.
+   The page measured 22,740px tall at 390px (services alone 5,501px). Compact cards, 2-up services,
+   3-up insurance logos, no label under 12px, every tap target at least 44px. */
+@media(max-width:600px){
+  .svc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .svc-grid:has(> article:nth-of-type(11)) > article:first-child{grid-column:1/-1}
+  .svc-grid:has(> article:nth-of-type(11)) > article:first-child .svc-photo{aspect-ratio:16/9}
+  .svc .svc-photo{aspect-ratio:1/1}
+  .svc-photo .svc-name{left:12px;right:12px;bottom:10px;font-size:1.12rem;line-height:1.12}
+  .svc-n{top:8px;left:8px;min-width:32px;height:32px;padding:0 8px;font-size:.75rem}
+  .svc .svc-desc{display:none}
+  .svc .svc-body{padding:10px;gap:8px}
+  .svc-link{width:100%;min-height:44px;padding:8px 12px;justify-content:space-between;white-space:normal;font-size:.75rem;line-height:1.25}
+  .svc-cta{grid-column:1/-1}
+  .svc.svc-cta .svc-desc{display:block}
+  .why-cards{padding-left:22px;gap:14px}
+  .why-card{padding:22px 18px 22px 36px}
+  .why-card h3{font-size:1.4rem;margin-bottom:10px}
+  .why-card p{font-size:.95rem}
+  .why-n{left:-22px;width:44px;height:44px;font-size:1.25rem}
+  .rx-feature blockquote p{font-size:1.3rem}
+  .rx-q p{font-size:1.12rem}
+  .rx-cards{gap:12px}
+  .rx-card{padding:22px 18px 18px;gap:14px}
+  .ins-tray .ins-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .ins-tray .logo-tile,.ins-tray .logo-tile:nth-child(n){min-height:64px;padding:10px 8px}
+  .ins-tray .logo-tile img{height:34px}
+  .ins-tray .logo-tile.ins-text{font-size:.95rem}
+  .dr-k,.band-ins-k,.end-k,.nap dt,.brand-sub,.mq-pause{font-size:.75rem}
+  .brand{min-height:44px}
+  .rx-toggle,.mq-pause,.btn-sm{min-height:44px}
+  .rx-toggle{font-size:.75rem}
+}
+
+/* Round 18b: 3-up insurance logos fill 5 full rows on phones */
+@media(max-width:600px){.ins-tray .ins-grid > .logo-tile:nth-child(n){grid-column:auto}}
+
+/* Round 19 (11 Nov, Beth: "add the service dental implants in the drop down nav"). Services drop-down. */
+.nav-dd{position:relative;display:flex;align-items:center;gap:2px}
+.nav-dd-btn{display:grid;place-items:center;width:28px;height:44px;margin:0;padding:0;border:0;background:transparent;color:inherit;cursor:pointer}
+.nav-dd-btn svg{transition:transform .3s var(--ease)}
+.nav-dd.open .nav-dd-btn svg,.nav-dd:hover .nav-dd-btn svg{transform:rotate(180deg)}
+.nav-dd-menu{position:absolute;top:calc(100% + 4px);left:-18px;min-width:240px;padding:10px;border-radius:16px;background:var(--white);border:1px solid var(--gold-line);box-shadow:0 22px 50px rgba(28,27,25,.18);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .25s,transform .25s var(--ease),visibility 0s .25s;z-index:60}
+.nav-dd-menu::before{content:'';position:absolute;left:0;right:0;top:-10px;height:10px}
+.nav-dd:hover:not(.shut) .nav-dd-menu,.nav-dd:focus-within:not(.shut) .nav-dd-menu,.nav-dd.open .nav-dd-menu{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.nav .nav-dd-menu a{display:block;padding:12px 14px;border-radius:10px;color:var(--ink);font:500 .9375rem/1.2 var(--sans)}
+.nav .nav-dd-menu a::after{display:none}
+.nav .nav-dd-menu a:hover,.nav .nav-dd-menu a[aria-current]{background:var(--pearl);color:var(--gold-ink)}
+.mnav .mnav-sub{padding-left:18px;font-weight:500;color:var(--ink-2)}
+.mnav .mnav-sub::before{content:'';display:inline-block;width:10px;height:1px;background:var(--gold);margin-right:10px;vertical-align:middle}
+
+/* Round 19b: menu items share one centre line with the drop-down */
+.nav{align-items:center}
+
+/* Round 18c: touch screens up to tablet width get the same 12px labels and 44px tap targets */
+@media(max-width:1024px){.dr-k,.band-ins-k,.end-k,.nap dt,.brand-sub,.mq-pause,.rx-toggle{font-size:.75rem}.rx-toggle,.mq-pause,.btn-sm,.svc-link{min-height:44px}}
+
+/* Round 18d: small labels at least 12px on every screen */
+.dr-k,.band-ins-k,.end-k,.nap dt,.mq-pause,.rx-toggle{font-size:.75rem}
+
+/* Round 18e (Sonnet review): remaining labels to 12px, touch-size inline links, footer links, brand on tablets, drop-down focus ring */
+.rx-score-k,.area-k,.brand-sub{font-size:.75rem}
+.nav-dd-btn:focus-visible{outline-offset:-4px;border-radius:10px}
+@media(max-width:1024px){.ins-note a,.nap dd a,.foot a,.contact a[href^="tel"]{display:inline-flex;align-items:center;min-height:44px}.foot nav{gap:0}.foot nav a{display:flex;min-height:44px}.brand{min-height:44px}}
