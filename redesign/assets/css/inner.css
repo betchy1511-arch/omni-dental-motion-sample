@@ -92,6 +92,7 @@
 /* ---------- PROCESS (dark band) ---------- */
 .proc{padding:clamp(88px,11vw,140px) 0;background:var(--graphite);color:var(--on-dark);position:relative;overflow:hidden}
 .proc-head{max-width:720px;margin-bottom:56px}
+.proc-head.sec-center p{margin-inline:auto;max-width:60ch}
 .proc-head h2{font-size:clamp(2.2rem,4vw,3.4rem);margin-bottom:18px;color:var(--on-dark)}
 .proc-head h2 em{color:var(--gold-2)}
 .proc-head p{color:var(--on-dark-2);font-size:1.125rem}
@@ -135,6 +136,7 @@
 .say-ph-1{left:5%;top:16%;width:clamp(120px,13vw,200px);aspect-ratio:1}
 .say-ph-2{right:6%;top:10%;width:clamp(100px,10vw,160px);aspect-ratio:1}
 .say-ph-3{right:12%;bottom:12%;width:clamp(130px,14vw,220px);aspect-ratio:1;border-radius:28px}
+.say-ph-4{left:11%;bottom:10%;width:clamp(150px,15vw,240px);aspect-ratio:4/3;border-radius:28px}
 .say-in{position:relative;z-index:1;text-align:center}
 .say-eye{justify-content:center}
 .say-eye::after{content:'';width:28px;height:1px;background:currentColor}
@@ -144,8 +146,11 @@
 .say .w.on{opacity:1}
 .say-line{display:block;width:min(320px,60%);height:1px;margin:44px auto 0;background:var(--line-dark);position:relative}
 .say-line span{position:absolute;left:0;top:-.5px;height:2px;width:calc(var(--p,1) * 100%);background:linear-gradient(90deg,var(--gold),var(--gold-2))}
-@media(max-width:1024px){.say-ph-1{left:-30px;top:6%}.say-ph-2{right:-24px;top:4%}.say-ph-3{right:-30px;bottom:5%}}
-@media(max-width:600px){.say-ph{opacity:.55}.say-ph-2{display:none}.say-ph-1{top:auto;bottom:6%;left:-40px}.say-ph-3{bottom:auto;top:4%;right:-40px}}
+@media(max-width:1024px){.say-ph-4{left:-30px;bottom:4%}.say-ph-1{left:-30px;top:6%}.say-ph-2{right:-24px;top:4%}.say-ph-3{right:-30px;bottom:5%}}
+@media(max-width:600px){.say-ph{opacity:.55}.say-ph-2,.say-ph-4{display:none}.say-ph-1{top:auto;bottom:6%;left:-40px}.say-ph-3{bottom:auto;top:4%;right:-40px}}
+
+/* implant FAQ head: stretch the heading and lead across the column, no dead space */
+@media(min-width:1025px){.ifaq-head h2{font-size:clamp(2.6rem,4.2vw,3.7rem);max-width:none}.ifaq-head .faq-lead{max-width:none;font-size:1.125rem}}
 
 /* ---------- SAFETY + TECHNOLOGY (pearl) ---------- */
 .st{padding:clamp(88px,11vw,140px) 0;background:var(--pearl);overflow-x:clip}
@@ -187,8 +192,13 @@
 .rel-body{display:flex;flex-direction:column;gap:10px;padding:24px 24px 26px;flex:1}
 .rel-body h3{font-size:1.65rem;color:var(--on-dark)}
 .rel-body p{color:var(--on-dark-2);font-size:.975rem;margin-bottom:8px}
-.rel-btn{align-self:flex-start;margin-top:auto;display:inline-flex;align-items:center;min-height:40px;padding:0 18px;border:1px solid rgba(243,239,232,.4);border-radius:999px;font:700 .72rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--on-dark);transition:background .25s,color .25s,border-color .25s}
-.rel-btn:hover{background:var(--on-dark);color:var(--graphite);border-color:var(--on-dark)}
+/* card link: same pattern as the home page service cards (whole card clickable, geo anchor pill, gold on hover) */
+.rel-card{position:relative}
+.rel .svc-link{color:var(--on-dark);border-color:rgba(201,168,76,.45)}
+.rel .svc-link::before{border-radius:var(--r)}
+.rel-card:hover .svc-link{background:var(--gold);border-color:var(--gold);color:var(--graphite)}
+.rel-card:hover .svc-link .arr{transform:translateX(4px)}
+.rel .svc-link:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 
 /* =============================================================
    MOTION (only when the visitor allows it)

@@ -873,3 +873,13 @@ ul,ol{margin:0;padding:0;list-style:none}
 .rx-score-stars{color:#FBBC05}
 @media(max-width:1024px){.rx-cards-5{grid-template-columns:repeat(2,minmax(0,1fr))}.rx-cards-5 > .rx-card,.rx-cards-5 > .rx-card:nth-child(n+4){grid-column:auto}.rx-cards-5 > .rx-card:last-child{grid-column:1/-1}}
 @media(max-width:600px){.rx-cards-5{grid-template-columns:1fr}.rx-cards-5 > .rx-card:last-child{grid-column:auto}}
+
+/* Round 16 (11 Nov, Beth: "dont like the spaces", "adjust the header dont insert texts"): services head as one row,
+   heading left and the existing lead in the empty space on the right, aligned to the heading's baseline */
+.sec-split{max-width:none;display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px 64px;align-items:end}
+.sec-split .sec-lead{max-width:48ch;justify-self:end;margin:0 0 .45em;padding-left:22px;border-left:1px solid var(--gold-line)}
+@media(max-width:1024px){.sec-split{grid-template-columns:1fr}.sec-split .sec-lead{justify-self:start;padding-left:0;border-left:0}}
+
+/* Round 17 (11 Nov, Beth: "move in the middle"): centred heads get a matching line after the label */
+.sec-center .eyebrow::after{content:'';width:28px;height:1px;background:currentColor}
+.rx-head.sec-center{max-width:760px}
