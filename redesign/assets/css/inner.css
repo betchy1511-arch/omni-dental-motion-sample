@@ -344,3 +344,6 @@
 @media(min-width:601px){.st-tech .it-h{white-space:nowrap;font-size:min(3.4rem,calc(100cqi / 15.4))}}
 .und-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 @media(max-width:600px){.und-actions .btn{flex:1 1 100%;justify-content:center}}
+
+/* Round 22: no section can push the page sideways (found on two new service pages at desktop width) */
+.inner main > section{overflow-x:clip}
