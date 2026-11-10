@@ -859,3 +859,17 @@ ul,ol{margin:0;padding:0;list-style:none}
   .rx-mark{font-size:10rem;right:16px;top:-24px}
   .rx-stars{font-size:.85rem}
 }
+
+/* Round 15 (11 Nov, Beth: "show all review", "dont like spaces on the right", "should use google logo or color").
+   All five cards show; first three span two of six columns, last two span three, so every row is full. */
+.rx-cards-5{grid-template-columns:repeat(6,minmax(0,1fr))}
+.rx-cards-5 > .rx-card{grid-column:span 2}
+.rx-cards-5 > .rx-card:nth-child(n+4){grid-column:span 3}
+.g-logo{display:inline-block;width:14px;height:14px;vertical-align:-2px}
+.rx-src{display:inline-flex!important;align-items:center;gap:6px}
+.g-badge{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#fff;margin-right:12px}
+.g-badge .g-logo{width:18px;height:18px}
+.rx-score-k{display:flex;align-items:center}
+.rx-score-stars{color:#FBBC05}
+@media(max-width:1024px){.rx-cards-5{grid-template-columns:repeat(2,minmax(0,1fr))}.rx-cards-5 > .rx-card,.rx-cards-5 > .rx-card:nth-child(n+4){grid-column:auto}.rx-cards-5 > .rx-card:last-child{grid-column:1/-1}}
+@media(max-width:600px){.rx-cards-5{grid-template-columns:1fr}.rx-cards-5 > .rx-card:last-child{grid-column:auto}}

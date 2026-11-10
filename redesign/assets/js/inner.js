@@ -44,19 +44,38 @@
     rvs.forEach(function (el) { el.classList.add('in'); el.classList.add('seen'); });
   }
 
+  /* ---- Technology tiles: play the scan once when the grid comes into view ---- */
+  var scanEl = document.querySelector('[data-scan]');
+  if (scanEl) {
+    if ('IntersectionObserver' in window && motion) {
+      var sio = new IntersectionObserver(function (en) {
+        if (en[0].isIntersecting) { scanEl.classList.add('scan'); sio.disconnect(); }
+      }, { threshold: 0.25 });
+      sio.observe(scanEl);
+    } else scanEl.classList.add('scan');
+  }
+
   /* ---- Statement: wrap words so they light up in reading order ---- */
   var lines = [];
   if (motion) {
     document.querySelectorAll('[data-words]').forEach(function (el) {
-      var words = el.textContent.trim().split(/\s+/);
-      el.textContent = '';
-      words.forEach(function (w, i) {
-        var s = document.createElement('span');
-        s.className = 'w';
-        s.textContent = w;
-        el.appendChild(s);
-        if (i < words.length - 1) el.appendChild(document.createTextNode(' '));
-      });
+      /* wrap every word in a span, keeping highlighted <em> phrases intact */
+      (function wrap(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(function (part) {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+              var sp = document.createElement('span');
+              sp.className = 'w';
+              sp.textContent = part;
+              frag.appendChild(sp);
+            });
+            node.replaceChild(frag, c);
+          } else if (c.nodeType === 1) wrap(c);
+        });
+      })(el);
       lines.push({ el: el, words: el.querySelectorAll('.w') });
     });
   }
@@ -69,6 +88,9 @@
   var line = document.querySelector('.proc-line');
   var steps = Array.prototype.slice.call(document.querySelectorAll('.pst'));
   var benCard = document.querySelector('.ben-card');
+  var sayPh = Array.prototype.slice.call(document.querySelectorAll('.say-ph'));
+  var sayLine = document.querySelector('.say-line');
+  var sayRates = [0.5, -0.35, 0.8];
 
   var ticking = false;
   function update() {
@@ -76,7 +98,11 @@
     var vh = window.innerHeight;
     var hb = hero ? hero.getBoundingClientRect().bottom : 0;
     /* phones: the clear header would sit over the hero text once you scroll, so it turns pearl at once */
-    if (darkHero && (!mnav || mnav.hidden)) head.classList.toggle('on-dark', hb > 90 && (desk.matches || window.scrollY < 8));
+    /* over the dark hero the header stays dark: clear at the very top, dark glass once scrolled */
+    if (darkHero && (!mnav || mnav.hidden)) {
+      head.classList.toggle('on-dark', hb > 90);
+      head.classList.toggle('solid', hb > 90 && window.scrollY > 8);
+    }
     if (floatCta) floatCta.classList.toggle('show', hb < vh * 0.3);
 
     /* process: the gold line fills as the band crosses the screen, steps light as it passes */
@@ -105,6 +131,17 @@
       } else benCard.style.removeProperty('--y');
     }
 
+    /* statement: photos drift at different speeds, the gold line draws as the words light */
+    var sayEl = sayLine ? sayLine.closest('.say') : null;
+    if (sayEl) {
+      var sr = sayEl.getBoundingClientRect();
+      var sq = Math.min(1, Math.max(-1, (sr.top + sr.height / 2 - vh / 2) / vh));
+      sayPh.forEach(function (ph, i) {
+        if (motion) ph.style.setProperty('--y', (sq * 120 * sayRates[i % sayRates.length]).toFixed(1) + 'px');
+      });
+      if (motion) sayLine.style.setProperty('--p', Math.min(1, Math.max(0, (vh * 0.8 - sr.top) / (sr.height * 0.9))).toFixed(3));
+    }
+
     lines.forEach(function (l) {
       var rr = l.el.getBoundingClientRect();
       var k = Math.min(1, Math.max(0, (vh * 0.85 - rr.top) / (vh * 0.5)));
@@ -128,7 +165,7 @@
       mnav.hidden = !open;
       burger.setAttribute('aria-expanded', String(open));
       /* the open menu is pearl, so the header switches to dark text while it is open */
-      if (darkHero) { if (open) head.classList.remove('on-dark'); else onScroll(); }
+      if (darkHero) { if (open) { head.classList.remove('on-dark'); head.classList.remove('solid'); } else onScroll(); }
     });
     mnav.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !mnav.hidden) { closeMenu(); burger.focus(); } });
