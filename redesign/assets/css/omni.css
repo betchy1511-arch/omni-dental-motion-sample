@@ -960,7 +960,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   .strip.auto .strip-rail{overflow:hidden}
   .strip.auto .strip-track{gap:0;padding-inline:0;animation:stripRun var(--dur,70s) linear infinite}
   .strip.auto .sp{margin-right:24px}
-  .strip.auto.paused .strip-track,.strip.auto:focus-within .strip-track{animation-play-state:paused}
+  .strip.auto.paused .strip-track{animation-play-state:paused}
 }
 @media(min-width:1025px){.sp-clone,.strip-pause{display:none!important}}
 @keyframes stripRun{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -974,5 +974,6 @@ ul,ol{margin:0;padding:0;list-style:none}
   .strip-head .eyebrow,.why-sticky .eyebrow,.band-copy .eyebrow,.areas-side .eyebrow,.faq-sticky .eyebrow,.contact-copy > .eyebrow{justify-content:center}
   .strip-head .eyebrow::after,.why-sticky .eyebrow::after,.band-copy .eyebrow::after,.areas-side .eyebrow::after,.faq-sticky .eyebrow::after,.contact-copy > .eyebrow::after{content:'';width:28px;height:1px;background:currentColor}
   .strip-head h2,.why-sticky h2,.band-copy h2,.areas-side h2,.faq-sticky h2,.contact-copy > h2,.end-top h2{margin-inline:auto}
-  .band-actions,.faq-actions,.end-actions{justify-content:center}
+  .band-actions,.faq-actions,.end-actions,.contact-actions{justify-content:center}
+  .burger{flex:none;min-width:44px}
 }
