@@ -1025,3 +1025,18 @@ ul,ol{margin:0;padding:0;list-style:none}
 .journey-head h2{margin-inline:auto}
 /* tablets: the video card sits inside the photo corner, as on phones */
 @media(min-width:601px) and (max-width:1024px){.hero-card,.hero-vcard{left:16px;right:auto;bottom:16px;top:auto;width:min(36%,300px);box-shadow:0 12px 30px rgba(0,0,0,.45);border:2px solid rgba(255,255,255,.85)}}
+
+/* Round 31 (11 Nov, Beth pick 1): EN | ES language switch (design sample; ES goes to a "coming soon" page) */
+.lang{display:inline-flex;align-items:center;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;flex:none}
+.lang a{display:inline-grid;place-items:center;min-width:38px;min-height:34px;padding:0 9px;border-radius:999px;font:600 .75rem/1 var(--sans);letter-spacing:.12em;color:inherit;text-decoration:none;transition:background .2s,color .2s}
+.lang a:hover{color:var(--gold)}
+.lang a[aria-current]{background:var(--graphite);color:var(--on-dark)}
+.head.on-dark .lang{border-color:rgba(243,239,232,.4)}
+.head.on-dark .lang a[aria-current]{background:var(--gold);color:var(--graphite)}
+.head-cta{align-items:center}
+.mnav-lang{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 0}
+.mnav-lang-k{font:600 .75rem/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-right:4px}
+.mnav .mnav-lang a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line);border-radius:999px;font-size:.95rem}
+.mnav .mnav-lang a[aria-current]{background:var(--graphite);color:var(--on-dark);border-color:var(--graphite)}
+.sh-lead.es-note{font-size:.95rem;opacity:.75;margin-top:-6px}
+@media(min-width:1025px) and (max-width:1179px){.nav{gap:18px}.head-in{gap:20px}}
