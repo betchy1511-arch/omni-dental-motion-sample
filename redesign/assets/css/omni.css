@@ -1007,9 +1007,21 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media(min-width:1025px){
   .hero-copy > .hero-h1{font-size:clamp(2.6rem,3.5vw,4rem);max-width:40vw}
 }
+/* Round 30 (11 Nov, Beth: "follow font size of services page"): home hero heading uses the service page size
+   from tablet up; the gold underline follows the words when the phrase wraps */
+@media(min-width:601px){
+  .hero-copy > .hero-h1,.hero-h1{font-size:clamp(2.9rem,6vw,5.6rem);line-height:1}
+  .hero-h1 em{display:inline;background:linear-gradient(var(--gold),var(--gold)) no-repeat 0 96%/100% 2px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .hero-h1 em::after{display:none}
+  .intro .hero-h1 em{animation:heroLine 1s cubic-bezier(.65,0,.35,1) 1.5s both}
+}
+@media(min-width:1025px){.hero-copy > .hero-h1{max-width:44vw}}
+@keyframes heroLine{from{background-size:0 2px}to{background-size:100% 2px}}
 .why h2 em.nw{white-space:nowrap}
 @media(max-width:400px){.why h2{font-size:min(2.2rem,9.2vw)}}
 .journey-head{text-align:center}
 .journey-head .eyebrow{justify-content:center}
 .journey-head .eyebrow::after{content:'';width:28px;height:1px;background:currentColor}
 .journey-head h2{margin-inline:auto}
+/* tablets: the video card sits inside the photo corner, as on phones */
+@media(min-width:601px) and (max-width:1024px){.hero-card,.hero-vcard{left:16px;right:auto;bottom:16px;top:auto;width:min(36%,300px);box-shadow:0 12px 30px rgba(0,0,0,.45);border:2px solid rgba(255,255,255,.85)}}
