@@ -2,6 +2,7 @@
    word-by-word statement, scroll reveals, header state, mobile menu. */
 (function () {
   'use strict';
+  var ES = document.documentElement.classList.contains('lang-es');
 
   var root = document.documentElement;
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -10,7 +11,7 @@
 
   /* ---- Opening sequence: split the H1 into words, then play the intro once ---- */
   var h1 = document.querySelector('.hero-h1');
-  if (h1 && !rm.matches) {
+  if (h1 && !rm.matches && !document.documentElement.classList.contains('lang-es')) {
     var n = 0;
     (function split(node) {
       Array.prototype.slice.call(node.childNodes).forEach(function (c) {
@@ -68,7 +69,7 @@
   if (vidBtn) vidBtn.addEventListener('click', function () {
     userPaused = !userPaused;
     vidBtn.setAttribute('aria-pressed', String(userPaused));
-    vidBtn.textContent = userPaused ? 'Play video' : 'Pause video';
+    vidBtn.textContent = userPaused ? (ES ? 'Reproducir video' : 'Play video') : (ES ? 'Pausar video' : 'Pause video');
     syncVideo();
   });
   if (video && 'IntersectionObserver' in window) {
@@ -270,13 +271,14 @@
     var head = st.querySelector('.strip-head');
     var b = document.createElement('button');
     b.type = 'button';
-    b.className = 'btn btn-line btn-sm strip-pause';
+    b.className = 'btn btn-line btn-sm strip-pause' + (ES ? ' notranslate' : '');
+    if (ES) b.setAttribute('translate', 'no');
     b.setAttribute('aria-pressed', 'false');
-    b.textContent = 'Pause photos';
+    b.textContent = ES ? 'Pausar fotos' : 'Pause photos';
     b.addEventListener('click', function () {
       var on = st.classList.toggle('paused');
       b.setAttribute('aria-pressed', String(on));
-      b.textContent = on ? 'Play photos' : 'Pause photos';
+      b.textContent = on ? (ES ? 'Reproducir fotos' : 'Play photos') : (ES ? 'Pausar fotos' : 'Pause photos');
     });
     head.appendChild(b);
   })();
@@ -286,7 +288,7 @@
   if (mqBtn) mqBtn.addEventListener('click', function () {
     var on = mqBtn.parentNode.classList.toggle('paused');
     mqBtn.setAttribute('aria-pressed', String(on));
-    mqBtn.textContent = on ? 'Play' : 'Pause';
+    mqBtn.textContent = on ? (ES ? 'Reproducir' : 'Play') : (ES ? 'Pausar' : 'Pause');
   });
 
   /* ---- Mobile menu ---- */

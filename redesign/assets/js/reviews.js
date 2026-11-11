@@ -3,6 +3,7 @@
    Without JavaScript every quote shows in full. Shared by the home page and inner pages. */
 (function () {
   'use strict';
+  var ES = document.documentElement.classList.contains('lang-es');
   var cards = Array.prototype.slice.call(document.querySelectorAll('.rx-card'));
   if (!cards.length) return;
 
@@ -28,7 +29,7 @@
       q.classList.toggle('clamp', !open);
       btn.setAttribute('aria-expanded', String(open));
       var lab = btn.querySelector('.rx-t') || btn;
-      lab.textContent = open ? 'Show Less' : 'Read Full Review';
+      lab.textContent = open ? (ES ? 'Ver menos' : 'Show Less') : (ES ? 'Leer reseña completa' : 'Read Full Review');
     });
   });
 

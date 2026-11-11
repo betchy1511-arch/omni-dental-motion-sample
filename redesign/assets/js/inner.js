@@ -4,13 +4,14 @@
    The home page keeps omni.js; this file has no video or pinned-stage code. */
 (function () {
   'use strict';
+  var ES = document.documentElement.classList.contains('lang-es');
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)');
   var desk = window.matchMedia('(min-width: 1025px)');
   var motion = !rm.matches;
 
   /* ---- Hero headline: words rise one by one ---- */
   var h1 = document.querySelector('.sh-h1');
-  if (h1 && motion) {
+  if (h1 && motion && !document.documentElement.classList.contains('lang-es')) {
     var n = 0;
     (function split(node) {
       Array.prototype.slice.call(node.childNodes).forEach(function (c) {
@@ -191,7 +192,7 @@
   if (mqBtn) mqBtn.addEventListener('click', function () {
     var on = mqBtn.parentNode.classList.toggle('paused');
     mqBtn.setAttribute('aria-pressed', String(on));
-    mqBtn.textContent = on ? 'Play' : 'Pause';
+    mqBtn.textContent = on ? (ES ? 'Reproducir' : 'Play') : (ES ? 'Pausar' : 'Pause');
   });
 
   /* ---- Mobile menu ---- */
