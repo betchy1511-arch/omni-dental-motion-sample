@@ -402,3 +402,12 @@
 
 /* Round 26: one-line explainer and process headings on laptops and up (sized by inner.js) */
 @media(min-width:1025px){.und h2.fit1,.proc-head h2.fit1{white-space:nowrap;max-width:none}.und-copy{min-width:0}}
+
+/* Round 28: contact card, no empty space under the form (message box grows to the panel height), slimmer photo on tablets */
+@media(min-width:901px){
+  .cform-box{display:flex;flex-direction:column}
+  .cform-box .cf-grow{flex:1;display:flex;flex-direction:column}
+  .cform-box .cf-grow textarea{flex:1;min-height:150px;resize:vertical}
+}
+@media(min-width:601px) and (max-width:900px){.cf-photo{aspect-ratio:21/9}}
+.cf-hours-k{display:block;margin:0 0 4px}
