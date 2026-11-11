@@ -988,3 +988,11 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 /* Round 25: smallest phones (under 360 wide): tighter header gap so the 44px menu button stays inside the screen */
 @media(max-width:359px){.head-in{gap:10px}.brand{gap:10px}}
+
+/* Round 26: phone polish from the visual review */
+@media(max-width:600px){
+  .eyebrow{line-height:1.45}
+  .svc .svc-photo::after{background:linear-gradient(180deg,rgba(23,22,20,0) 25%,rgba(23,22,20,.88) 100%)}
+  .svc-photo .svc-name{text-shadow:0 2px 12px rgba(0,0,0,.45)}
+}
+@media(min-width:601px) and (max-width:1024px){.hero-h1{text-wrap:balance}}
