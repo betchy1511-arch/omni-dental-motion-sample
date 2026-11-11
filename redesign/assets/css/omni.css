@@ -996,3 +996,6 @@ ul,ol{margin:0;padding:0;list-style:none}
   .svc-photo .svc-name{text-shadow:0 2px 12px rgba(0,0,0,.45)}
 }
 @media(min-width:601px) and (max-width:1024px){.hero-h1{text-wrap:balance}}
+
+/* Round 27 (11 Nov, Beth: "move" Specialty up beside Omni Dental): the practice name never splits from tablet width up */
+@media(min-width:601px){.why h2 em.nw{white-space:nowrap}}
