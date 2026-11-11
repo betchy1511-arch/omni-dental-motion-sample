@@ -985,3 +985,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* Round 24: six menu items on small laptops (1025 to 1279 wide): links stay on one line, the phone button steps aside (phone stays in the footer, the bar and every section) */
 .nav > a,.nav-dd-top{white-space:nowrap}
 @media(min-width:1025px) and (max-width:1279px){.head-phone{display:none}}
+
+/* Round 25: smallest phones (under 360 wide): tighter header gap so the 44px menu button stays inside the screen */
+@media(max-width:359px){.head-in{gap:10px}.brand{gap:10px}}
