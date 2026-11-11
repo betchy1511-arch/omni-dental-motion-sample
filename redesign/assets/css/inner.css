@@ -382,7 +382,7 @@
 .cf-ic svg{width:20px;height:20px;fill:none;stroke:var(--gold-2);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .cf-list li > span:last-child{display:grid;gap:2px;font-size:1rem;color:var(--on-dark);overflow-wrap:anywhere;text-align:left}
 .cf-k{font:600 .75rem/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2)}
-.cf-list a{display:inline-flex;align-items:center;min-height:32px;color:var(--on-dark);text-decoration:underline;text-underline-offset:3px}
+.cf-list a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-dark);text-decoration:underline;text-underline-offset:3px}
 .cf-list a:hover{color:var(--gold-2)}
 .cf-hours{margin:0;padding:18px 0 0;border-top:1px solid var(--line-dark);display:grid;gap:10px}
 .cf-hours div{display:flex;justify-content:space-between;gap:12px;font-size:.9375rem}
