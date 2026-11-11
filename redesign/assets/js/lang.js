@@ -105,7 +105,7 @@
     '.lang-es .btn{white-space:normal;text-align:center;line-height:1.25}';
   document.head.appendChild(css);
 
-  /* small "translating" note until Google has finished, so a short wait does not look like a broken switch */
+  /* small "translating" note until the first Spanish words appear (heading first), so the short wait does not look like a broken switch */
   var pill = document.createElement('div');
   pill.className = 'gt-wait notranslate';
   pill.setAttribute('translate', 'no');
