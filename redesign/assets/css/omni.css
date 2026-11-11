@@ -1002,3 +1002,14 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 /* Round 28 (11 Nov, Beth: "center this desktop"): First Visit heading centred on desktop */
 @media(min-width:1025px){.journey-head{text-align:center}.journey-head .eyebrow{justify-content:center}.journey-head .eyebrow::after{content:'';width:28px;height:1px;background:currentColor}.journey-head h2{margin-inline:auto;max-width:none}}
+
+/* Round 29 (11 Nov, Beth): bigger hero heading on laptops and up; Why Choose keeps "Omni Dental Specialty" together on phones too; First Visit heading centred at every width */
+@media(min-width:1025px){
+  .hero-copy > .hero-h1{font-size:clamp(2.6rem,3.5vw,4rem);max-width:40vw}
+}
+.why h2 em.nw{white-space:nowrap}
+@media(max-width:400px){.why h2{font-size:min(2.2rem,9.2vw)}}
+.journey-head{text-align:center}
+.journey-head .eyebrow{justify-content:center}
+.journey-head .eyebrow::after{content:'';width:28px;height:1px;background:currentColor}
+.journey-head h2{margin-inline:auto}
