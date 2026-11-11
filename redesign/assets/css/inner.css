@@ -350,3 +350,16 @@
 
 /* Round 23: intro photo card on About and Our Doctors */
 .diag-photo img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:18px}
+
+/* Round 24 (11 Nov, Beth: "the service pages share the same issue as the homepage in mobile").
+   Phones: hero heading on one line (inner.js sizes it to fit), section heads centred like the home page. */
+@media(max-width:600px){
+  .sh-in > *,.sh-copy{min-width:0;max-width:100%}
+  .sh-h1.fit1{white-space:nowrap;max-width:100%}
+  .und-copy,.ben-copy,.st-safety,.st-tech > .rv:first-child{text-align:center}
+  .und-copy .eyebrow,.ben-copy .eyebrow,.st-safety .eyebrow,.st-tech > .rv:first-child .eyebrow{justify-content:center}
+  .und-copy .eyebrow::after,.ben-copy .eyebrow::after,.st-safety .eyebrow::after,.st-tech > .rv:first-child .eyebrow::after{content:'';width:28px;height:1px;background:currentColor}
+  .und-copy h2,.ben-copy h2,.st-safety h2,.st-tech h2{margin-inline:auto}
+  .und-actions{justify-content:center}
+  .ben-copy .ticks,.st-note{text-align:left}
+}

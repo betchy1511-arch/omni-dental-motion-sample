@@ -31,6 +31,22 @@
     })(h1);
   }
 
+  /* ---- Phones: hero heading on one line, shrunk just enough to fit its column ---- */
+  var phone = window.matchMedia('(max-width: 600px)');
+  function fitH1() {
+    var h = document.querySelector('.sh-h1');
+    if (!h) return;
+    h.style.fontSize = '';
+    h.classList.toggle('fit1', phone.matches);
+    if (!phone.matches) return;
+    var fs = parseFloat(getComputedStyle(h).fontSize), min = 18;
+    while (h.scrollWidth > h.clientWidth + 0.5 && fs > min) { fs -= 0.5; h.style.fontSize = fs + 'px'; }
+    if (h.scrollWidth > h.clientWidth + 0.5) { h.classList.remove('fit1'); h.style.fontSize = ''; }
+  }
+  fitH1();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitH1);
+  window.addEventListener('resize', fitH1);
+
   /* ---- Reveals ---- */
   var rvs = document.querySelectorAll('.rv, .pst');
   if ('IntersectionObserver' in window && motion) {
