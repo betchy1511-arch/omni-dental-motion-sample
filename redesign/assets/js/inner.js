@@ -53,8 +53,8 @@
       h.classList.toggle('fit1', wide.matches);
       if (!wide.matches) return;
       var fs = parseFloat(getComputedStyle(h).fontSize);
-      while (h.scrollWidth > h.clientWidth + 0.5 && fs > 30) { fs -= 0.5; h.style.fontSize = fs + 'px'; }
-      if (h.scrollWidth > h.clientWidth + 0.5) { h.classList.remove('fit1'); h.style.fontSize = ''; }
+      while (h.scrollWidth > h.clientWidth && fs - 0.5 >= 30) { fs -= 0.5; h.style.fontSize = fs + 'px'; }
+      if (h.scrollWidth > h.clientWidth) { h.classList.remove('fit1'); h.style.fontSize = ''; }
     });
   }
   fitHeads();
