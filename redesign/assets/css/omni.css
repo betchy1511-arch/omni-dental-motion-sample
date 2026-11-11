@@ -952,7 +952,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* Round 21 (11 Nov, Beth on phones: "1 line", "this part is messed up", "moving on their own", "center"). */
 /* hero headline: one line on phones, sized to the column */
 .hero-copy{container-type:inline-size}
-@media(max-width:600px){.hero-h1{white-space:nowrap;font-size:5.6vw;font-size:calc(100cqi / 15.5)}.hero-h1 .br-d{display:none}}
+@media(max-width:600px){.hero-h1{white-space:nowrap;font-size:7vw;font-size:calc(100cqi / 12.7)}.hero-h1 .br-d{display:none}}
 /* hero video card: sits inside the photo corner instead of hanging off it */
 @media(max-width:600px){.hero-card,.hero-vcard{left:12px;right:auto;bottom:12px;top:auto;width:44%;box-shadow:0 12px 30px rgba(0,0,0,.45);border:2px solid rgba(255,255,255,.85)}}
 /* office photos: a slow strip that moves on its own (phones and tablets only, pause button) */
