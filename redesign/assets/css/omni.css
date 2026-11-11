@@ -999,3 +999,6 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 /* Round 27 (11 Nov, Beth: "move" Specialty up beside Omni Dental): the practice name never splits from tablet width up */
 @media(min-width:601px){.why h2 em.nw{white-space:nowrap}}
+
+/* Round 28 (11 Nov, Beth: "center this desktop"): First Visit heading centred on desktop */
+@media(min-width:1025px){.journey-head{text-align:center}.journey-head .eyebrow{justify-content:center}.journey-head .eyebrow::after{content:'';width:28px;height:1px;background:currentColor}.journey-head h2{margin-inline:auto;max-width:none}}
