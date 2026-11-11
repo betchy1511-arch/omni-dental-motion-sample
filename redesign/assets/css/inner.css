@@ -347,3 +347,6 @@
 
 /* Round 22: no section can push the page sideways (found on two new service pages at desktop width) */
 .inner main > section{overflow-x:clip}
+
+/* Round 23: intro photo card on About and Our Doctors */
+.diag-photo img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:18px}
