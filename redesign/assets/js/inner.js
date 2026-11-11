@@ -44,6 +44,22 @@
     if (h.scrollWidth > h.clientWidth + 0.5) { h.classList.remove('fit1'); h.style.fontSize = ''; }
   }
   fitH1();
+
+  /* ---- Laptops and up: explainer and process headings on one line (Beth, 11 Nov: "1 line") ---- */
+  var wide = window.matchMedia('(min-width: 1025px)');
+  function fitHeads() {
+    document.querySelectorAll('.und h2, .proc-head h2').forEach(function (h) {
+      h.style.fontSize = '';
+      h.classList.toggle('fit1', wide.matches);
+      if (!wide.matches) return;
+      var fs = parseFloat(getComputedStyle(h).fontSize);
+      while (h.scrollWidth > h.clientWidth + 0.5 && fs > 30) { fs -= 0.5; h.style.fontSize = fs + 'px'; }
+      if (h.scrollWidth > h.clientWidth + 0.5) { h.classList.remove('fit1'); h.style.fontSize = ''; }
+    });
+  }
+  fitHeads();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHeads);
+  window.addEventListener('resize', fitHeads);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitH1);
   window.addEventListener('resize', fitH1);
 

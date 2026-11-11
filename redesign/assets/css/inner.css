@@ -379,3 +379,6 @@
 .cform-box .btn{justify-self:start}
 @media(max-width:900px){.cform-in{grid-template-columns:1fr}}
 @media(max-width:600px){.cf-row{grid-template-columns:1fr}.cform-head{text-align:center}.cform-head .eyebrow{justify-content:center}.cform-box .btn{justify-self:stretch}}
+
+/* Round 26: one-line explainer and process headings on laptops and up (sized by inner.js) */
+@media(min-width:1025px){.und h2.fit1,.proc-head h2.fit1{white-space:nowrap;max-width:none}.und-copy{min-width:0}}
