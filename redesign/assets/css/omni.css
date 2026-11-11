@@ -1040,3 +1040,35 @@ ul,ol{margin:0;padding:0;list-style:none}
 .mnav .mnav-lang a[aria-current]{background:var(--graphite);color:var(--on-dark);border-color:var(--graphite)}
 .sh-lead.es-note{font-size:.95rem;opacity:.75;margin-top:-6px}
 @media(min-width:1025px) and (max-width:1179px){.nav{gap:18px}.head-in{gap:20px}}
+
+/* Round 39 (12 Nov 2026, Dimi via Beth, BC to-do 10500869836: "more scrollable sideways in mobile ...
+   if you are on mobile it goes on forever"). Phones only: card lists become swipe rows, the next card
+   peeks in from the right, and nav.js adds a thin progress bar under each row. FAQ, logos and the area
+   list stay stacked on purpose. Tablets and desktop are unchanged. */
+@media(max-width:760px){
+  .svc-grid,.why-cards,.rx-cards,.jsteps,.dr-creds,.proc-steps,.itech,.glance{
+    display:flex!important;flex-flow:row nowrap!important;gap:12px!important;grid-template-columns:none!important;
+    overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;
+    padding-left:max(16px,calc(50vw - 50%))!important;padding-right:max(16px,calc(50vw - 50%))!important;scroll-padding-inline:max(16px,calc(50vw - 50%));
+    contain:inline-size;
+    padding-top:4px;padding-bottom:8px;max-width:none!important;width:auto!important;position:relative}
+  .svc-grid::-webkit-scrollbar,.why-cards::-webkit-scrollbar,.rx-cards::-webkit-scrollbar,.jsteps::-webkit-scrollbar,.dr-creds::-webkit-scrollbar,
+  .proc-steps::-webkit-scrollbar,.itech::-webkit-scrollbar,.glance::-webkit-scrollbar{display:none}
+  .svc-grid > *,.why-cards > *,.rx-cards > *,.jsteps > *,.dr-creds > *,.proc-steps > *,.itech > *,.glance > *{
+    flex:0 0 82%;min-width:0;scroll-snap-align:start;grid-column:auto!important;margin:0!important}
+  .svc-grid > *{flex-basis:64%}
+  .svc-grid > article:first-child .svc-photo{aspect-ratio:1/1!important}
+  .glance > *,.dr-creds > *{flex-basis:62%}
+  .itech > *{flex-basis:72%}
+  .rx-cards,.jsteps,.proc-steps{align-items:flex-start}
+  .dr-creds{margin-bottom:0!important}
+  /* Why Choose: number badge sits inside the card instead of hanging off its left edge */
+  .why-cards{padding-bottom:8px}
+  .why-card{padding:22px 20px!important;position:relative!important;top:auto!important}
+  .why-n{position:static!important;transform:none!important;margin-bottom:14px}
+  /* the progress bar nav.js adds under each row */
+  .rail-bar{position:relative;height:3px;border-radius:3px;background:var(--gold-line,rgba(201,168,76,.3));margin:14px auto 26px;width:min(160px,40%);overflow:hidden}
+  .rail-bar i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--gold,#c9a84c);will-change:transform}
+  .rail-on:focus-visible{outline:2px solid var(--gold,#c9a84c);outline-offset:4px}
+}
