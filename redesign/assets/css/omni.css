@@ -1063,6 +1063,8 @@ ul,ol{margin:0;padding:0;list-style:none}
   .itech > *{flex-basis:72%}
   .rx-cards,.jsteps,.proc-steps{align-items:flex-start}
   .dr-creds{margin-bottom:0!important}
+  /* General Dentistry photo is a tall shot with the toothbrush near the bottom: crop onto the brush, not the wall (Beth, 12 Nov) */
+  .svc-photo img[src$="toothbrush.jpg"]{object-position:50% 80%}
   /* Why Choose: number badge sits inside the card instead of hanging off its left edge */
   .why-cards{padding-bottom:8px}
   .why-card{padding:22px 20px!important;position:relative!important;top:auto!important}
