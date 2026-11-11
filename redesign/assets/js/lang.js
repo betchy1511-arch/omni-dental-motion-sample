@@ -105,14 +105,33 @@
     '.lang-es .btn{white-space:normal;text-align:center;line-height:1.25}';
   document.head.appendChild(css);
 
-  var box = document.createElement('div');
-  box.id = 'gt-el';
-  box.hidden = true;
-  document.body.appendChild(box);
-  window.googleTranslateElementInit = function () {
-    new window.google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'es', autoDisplay: false }, 'gt-el');
-  };
-  var s = document.createElement('script');
-  s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-  document.body.appendChild(s);
+  /* small "translating" note until Google has finished, so a short wait does not look like a broken switch */
+  var pill = document.createElement('div');
+  pill.className = 'gt-wait notranslate';
+  pill.setAttribute('translate', 'no');
+  pill.setAttribute('role', 'status');
+  pill.textContent = 'Traduciendo al español…';
+  pill.style.cssText = 'position:fixed;left:50%;bottom:96px;transform:translateX(-50%);z-index:9999;padding:9px 18px;border-radius:999px;background:#1b1712;color:#f3e7c9;font:600 13px/1.2 Manrope,system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.3);pointer-events:none';
+  document.body.appendChild(pill);
+  function done() { if (pill.parentNode) pill.parentNode.removeChild(pill); }
+  /* Google marks the page as translated when it starts; translated words arrive wrapped in <font> */
+  var mo = new MutationObserver(function () {
+    if (document.querySelector('main h1 font, main font')) { done(); mo.disconnect(); }
+  });
+  mo.observe(document.body, { childList: true, subtree: true });
+  setTimeout(done, 15000);
+
+  /* the page head normally starts the translator already; this is the fallback */
+  if (!window.__gtLoading) {
+    var box = document.createElement('div');
+    box.id = 'gt-el';
+    box.hidden = true;
+    document.body.appendChild(box);
+    window.googleTranslateElementInit = function () {
+      new window.google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'es', autoDisplay: false }, 'gt-el');
+    };
+    var s = document.createElement('script');
+    s.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(s);
+  }
 })();
