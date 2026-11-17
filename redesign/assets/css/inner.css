@@ -416,3 +416,10 @@
 /* Round 29: phone polish from the visual review */
 @media(max-width:400px){.sh-chip-ct{display:none}.sh-chip-rate{right:2%}}
 .cf-list a,.glance a{overflow-wrap:break-word}
+/* Round 42 (18 Nov 2026): Contact glance now has 3 boxes (Fax removed, 805-659-8640 is a CallRail
+   pool number). Fill the row instead of leaving an empty 4th slot. Phones keep the swipe row. */
+.glance:has(> :nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:1024px) and (min-width:761px){
+  .glance:has(> :nth-child(3):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+  .glance > :nth-child(3):last-child{grid-column:1/-1}
+}
