@@ -17,7 +17,7 @@
    progress bar under each row and lets keyboard users scroll a row that has no links in it. */
 (function () {
   'use strict';
-  var SEL = '.svc-grid,.why-cards,.rx-cards,.jsteps,.dr-creds,.proc-steps,.itech,.glance';
+  var SEL = '.svc-grid,.why-cards,.rx-cards,.jsteps,.dr-creds,.proc-steps,.itech,.glance,.ticks';
   var mq = window.matchMedia('(max-width:760px)');
   var rails = Array.prototype.slice.call(document.querySelectorAll(SEL));
   if (!rails.length) return;

@@ -491,3 +491,16 @@
 .ticks-cards li{background:var(--white);border:1px solid var(--gold-line);border-radius:20px;padding:74px 24px 24px;box-shadow:0 16px 36px rgba(28,27,25,.05)}
 .ticks-cards li::before{left:24px;top:22px;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--gold);background:var(--pearl);font:500 1rem/1 var(--serif);font-variant-numeric:lining-nums;color:var(--gold-ink)}
 .ticks-cards strong{font-size:1.25rem}
+
+/* Round 58 (20 Nov 2026, Beth: "cta in the center as always for desktop", "even in mobile as long as it looks good"; "2" = phones swipe sections sideways) */
+.proc-foot{flex-direction:column;justify-content:center;text-align:center}
+.proc-foot p{margin-inline:auto}
+.proc-actions{justify-content:center}
+@media(max-width:760px){
+  .ticks{display:flex!important;flex-flow:row nowrap!important;gap:12px!important;grid-template-columns:none!important;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;padding:4px max(16px,calc(50vw - 50%)) 8px!important;scroll-padding-inline:max(16px,calc(50vw - 50%));max-width:none!important;width:auto!important;align-items:stretch}
+  .ticks::-webkit-scrollbar{display:none}
+  .ticks li{flex:0 0 82%;min-width:0;scroll-snap-align:start;grid-column:auto!important;margin:0!important;background:var(--white);border:1px solid var(--gold-line);border-radius:20px;padding:74px 22px 22px!important;box-shadow:0 12px 28px rgba(28,27,25,.05)}
+  .ticks li::before{left:22px!important;top:22px!important;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--gold);background:var(--pearl);font:500 1rem/1 var(--serif);font-variant-numeric:lining-nums;color:var(--gold-ink)}
+  .ticks li::after{display:none!important}
+}
+@media(max-width:760px){.ben-in > *{min-width:0}}
