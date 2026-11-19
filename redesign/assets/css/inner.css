@@ -472,3 +472,6 @@
 @media(max-width:600px){.checks{grid-template-columns:1fr}.checks li{padding:72px 22px 22px}.checks li::before{left:22px}}
 .checks li::before,.ticks li::before{font-variant-numeric:lining-nums}
 @media(min-width:1025px){.und:has(.checks) .und-in{grid-template-rows:auto 1fr}.und:has(.checks) .und-copy{align-self:start}}
+/* Round 53 (20 Nov): small safety note under a service hero lead */
+.sh-note{margin-top:12px;font-size:.9375rem;line-height:1.55;color:var(--on-dark-2);max-width:52ch}
+.sh-lead + .sh-note{margin-top:-14px;margin-bottom:28px}
