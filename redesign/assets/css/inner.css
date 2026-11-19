@@ -504,3 +504,17 @@
   .ticks li::after{display:none!important}
 }
 @media(max-width:760px){.ben-in > *{min-width:0}}
+
+/* Round 59 (20 Nov 2026): Emergency Dentistry doc copy. Six danger signs as cards under the 911 section, and the new "What Counts" section */
+.em-signs{margin-top:clamp(36px,5vw,56px)}
+.emc{padding:clamp(64px,8vw,112px) 0;background:var(--pearl);border-top:1px solid var(--gold-line)}
+.emc-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,80px);align-items:start}
+.emc-head h2{margin-top:10px}
+.emc-copy p+p{margin-top:16px}
+.emc-note{margin-top:24px!important;padding:22px 24px;background:var(--white);border:1px solid var(--gold-line);border-left:3px solid var(--gold);border-radius:4px 18px 18px 4px}
+@media(max-width:900px){.emc-in{grid-template-columns:1fr}}
+.emc h2{font-size:clamp(2.2rem,4vw,3.4rem);margin-bottom:28px}
+.emc-actions{display:flex;flex-wrap:wrap;gap:12px}
+@media(min-width:901px){.emc-head{position:sticky;top:120px}}
+@media(max-width:900px){.emc-actions{justify-content:center}.emc-head{text-align:center}}
+.emc-head h2{margin-top:0}
