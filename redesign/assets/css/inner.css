@@ -475,3 +475,10 @@
 /* Round 53 (20 Nov): small safety note under a service hero lead */
 .sh-note{margin-top:12px;font-size:.9375rem;line-height:1.55;color:var(--on-dark-2);max-width:52ch}
 .sh-lead + .sh-note{margin-top:-14px;margin-bottom:28px}
+/* Round 54 (20 Nov, Beth): the long Whitening benefit heading sits on one line across its column on desktop (no short balanced lines) */
+@media(min-width:1025px){.ben h2.ben-h-long{text-wrap:wrap;white-space:nowrap;font-size:min(3vw,2.35rem)}}
+/* Round 55 (20 Nov): five-step process (Wisdom Teeth) */
+@media(min-width:1025px){.proc-steps-5{grid-template-columns:repeat(5,minmax(0,1fr));gap:22px}.proc-steps-5 .pst h3{font-size:1.45rem}}
+@media(min-width:1025px) and (prefers-reduced-motion:no-preference){.js .proc-steps-5 .pst:nth-child(5){transition-delay:.48s}}
+@media(min-width:1025px){.ben h2.ben-h-xl{text-wrap:wrap;white-space:nowrap;font-size:min(2.75vw,2.15rem)}}
+.lang-es .ben h2.ben-h-long,.lang-es .ben h2.ben-h-xl{white-space:normal!important}
