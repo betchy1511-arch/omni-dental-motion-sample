@@ -518,3 +518,7 @@
 @media(min-width:901px){.emc-head{position:sticky;top:120px}}
 @media(max-width:900px){.emc-actions{justify-content:center}.emc-head{text-align:center}}
 .emc-head h2{margin-top:0}
+
+/* Round 60 (20 Nov 2026, Beth: remove Cosmetic Treatments We Offer, services already list them). Experience fills the row on its own */
+.st-solo{grid-template-columns:1fr!important}
+@media(min-width:901px){.st-solo .st-safety{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,80px);align-items:start;max-width:none}.st-solo .st-head{position:sticky;top:120px}.st-solo .st-body > :first-child{margin-top:0}}
