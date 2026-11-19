@@ -525,3 +525,4 @@
 
 /* Round 61 (20 Nov 2026, Beth: "remember i hate space") Cosmetic benefits heading on one full line on desktop */
 @media(min-width:1025px){.ben h2.ben-h-fit{white-space:nowrap;font-size:min(2.45vw,2.2rem)}.lang-es .ben h2.ben-h-fit{white-space:normal}}
+@media(min-width:1025px){.ben h2.ben-h-fit-short{font-size:min(3.2vw,2.9rem)}}
