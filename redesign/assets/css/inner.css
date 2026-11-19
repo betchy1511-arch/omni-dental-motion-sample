@@ -522,3 +522,6 @@
 /* Round 60 (20 Nov 2026, Beth: remove Cosmetic Treatments We Offer, services already list them). Experience fills the row on its own */
 .st-solo{grid-template-columns:1fr!important}
 @media(min-width:901px){.st-solo .st-safety{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,80px);align-items:start;max-width:none}.st-solo .st-head{position:sticky;top:120px}.st-solo .st-body > :first-child{margin-top:0}}
+
+/* Round 61 (20 Nov 2026, Beth: "remember i hate space") Cosmetic benefits heading on one full line on desktop */
+@media(min-width:1025px){.ben h2.ben-h-fit{white-space:nowrap;font-size:min(2.45vw,2.2rem)}.lang-es .ben h2.ben-h-fit{white-space:normal}}
