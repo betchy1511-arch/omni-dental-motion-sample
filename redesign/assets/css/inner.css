@@ -455,3 +455,20 @@
 @media(min-width:1025px){.und:has(.checks) .diag{max-width:440px;justify-self:end}}
 .ticks li::before,.checks li::before{font-variant-numeric:lining-nums}
 .und:has(.checks) .und-copy{align-self:center}
+/* Round 52 (20 Nov, Beth "design ugly"): What to Check = heading, buttons and diagram on the left, six numbered cards on the right */
+@media(min-width:1025px){
+  .und:has(.checks) .und-in{grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-areas:"copy checks" "diag checks";column-gap:clamp(40px,5vw,80px);row-gap:36px;align-items:start}
+  .und:has(.checks) .und-copy{grid-area:copy;align-self:end}
+  .und:has(.checks) .diag{grid-area:diag;max-width:none;justify-self:stretch;align-self:start}
+  .und:has(.checks) .checks{grid-area:checks;grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0;align-self:center}
+}
+.checks{gap:16px}
+.checks li{background:var(--white);border:1px solid var(--gold-line);border-radius:22px;padding:78px 26px 26px;box-shadow:0 18px 40px rgba(28,27,25,.05);transition:transform .35s var(--ease),box-shadow .35s}
+.checks li:hover{transform:translateY(-3px);box-shadow:0 24px 50px rgba(28,27,25,.09)}
+.checks li::before{left:26px;top:24px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--gold);color:var(--gold-ink);font:500 1.05rem/1 var(--serif);background:var(--pearl)}
+.checks h3{font-size:1.3rem;margin-bottom:8px}
+.und .checks p{font-size:.9688rem;line-height:1.6}
+@media(max-width:1024px) and (min-width:601px){.checks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.checks{grid-template-columns:1fr}.checks li{padding:72px 22px 22px}.checks li::before{left:22px}}
+.checks li::before,.ticks li::before{font-variant-numeric:lining-nums}
+@media(min-width:1025px){.und:has(.checks) .und-in{grid-template-rows:auto 1fr}.und:has(.checks) .und-copy{align-self:start}}
