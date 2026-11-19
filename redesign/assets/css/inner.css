@@ -423,3 +423,8 @@
   .glance:has(> :nth-child(3):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
   .glance > :nth-child(3):last-child{grid-column:1/-1}
 }
+/* Round 46 (20 Nov): tick cards hug their own text in two stacked columns, no empty space under short cards */
+@media(min-width:601px){.ticks{display:block;columns:2;column-gap:12px}.ticks li{break-inside:avoid;margin-bottom:12px}.ticks li:last-child{margin-bottom:0}}
+/* Round 47 (20 Nov): six-step process on Dental Implants, all six on one line on desktop */
+@media(min-width:1025px){.proc-steps-6{grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}.proc-steps-6 .pst h3{font-size:1.35rem}.proc-steps-6 .pst p{font-size:.9375rem}}
+@media(min-width:1025px) and (prefers-reduced-motion:no-preference){.js .pst:nth-child(5){transition-delay:.48s}.js .pst:nth-child(6){transition-delay:.6s}}
