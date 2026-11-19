@@ -428,3 +428,17 @@
 /* Round 47 (20 Nov): six-step process on Dental Implants, all six on one line on desktop */
 @media(min-width:1025px){.proc-steps-6{grid-template-columns:repeat(6,minmax(0,1fr));gap:20px}.proc-steps-6 .pst h3{font-size:1.35rem}.proc-steps-6 .pst p{font-size:.9375rem}}
 @media(min-width:1025px) and (prefers-reduced-motion:no-preference){.js .pst:nth-child(5){transition-delay:.48s}.js .pst:nth-child(6){transition-delay:.6s}}
+/* Round 48 (20 Nov): long benefit headings wrap instead of running off screen; tick list redesigned as a numbered two-column list with gold rules (no grey boxes) */
+@media(min-width:1025px){.ben h2{white-space:normal;text-wrap:balance}}
+.ticks{counter-reset:tk;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,3vw,44px);row-gap:0;columns:auto;margin-top:34px}
+.ticks li{counter-increment:tk;break-inside:auto;margin:0;padding:54px 0 26px;background:none;border-radius:0;border-top:1px solid var(--gold-line);font-size:1rem;line-height:1.6}
+.ticks li:last-child{margin-bottom:0}
+.ticks li::before{content:counter(tk,decimal-leading-zero);left:0;top:20px;width:auto;height:auto;border-radius:0;background:none;font:500 1.15rem/1 var(--serif);color:var(--gold-ink);letter-spacing:.04em}
+.ticks li::after{display:none}
+.ticks strong{display:block;font:500 1.35rem/1.2 var(--serif);color:var(--ink);margin-bottom:6px}
+@media(max-width:600px){.ticks{grid-template-columns:1fr}.ticks li{padding:50px 0 22px}}
+/* Round 49 (20 Nov): source links copied from the page docs (gold on dark bands, deep gold on light) */
+.src-link{color:var(--gold-ink);text-decoration:underline;text-underline-offset:3px;font-weight:600}
+.src-link:hover{color:var(--ink)}
+.proc .src-link{color:var(--gold-2)}
+.proc .src-link:hover{color:var(--on-dark)}
