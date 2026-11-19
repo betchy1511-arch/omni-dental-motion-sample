@@ -1074,3 +1074,7 @@ ul,ol{margin:0;padding:0;list-style:none}
   .rail-bar i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--gold,#c9a84c);will-change:transform}
   .rail-on:focus-visible{outline:2px solid var(--gold,#c9a84c);outline-offset:4px}
 }
+
+/* Round 43 (20 Nov): intro line under the Step by Step heading; 7 dentist credentials, the odd last box spans the row */
+.journey-intro{color:var(--on-dark-2);font-size:1.0625rem;max-width:56ch;margin:14px auto 0;text-align:center}
+@media(min-width:601px){.dr-creds li:last-child:nth-child(odd){grid-column:1/-1}}
