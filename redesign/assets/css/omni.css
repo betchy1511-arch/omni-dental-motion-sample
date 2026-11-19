@@ -1081,3 +1081,5 @@ ul,ol{margin:0;padding:0;list-style:none}
 .step-link{color:var(--gold-2);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 .step-link:hover{color:var(--on-dark)}
 @media(min-width:1025px) and (prefers-reduced-motion:no-preference){.js .jstep:not(.on){pointer-events:none}.js .jstep:not(.on) .step-link{visibility:hidden}}
+/* Round 44 (20 Nov): on short desktop screens the dial stays below the Step by Step intro, step text still fits */
+@media(min-width:1025px) and (prefers-reduced-motion:no-preference){.js .dial{top:max(40vh,370px)}.js .jsteps{top:calc(max(40vh,370px) + min(22vh,max(60px,calc(100vh - max(40vh,370px) - 240px))))}}
