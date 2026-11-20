@@ -1185,3 +1185,12 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* Round 88: homepage copy of the Service Areas map */
 .sx-lead{max-width:56ch;margin:14px 0 0;color:#B9B2A5;font-size:1.02rem;line-height:1.6}
 .sx-home{border-top:1px solid rgba(201,168,76,.22);background:#11100E}
+
+/* r85: office is selectable; location pages show the current area in the bottom slot */
+button.sx-key{width:100%;border:0;border-top:1px solid rgba(201,168,76,.18);background:none;text-align:left;cursor:pointer;border-radius:0;transition:color .25s}
+button.sx-key:focus-visible{outline:2px solid #DCC27A;outline-offset:4px}
+button.sx-key:hover b{color:#E2C46E}
+button.sx-key:not(.is-on) .sx-key-dot{background:#8C7A45;box-shadow:0 0 0 3px #171614,0 0 0 5px rgba(201,168,76,.25)}
+button.sx-key.is-on b{color:#E2C46E}
+.sx-office-pill.is-on{box-shadow:0 0 0 2px #E2C46E,0 10px 24px -10px rgba(0,0,0,.7)}
+@media(min-width:601px){.sx-office-pill.is-on{display:flex}}
