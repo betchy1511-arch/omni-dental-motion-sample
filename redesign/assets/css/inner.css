@@ -995,3 +995,14 @@ a[href^="tel:"]{white-space:nowrap}
 /* Round 77b: Getting There follows Visit Us directly, so its top padding is trimmed and no empty band opens between the map and the photo */
 .ls.gt{padding-top:clamp(8px,1.5vw,24px)}
 .gt-fig img{object-position:52% 50%}
+/* Round 79 (20 Nov 2026, Beth: Oxnard is the homepage, so it is not listed on Service Areas). Two area cards side by side and 14 tiles in two rows of seven, so no slot is left empty */
+.sa-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sa-grid{grid-template-columns:repeat(7,minmax(0,1fr))}
+@media(max-width:1024px){
+  .sa-cards > :first-child{grid-column:auto;display:flex}
+  .sa-cards > :first-child .sa-card-img img{height:auto}
+  .sa-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .sa-cards{grid-template-columns:1fr}
+}
