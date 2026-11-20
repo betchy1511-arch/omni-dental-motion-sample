@@ -959,3 +959,8 @@ a[href^="tel:"]{white-space:nowrap}
   .ls-flow-short > .ls-fig{min-height:0}
   .ls-flow-short > .ls-fig img{position:static;aspect-ratio:3/2;height:auto}
 }
+
+/* Round 76 (20 Nov 2026, Beth: "why is it black"). Linked area tiles match the others; only the gold View area button marks them */
+.sa-tile.sa-tile-on{background:var(--white);background-image:none;border-color:var(--gold-line)}
+.sa-tile.sa-tile-on .sa-name{color:var(--ink)}
+.sa-tile.sa-tile-on .sa-pin{color:var(--gold-ink);background:var(--pearl)}
