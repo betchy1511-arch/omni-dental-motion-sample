@@ -538,3 +538,28 @@
 @media(min-width:761px){.emc-stack .ticks-cards{display:grid!important;columns:auto;grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(min-width:1025px){.emc-stack .ticks-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.emc-stack .emc-head{justify-content:center;text-align:center}}
+
+/* Round 67 (20 Nov 2026): General Dentistry page. Paragraph spacing in the photo + copy band, three cards in one row
+   when a stacked section has exactly three, plain numbered points in three columns, the FAQ visit box and the end lead */
+.ben-copy p + p{margin-top:14px}
+@media(min-width:1025px){
+  .emc-stack .ticks-cards li:last-child:nth-child(3n){grid-column:auto}
+  .emc-stack .ticks:not(.ticks-cards){grid-template-columns:repeat(3,minmax(0,1fr))}
+  .emc-stack .ticks:not(.ticks-cards) li:last-child:nth-child(3n){grid-column:auto}
+}
+.emc-stack .emc-copy > .lead{margin-bottom:8px}
+.faq-side .st-note{margin:0 0 26px}
+.faq-side .st-note h3{font-size:1.5rem;margin-bottom:6px}
+.faq-side .st-note p{margin:0;font-size:1rem}
+.faq-side .st-note p + p{margin-top:4px}
+.end-top .lead{margin-top:16px}
+.end-top .cform-note{margin-top:10px}
+/* photo band with no floating card (General Dentistry): the photo runs the full height of the copy, no blank space above or below it */
+@media(min-width:1025px){
+  .ben-media:not(:has(.ben-card)){align-self:stretch;padding-bottom:0;display:flex}
+  .ben-media:not(:has(.ben-card)) .ben-photo{flex:1;aspect-ratio:auto;min-height:100%}
+  .emc-stack .emc-head h2{flex:1 1 0;min-width:0}
+}
+
+/* Round 67b: phone numbers never split across lines */
+a[href^="tel:"]{white-space:nowrap}
