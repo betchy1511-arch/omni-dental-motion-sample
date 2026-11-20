@@ -673,3 +673,24 @@ a[href^="tel:"]{white-space:nowrap}
 /* Round 68c: GD FAQ side column sits at the top and follows on scroll; visible keyboard focus on accordion rows */
 @media(min-width:1025px){.faq-in:has(.gd-ans){align-items:start}.faq-in:has(.gd-ans) .faq-side{align-self:start;position:sticky;top:110px}}
 .gd-who summary:focus-visible,details summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:8px}
+
+/* Round 69: Financing page cards (Beth, 20 Nov: "use the logo" from the live financing page; "why is this in black?").
+   Page-only classes: every financing card is the same light card, the provider logo sits in a white panel.
+   Doubled selectors (.itech.fin-cards > .it.fin-card) beat the Round 65 icon-left rule; desktop layout is fenced
+   to min-width:761px so it never fights the phone swipe-row card. */
+.fin-logo{display:flex;align-items:center;justify-content:center;height:78px;padding:12px 16px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.fin-logo img{display:block;width:auto;max-width:100%;height:auto;max-height:46px;object-fit:contain}
+.fin-logo-ic{background:var(--pearl);border-color:transparent}
+.fin-logo-ic .it-ic{margin:0;background:var(--white);width:56px;height:56px}
+@media(min-width:761px){
+  .itech.fin-cards{grid-template-columns:minmax(0,1fr)}
+  .itech.fin-cards > .it.fin-card{display:grid;grid-template-columns:200px minmax(0,1fr);column-gap:26px;row-gap:6px;align-items:center;padding:22px 26px 22px 22px}
+  .itech.fin-cards > .it.fin-card > .fin-logo{grid-column:1;grid-row:1 / span 2;height:96px;padding:14px 20px}
+  .itech.fin-cards > .it.fin-card > :not(.fin-logo){grid-column:2}
+  .itech.fin-cards > .it.fin-card > .it-k{align-self:end}
+  .itech.fin-cards > .it.fin-card > p{align-self:start}
+}
+@media(max-width:760px){
+  .itech.fin-cards > .it.fin-card{gap:6px;padding:16px 16px 20px}
+  .itech.fin-cards > .it.fin-card > .fin-logo{margin-bottom:8px}
+}
