@@ -1006,3 +1006,54 @@ a[href^="tel:"]{white-space:nowrap}
 @media(max-width:760px){
   .sa-cards{grid-template-columns:1fr}
 }
+/* Round 81 (20 Nov 2026, Beth: the All Areas We Serve tiles looked plain). Office photo with the address card on the left, the 14 areas as grouped pin chips on the right; El Rio and College Park are linked light-gold chips */
+.sa-map{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,2.4vw,32px);align-items:stretch}
+.sa-map-fig{position:relative;margin:0;border-radius:24px;overflow:hidden;min-height:420px;background:var(--pearl-2);box-shadow:0 30px 60px -36px rgba(23,22,20,.45)}
+.sa-map-fig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.sa-map-fig::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,22,20,0) 45%,rgba(23,22,20,.55) 100%);pointer-events:none}
+.sa-map-pulse{position:absolute;left:50%;top:40%;width:0;height:0;z-index:2}
+.sa-map-pulse i{position:absolute;left:50%;top:50%;border-radius:50%;border:1.5px dashed rgba(220,194,122,.85);transform:translate(-50%,-50%)}
+.sa-map-pulse i:nth-child(1){width:70px;height:70px}
+.sa-map-pulse i:nth-child(2){width:130px;height:130px;opacity:.7}
+.sa-map-pulse i:nth-child(3){width:200px;height:200px;opacity:.45}
+.sa-map-pulse b{position:absolute;left:50%;top:50%;width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--graphite);display:grid;place-items:center;transform:translate(-50%,-50%);box-shadow:0 0 0 6px rgba(201,168,76,.28),0 10px 24px -8px rgba(23,22,20,.6)}
+.sa-map-pulse b .sa-dot{width:22px;height:22px;stroke:var(--graphite)}
+.sa-map-card{position:absolute;left:16px;right:16px;bottom:16px;z-index:3;display:grid;gap:4px;padding:18px 20px;border-radius:16px;background:rgba(255,253,249,.94);backdrop-filter:blur(8px);border:1px solid var(--gold-line)}
+.sa-map-k{font:700 .66rem/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink)}
+.sa-map-addr{font:500 1.35rem/1.2 var(--serif);color:var(--ink)}
+.sa-map-tel{justify-self:start;font:700 .95rem/1.4 var(--sans);color:var(--ink);text-decoration:none;font-variant-numeric:lining-nums}
+.sa-map-tel:hover{color:var(--gold-ink)}
+.sa-groups{display:flex;flex-direction:column;justify-content:center;gap:0;padding:clamp(22px,2.8vw,40px);border-radius:24px;background:var(--white);border:1px solid var(--line)}
+.sa-group + .sa-group{margin-top:clamp(20px,2.4vw,30px);padding-top:clamp(20px,2.4vw,30px);border-top:1px solid var(--line)}
+.sa-group-h{display:flex;align-items:center;gap:12px;margin:0 0 16px;font:700 .7rem/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-ink)}
+.sa-group-h::after{content:'';flex:1;height:1px;background:var(--gold-line)}
+.sa-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.sa-chips li{display:flex}
+.sa-chip{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 18px 0 14px;border-radius:999px;border:1px solid var(--line);background:var(--pearl);font:500 1.18rem/1 var(--serif);color:var(--ink);text-decoration:none;white-space:nowrap;transition:border-color .25s,background .25s,transform .25s var(--ease)}
+.sa-dot{flex:none;width:16px;height:16px;fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sa-chip-on{background:rgba(201,168,76,.16);border-color:var(--gold);font-weight:600;padding-right:8px}
+.sa-chip-on .sa-dot{stroke:var(--gold-ink)}
+.sa-arr{flex:none;width:30px;height:30px;padding:7px;border-radius:50%;background:var(--gold);fill:none;stroke:var(--graphite);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;margin-left:4px;transition:transform .25s var(--ease)}
+.sa-chip-on:hover{background:rgba(201,168,76,.28);transform:translateY(-2px)}
+.sa-chip-on:hover .sa-arr{transform:translateX(2px)}
+@media(max-width:1024px){
+  .sa-map{grid-template-columns:1fr}
+  .sa-map-fig{min-height:0;aspect-ratio:16/9}
+}
+@media(max-width:760px){
+  .sa-map-fig{aspect-ratio:4/3;border-radius:20px}
+  .sa-map-pulse{top:34%}
+  .sa-map-pulse i:nth-child(3){display:none}
+  .sa-map-card{left:12px;right:12px;bottom:12px;padding:14px 16px}
+  .sa-map-addr{font-size:1.18rem}
+  .sa-groups{padding:20px 16px;border-radius:20px}
+  .sa-chips{gap:8px}
+  .sa-chip{min-height:42px;font-size:1.06rem;padding:0 14px 0 11px}
+  .sa-chip-on{padding-right:6px}
+}
+/* Round 81b: pin sits above the roofline so it never covers the office sign; taller photo on phones so the address card leaves the building visible */
+.sa-map-pulse{top:22%;left:55%}
+@media(max-width:760px){
+  .sa-map-fig{aspect-ratio:1/1}
+  .sa-map-pulse{top:20%}
+}
