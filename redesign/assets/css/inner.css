@@ -526,3 +526,7 @@
 /* Round 61 (20 Nov 2026, Beth: "remember i hate space") Cosmetic benefits heading on one full line on desktop */
 @media(min-width:1025px){.ben h2.ben-h-fit{white-space:nowrap;font-size:min(2.45vw,2.2rem)}.lang-es .ben h2.ben-h-fit{white-space:normal}}
 @media(min-width:1025px){.ben h2.ben-h-fit-short{font-size:min(3.2vw,2.9rem)}}
+
+/* Round 65 (20 Nov 2026, Beth: "spaces" under the short treatment cards). One card per row on desktop, icon left and text right, so no card stretches to match a taller neighbour */
+@media(min-width:761px){.itech{grid-template-columns:1fr}.itech > .it:not(.it-big){display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:22px;row-gap:6px;align-items:start;padding:24px 28px}.itech > .it:not(.it-big) .it-ic{grid-row:1 / span 2;margin:0}.itech > .it:not(.it-big) > :not(.it-ic){grid-column:2}}
+@media(min-width:1025px){.st-in:not(.st-solo){align-items:start}.st-in:not(.st-solo) > .st-safety{position:sticky;top:110px}}
