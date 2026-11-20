@@ -964,3 +964,34 @@ a[href^="tel:"]{white-space:nowrap}
 .sa-tile.sa-tile-on{background:var(--white);background-image:none;border-color:var(--gold-line)}
 .sa-tile.sa-tile-on .sa-name{color:var(--ink)}
 .sa-tile.sa-tile-on .sa-pin{color:var(--gold-ink);background:var(--pearl)}
+
+/* Round 77 (20 Nov 2026, Beth on El Rio: "put getting there after the map add image"). Getting There band sits right after Visit Us:
+   storefront photo on the left fills the full height of the copy column, four numbered route steps two a row on the right. Page-only classes (gt-) */
+.gt-in{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,72px);align-items:stretch}
+.gt-fig{position:relative;margin:0;min-height:420px;border-radius:28px;overflow:hidden;box-shadow:0 26px 60px rgba(28,27,25,.14)}
+.gt-fig img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+.gt-fig::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(transparent,rgba(23,22,20,.28));pointer-events:none}
+.gt-copy{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.gt .gt-head{margin-bottom:clamp(22px,2.6vw,32px)}
+.gt-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;counter-reset:none}
+.gt-step{position:relative;padding:22px 22px 22px 76px;border-radius:18px;background:var(--pearl);border:1px solid var(--gold-line)}
+.gt-n{position:absolute;left:20px;top:20px;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--graphite);color:var(--gold-2);font:500 1.05rem/1 var(--serif);font-variant-numeric:lining-nums}
+.gt-step h3{font-size:clamp(1.3rem,1.7vw,1.5rem);line-height:1.15;margin:8px 0 8px}
+.gt .gt-step p{font-size:.97rem;line-height:1.6;margin:0}
+.gt .gt-step a.gt-tel{white-space:nowrap}
+.gt-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(22px,2.6vw,30px)}
+.gt-actions .btn{margin:0}
+@media(max-width:1024px){
+  .gt-in{grid-template-columns:1fr}
+  .gt-fig{min-height:0;aspect-ratio:21/9}
+}
+@media(max-width:760px){
+  .gt-steps{grid-template-columns:1fr;gap:12px}
+  .gt-step{padding:20px 18px 20px 70px}
+  .gt-n{left:16px;top:18px}
+  .gt-fig{aspect-ratio:3/2;border-radius:22px}
+  .gt-actions .btn{flex:1 1 100%}
+}
+/* Round 77b: Getting There follows Visit Us directly, so its top padding is trimmed and no empty band opens between the map and the photo */
+.ls.gt{padding-top:clamp(8px,1.5vw,24px)}
+.gt-fig img{object-position:52% 50%}
