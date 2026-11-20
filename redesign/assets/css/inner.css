@@ -530,3 +530,11 @@
 /* Round 65 (20 Nov 2026, Beth: "spaces" under the short treatment cards). One card per row on desktop, icon left and text right, so no card stretches to match a taller neighbour */
 @media(min-width:761px){.itech{grid-template-columns:1fr}.itech > .it:not(.it-big){display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:22px;row-gap:6px;align-items:start;padding:24px 28px}.itech > .it:not(.it-big) .it-ic{grid-row:1 / span 2;margin:0}.itech > .it:not(.it-big) > :not(.it-ic){grid-column:2}}
 @media(min-width:1025px){.st-in:not(.st-solo){align-items:start}.st-in:not(.st-solo) > .st-safety{position:sticky;top:110px}}
+
+/* Round 66 (20 Nov 2026): TMJ symptoms section, heading row on top and cards in three columns so no column sits empty */
+.emc-stack .emc-in{grid-template-columns:1fr;gap:36px}
+.emc-stack .emc-head{position:static!important;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px 32px;text-align:left}
+.emc-stack .emc-head h2{margin:0}
+@media(min-width:761px){.emc-stack .ticks-cards{display:grid!important;columns:auto;grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1025px){.emc-stack .ticks-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.emc-stack .emc-head{justify-content:center;text-align:center}}
