@@ -772,3 +772,46 @@ a[href^="tel:"]{white-space:nowrap}
   .bl-card:first-child:nth-last-child(odd) .bl-img{position:relative;min-height:300px}
   .bl-card:first-child:nth-last-child(odd) .bl-img img{position:absolute;inset:0}
 }
+
+/* Round 73 (20 Nov 2026): Blog hero rebuilt like the service heroes. The newest post sits in the arch,
+   the next two posts sit under the buttons. Page-only classes (.sh-r73, .bh-*). Titles and dates are the live posts' own. */
+.sh-r73 .bh-in{grid-template-columns:minmax(0,6fr) minmax(0,5.4fr);grid-template-areas:"copy feat" "next feat";grid-template-rows:auto auto;row-gap:36px;align-items:stretch;min-height:0}
+.sh-r73 .sh-copy{grid-area:copy;align-self:end}
+.sh-r73 .sh-h1{font-size:clamp(3.2rem,7vw,6.4rem);margin-bottom:30px}
+.bh-feat{grid-area:feat;position:relative;justify-self:end;align-self:center;width:min(100%,480px);margin:24px 40px 24px 0}
+.bh-media{position:relative;aspect-ratio:4/4.3}
+.bh-card{position:relative;z-index:3;margin:-128px -8% 0 -12%;padding:24px 26px 24px;border-radius:20px;background:rgba(255,253,249,.97);color:var(--ink);box-shadow:0 24px 60px rgba(0,0,0,.4);display:flex;flex-direction:column;gap:10px;animation:shPop .9s var(--ease) 1s both}
+.bh-t{font-size:clamp(1.35rem,1.8vw,1.6rem);line-height:1.18;margin:0}
+.bh-t a{color:var(--ink);text-decoration:none}
+.bh-t a:hover{color:var(--gold-ink)}
+.bh-more{align-self:flex-start;margin-top:4px}
+.bh-next{grid-area:next;align-self:start;list-style:none;margin:0;padding:0;display:grid;gap:12px;max-width:560px}
+.bh-next a{display:flex;align-items:center;gap:16px;padding:10px 18px 10px 10px;border:1px solid rgba(201,168,76,.28);border-radius:16px;background:rgba(255,255,255,.04);color:var(--on-dark);text-decoration:none;font:500 1.12rem/1.25 var(--serif);transition:background .25s,border-color .25s}
+.bh-next a:hover,.bh-next a:focus-visible{background:rgba(255,255,255,.09);border-color:var(--gold)}
+.bh-next img{flex:0 0 96px;width:96px;height:72px;border-radius:10px;object-fit:cover}
+.bh-next time{display:block;margin-bottom:5px;font:700 .68rem/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2)}
+@media(prefers-reduced-motion:reduce){.bh-card{animation:none}.bh-next a{transition:none}}
+@media(max-width:1024px){
+  .sh-r73 .bh-in{grid-template-columns:1fr;grid-template-areas:"copy" "feat" "next";row-gap:0}
+  .sh-r73 .sh-copy{align-self:start}
+  .bh-feat{justify-self:center;width:min(86%,440px);margin:44px 0 36px}
+  .bh-card{margin:-116px -6% 0 -6%}
+  .bh-next{max-width:none;grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .bh-feat{width:100%;margin:36px 0 28px}
+  .bh-media{width:84%;margin:0 auto}
+  .bh-card{margin:-96px 0 0;padding:20px 20px 22px}
+  .bh-next{grid-template-columns:1fr}
+  .bh-next a{font-size:1.02rem;gap:12px;padding:8px 14px 8px 8px}
+  .bh-next img{flex-basis:84px;width:84px;height:63px}
+}
+/* Round 73b: solid card (the arch photo no longer shows through it); the left column centres against the arch, so no gap opens under the post links */
+.bh-card{background:var(--white,#fffdf9)}
+@media(min-width:1025px){
+  .sh-r73 .bh-in{grid-template-areas:". feat" "copy feat" "next feat" ". feat";grid-template-rows:1fr auto auto 1fr;row-gap:0}
+  .bh-next{margin-top:36px}
+}
+/* Round 73c: Blog page only. Reviews and Visit Us follow the posts; trim the doubled pearl gap between the grid and the reviews */
+.bl-r71:has(+ .reviews){padding-bottom:clamp(40px,5vw,72px)}
+.bl-r71 + .reviews{padding-top:clamp(56px,6vw,88px)}
