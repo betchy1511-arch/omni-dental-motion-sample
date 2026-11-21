@@ -1194,3 +1194,6 @@ button.sx-key:not(.is-on) .sx-key-dot{background:#8C7A45;box-shadow:0 0 0 3px #1
 button.sx-key.is-on b{color:#E2C46E}
 .sx-office-pill.is-on{box-shadow:0 0 0 2px #E2C46E,0 10px 24px -10px rgba(0,0,0,.7)}
 @media(min-width:601px){.sx-office-pill.is-on{display:flex}}
+
+/* r90: dentist name on one line (Beth 21 Nov) */
+.dr-copy h2{white-space:nowrap;font-size:clamp(1.6rem,3vw,2.75rem)}
