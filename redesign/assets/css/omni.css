@@ -1200,3 +1200,8 @@ button.sx-key.is-on b{color:#E2C46E}
 
 /* r91: insurance count sits on the same line as its text (Beth 21 Nov) */
 .ins-count span{display:inline;margin:0 .12em 0 0;vertical-align:-.08em}
+
+/* Beth 24 Nov 2026: never split an area or street name across two lines */
+.anw{white-space:nowrap}
+/* the no-wrap wrapper must never pick up a parent's "span" styling (e.g. .ins-count span = big gold number) */
+.anw{white-space:nowrap;display:inline!important;font:inherit!important;color:inherit!important;margin:0!important;padding:0!important;vertical-align:baseline!important;background:none!important;border:0!important}
