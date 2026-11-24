@@ -1191,6 +1191,10 @@ button.sx-key.is-on b{color:#E2C46E}
 .fr-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .fr-note{margin:-8px auto 16px;font:italic 500 1.15rem/1.4 var(--serif);color:var(--gold-ink)}
 .fr-dark .fr-note{color:var(--gold-2)}
+.fr-fact + .fr-fact{margin-top:clamp(20px,2.4vw,30px);padding-top:clamp(20px,2.4vw,30px);border-top:1px solid var(--line)}
+.fr-dark .fr-fact + .fr-fact{border-top-color:rgba(243,239,232,.16)}
+.fr-copy .fr-fact p{margin-bottom:0}
+.fr-copy .fr-note{margin:clamp(22px,2.6vw,30px) auto 16px}
 @media(max-width:900px){.fr-in{grid-template-columns:1fr;gap:24px}.fr-fig{order:0}}
 
 /* 24 Nov 2026 (Beth: "ugly crowded text", gap after "Why"): area-page Why heading is long, so it runs smaller and balanced */
