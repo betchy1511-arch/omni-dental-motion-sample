@@ -1171,7 +1171,7 @@ button.sx-key.is-on b{color:#E2C46E}
 @media(max-width:1024px){.inner .sec-split{grid-template-columns:1fr}}
 
 /* 24 Nov 2026 (Beth: facts card grid 'too ai', 'i dont think it should come first'): local facts as a plain ruled list,
-   heading on the left, sits just above Directions. No boxes, no number badges. */
+   heading above, two-column ruled list below, sits just above Directions. No boxes, no number badges. */
 .fl{background:var(--pearl)}
 .fl-in{display:block}
 .fl-head{margin-bottom:clamp(24px,3vw,36px);max-width:none}
