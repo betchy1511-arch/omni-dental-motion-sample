@@ -1205,3 +1205,13 @@ button.sx-key.is-on b{color:#E2C46E}
 .anw{white-space:nowrap}
 /* the no-wrap wrapper must never pick up a parent's "span" styling (e.g. .ins-count span = big gold number) */
 .anw{white-space:nowrap;display:inline!important;font:inherit!important;color:inherit!important;margin:0!important;padding:0!important;vertical-align:baseline!important;background:none!important;border:0!important}
+/* Beth 24 Nov 2026: service buttons. One label piece, button may use the full card width, arrow sits right after the text */
+.svc-link{max-width:100%}
+.svc-link .svc-t{min-width:0;flex:0 1 auto;text-wrap:balance}
+.svc-link.svc-link-area{align-self:stretch;width:100%;justify-content:space-between;padding:8px 16px;text-align:left}
+/* Beth 24 Nov 2026: "All Service Areas" removed from this dropdown, so its last item is a normal area link (no divider, no full row) */
+#dd-areas li:last-child{grid-column:auto;border-top:0;margin-top:0;padding-top:0}
+/* one inline run of words + place name inside a flex/grid box; must never pick up a parent's "span" styling */
+.anw-run{display:inline!important;font:inherit!important;color:inherit!important;margin:0!important;padding:0!important;vertical-align:baseline!important;background:none!important;border:0!important;flex:0 1 auto;min-width:0}
+/* Beth 24 Nov 2026: "All Dental Services" removed too, so no dropdown has a full-width last row any more */
+.nav-dd-menu li:last-child{grid-column:auto;border-top:0;margin-top:0;padding-top:0}
