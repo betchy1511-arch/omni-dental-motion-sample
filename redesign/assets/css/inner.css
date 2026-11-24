@@ -1181,6 +1181,7 @@ button.sx-key.is-on b{color:#E2C46E}
 .fr-dark{background:var(--graphite-2)}
 .fr-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
 .fr-fig{order:2}
+.fr-dark .fr-fig{order:0} /* Beth 24 Nov: alternate like Teleleaf, photo right then left */
 .fr-fig{margin:0;background:#fff;padding:10px;border-radius:6px;box-shadow:0 22px 48px rgba(0,0,0,.18)}
 .fr-fig img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:3px}
 .fr-copy{text-align:center}
