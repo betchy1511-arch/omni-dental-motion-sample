@@ -1200,3 +1200,6 @@ button.sx-key.is-on b{color:#E2C46E}
 
 /* 24 Nov 2026 (Beth: "ugly crowded text", gap after "Why"): area-page Why heading is long, so it runs smaller and balanced */
 .inner .why-sticky #why-h{font-size:clamp(2rem,2.6vw,2.6rem);line-height:1.12;text-wrap:balance}
+
+/* 24 Nov 2026 (Beth: never split an area name across two lines) */
+.anw{white-space:nowrap}
