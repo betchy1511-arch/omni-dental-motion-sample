@@ -1180,7 +1180,7 @@ button.sx-key.is-on b{color:#E2C46E}
 .fr{padding-block:clamp(36px,4.5vw,64px);background:var(--white)}
 .fr-dark{background:var(--graphite-2)}
 .fr-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
-.fr:not(.fr-dark) .fr-fig{order:2}
+.fr-fig{order:2}
 .fr-fig{margin:0;background:#fff;padding:10px;border-radius:6px;box-shadow:0 22px 48px rgba(0,0,0,.18)}
 .fr-fig img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:3px}
 .fr-copy{text-align:center}
@@ -1189,7 +1189,9 @@ button.sx-key.is-on b{color:#E2C46E}
 .fr-copy p{max-width:50ch;margin:0 auto 24px;color:var(--ink-2);font-size:1.05rem;line-height:1.7}
 .fr-dark .fr-copy p{color:var(--on-dark-2)}
 .fr-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-@media(max-width:900px){.fr-in{grid-template-columns:1fr;gap:24px}.fr:not(.fr-dark) .fr-fig{order:0}}
+.fr-note{margin:-8px auto 16px;font:italic 500 1.15rem/1.4 var(--serif);color:var(--gold-ink)}
+.fr-dark .fr-note{color:var(--gold-2)}
+@media(max-width:900px){.fr-in{grid-template-columns:1fr;gap:24px}.fr-fig{order:0}}
 
 /* 24 Nov 2026 (Beth: "ugly crowded text", gap after "Why"): area-page Why heading is long, so it runs smaller and balanced */
 .inner .why-sticky #why-h{font-size:clamp(2rem,2.6vw,2.6rem);line-height:1.12;text-wrap:balance}
