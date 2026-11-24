@@ -1163,3 +1163,9 @@ button.sx-key.is-on b{color:#E2C46E}
 .gx-3 .gt-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:1100px){.gx-3 .gt-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.gx .gt-steps{grid-template-columns:1fr}}
+
+/* 24 Nov 2026 (Beth: "remember i dont like spaces"): area pages have longer headings, so the services head keeps a fixed
+   column for the side text instead of letting a long heading squeeze it into a tall narrow strip */
+.inner .sec-split{grid-template-columns:minmax(0,1fr) minmax(300px,44ch)}
+.inner .sec-split h2{text-wrap:balance}
+@media(max-width:1024px){.inner .sec-split{grid-template-columns:1fr}}
