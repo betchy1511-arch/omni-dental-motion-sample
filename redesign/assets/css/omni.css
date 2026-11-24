@@ -1215,3 +1215,18 @@ button.sx-key.is-on b{color:#E2C46E}
 .anw-run{display:inline!important;font:inherit!important;color:inherit!important;margin:0!important;padding:0!important;vertical-align:baseline!important;background:none!important;border:0!important;flex:0 1 auto;min-width:0}
 /* Beth 24 Nov 2026: "All Dental Services" removed too, so no dropdown has a full-width last row any more */
 .nav-dd-menu li:last-child{grid-column:auto;border-top:0;margin-top:0;padding-top:0}
+/* Beth 24 Nov 2026: optimise for mobile. Map labels at least 12px, "View Area" a real tap target */
+@media(max-width:600px){
+  html .sx-pill{font-size:.75rem;padding:4px 6px 4px 10px}
+  html .sx-go{display:inline-flex;align-items:center;min-height:40px;min-width:44px;padding:0 12px;font-size:.75rem}
+  html .sx-k{font-size:.75rem}
+}
+@media(max-width:600px){
+  html .lg-toc-l1 > a,html .lg-toc-l2 > a{min-height:44px;display:flex;align-items:center}
+  html .bl-t a{display:inline-block;padding:8px 0}
+  html .bl-txt time{font-size:.75rem}
+}
+@media(max-width:600px){
+  html .bh-next time{font-size:.75rem}
+  html [class*="toc"] li > a{min-height:44px;display:flex;align-items:center}
+}
