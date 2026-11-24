@@ -70,7 +70,24 @@ Array.prototype.forEach.call(document.querySelectorAll('.nav-dd'), function (dd)
     return false;
   }
   function over(h) { return h.scrollWidth > h.clientWidth + 4; }  /* 4px: italic glyphs overhang by 1-2px */
+  /* Hero "Dr." chip overhangs the photo; when a long hero H1 line reaches under it, slide the chip right
+     (the heading keeps its full width so its word pairs never break). */
+  function chipGap() {
+    var h = document.querySelector('h1.sh-h1'), c = document.querySelector('.sh-chip-dr');
+    if (!h || !c) return;
+    c.style.marginLeft = '';
+    h.style.maxWidth = '';
+    if (innerWidth < 1025 || !c.getClientRects().length) return;
+    var r = document.createRange(); r.selectNodeContents(h);
+    var cb = c.getBoundingClientRect(), need = 0;
+    [].forEach.call(r.getClientRects(), function (x) {
+      if (x.bottom + 16 < cb.top || x.top - 16 > cb.bottom) return;
+      need = Math.max(need, x.right + 20 - cb.left);
+    });
+    if (need > 0) c.style.marginLeft = Math.ceil(need) + 'px';
+  }
   function fit() {
+    var _h1 = document.querySelector('h1.sh-h1'); if (_h1) _h1.style.maxWidth = '';
     var hs = [].filter.call(document.querySelectorAll('h2, h1.sh-h1'), function (h) {
       return (h.matches('h1') || !h.closest('.sh')) && !h.querySelector('br') && !h.classList.contains('fit1');
     });
@@ -86,7 +103,7 @@ Array.prototype.forEach.call(document.querySelectorAll('.nav-dd'), function (dd)
       var o = { h: h, fs: parseFloat(cs.fontSize), forced: cs.whiteSpace === 'nowrap',
                 pad: parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) };
       o.w = h.clientWidth - o.pad;
-      o.min = h.matches('h1') ? 0.7 : MIN;  /* hero h1 may drop further; it is ~90px and stays large */  /* box width read BEFORE any nowrap (a flex item grows when nowrap is on) */
+      o.min = h.matches('h1') ? 0.6 : MIN;  /* hero h1 may drop further; it is ~90px and stays large */  /* box width read BEFORE any nowrap (a flex item grows when nowrap is on) */
       if (over(h)) { o.kind = 'over'; o.ratio = o.w / (h.scrollWidth - o.pad); return o; }
       if (!o.forced && !h.matches('h1') && wraps(h)) { o.kind = 'wrap'; return o; }  /* hero h1: only fix overflow, its 2-line design stays */
       return null;
@@ -110,6 +127,7 @@ Array.prototype.forEach.call(document.querySelectorAll('.nav-dd'), function (dd)
         if (o.kind === 'over') unstick(o);
       }
     });
+    chipGap();
   }
   function unstick(o) {
     if (o.forced) o.h.style.whiteSpace = 'normal';
@@ -119,7 +137,7 @@ Array.prototype.forEach.call(document.querySelectorAll('.nav-dd'), function (dd)
   function later() { clearTimeout(t); t = setTimeout(fit, 150); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fit); else fit();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  window.addEventListener('load', function () { fit(); setTimeout(fit, 1200); });
+  window.addEventListener('load', function () { fit(); setTimeout(fit, 1200); setTimeout(fit, 2600); });
   if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', later);
   window.addEventListener('resize', later);
   document.addEventListener('toggle', later, true);
