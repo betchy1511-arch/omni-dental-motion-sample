@@ -333,7 +333,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 /* ---------- First visit: dial ---------- */
 .journey{background:var(--graphite);color:var(--on-dark)}
 .journey-stage{position:relative;padding:clamp(80px,10vw,128px) 0}
-.journey-head h2{font-size:clamp(2.2rem,4vw,3.4rem);color:var(--on-dark);max-width:18ch}
+.journey-head h2{font-size:clamp(2.2rem,4vw,3.4rem);color:var(--on-dark);max-width:none}
 .journey-head h2 em{color:var(--gold-2)}
 .dial{display:none}
 .jsteps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;max-width:1240px;margin:48px auto 0;padding-inline:max(24px,env(safe-area-inset-left,0px))}
@@ -1230,3 +1230,6 @@ button.sx-key.is-on b{color:#E2C46E}
   html .bh-next time{font-size:.75rem}
   html [class*="toc"] li > a{min-height:44px;display:flex;align-items:center}
 }
+
+/* keep short phrases together in headings (Beth, 25 Nov 2026: no word alone on the last line) */
+.nw{white-space:nowrap}

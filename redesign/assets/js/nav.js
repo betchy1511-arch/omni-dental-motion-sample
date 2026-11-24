@@ -50,3 +50,82 @@ Array.prototype.forEach.call(document.querySelectorAll('.nav-dd'), function (dd)
     upd(); setTimeout(upd, 600);
   });
 })();
+
+/* Section headings: one line when the heading only just misses it (Beth, 25 Nov 2026: "one line avoid spaces").
+   If a h2 would fit on one line at up to 15% smaller text, shrink it to fit (never below 85%); otherwise leave it.
+   Hero headings (.sh) and headings inner.js already fits (.und, .proc-head, .fit1) or CSS keeps on one line (.st-tech .it-h) are left alone. Reads are batched to avoid layout thrash. Re-runs on resize, after the web
+   fonts load, when the page language changes (Spanish switch) and when a details/accordion opens. */
+(function () {
+  var MIN = 0.85;
+  function textWidth(h) {
+    var r = document.createRange();
+    r.selectNodeContents(h);
+    return r.getBoundingClientRect().width;
+  }
+  function wraps(h) {
+    var r = document.createRange();
+    r.selectNodeContents(h);
+    var tops = [].map.call(r.getClientRects(), function (x) { return Math.round(x.top); }).sort(function (a, b) { return a - b; });
+    for (var k = 1; k < tops.length; k++) if (tops[k] - tops[0] > 12) return true;
+    return false;
+  }
+  function over(h) { return h.scrollWidth > h.clientWidth + 4; }  /* 4px: italic glyphs overhang by 1-2px */
+  function fit() {
+    var hs = [].filter.call(document.querySelectorAll('h2, h1.sh-h1'), function (h) {
+      return (h.matches('h1') || !h.closest('.sh')) && !h.querySelector('br') && !h.classList.contains('fit1');
+    });
+    hs.forEach(function (h) {
+      if (!h.dataset.fit) return;
+      h.style.fontSize = ''; h.style.whiteSpace = '';
+      [].forEach.call(h.querySelectorAll('.nw'), function (s) { s.style.whiteSpace = ''; });
+      delete h.dataset.fit;
+    });
+    var m = hs.map(function (h) {
+      if (!h.getClientRects().length) return null;
+      var cs = getComputedStyle(h);
+      var o = { h: h, fs: parseFloat(cs.fontSize), forced: cs.whiteSpace === 'nowrap',
+                pad: parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) };
+      o.w = h.clientWidth - o.pad;
+      o.min = h.matches('h1') ? 0.7 : MIN;  /* hero h1 may drop further; it is ~90px and stays large */  /* box width read BEFORE any nowrap (a flex item grows when nowrap is on) */
+      if (over(h)) { o.kind = 'over'; o.ratio = o.w / (h.scrollWidth - o.pad); return o; }
+      if (!o.forced && !h.matches('h1') && wraps(h)) { o.kind = 'wrap'; return o; }  /* hero h1: only fix overflow, its 2-line design stays */
+      return null;
+    }).filter(Boolean);
+    var wr = m.filter(function (o) { return o.kind === 'wrap'; });
+    wr.forEach(function (o) { o.h.style.whiteSpace = 'nowrap'; });
+    wr.forEach(function (o) { o.ratio = o.w / textWidth(o.h); });
+    wr.forEach(function (o) { o.h.style.whiteSpace = ''; });
+    m.forEach(function (o) {
+      o.h.dataset.fit = '1';
+      if (o.ratio >= o.min) {
+        o.h.style.fontSize = Math.max(o.fs * o.min, Math.floor(o.fs * Math.min(o.ratio, 1) * 0.97 * 10) / 10) + 'px';
+      } else if (o.kind === 'over') {
+        unstick(o);
+      }
+    });
+    m.forEach(function (o) {
+      if (!o.h.style.fontSize) return;
+      if (o.kind === 'wrap' ? wraps(o.h) : over(o.h)) {
+        o.h.style.fontSize = '';
+        if (o.kind === 'over') unstick(o);
+      }
+    });
+  }
+  function unstick(o) {
+    if (o.forced) o.h.style.whiteSpace = 'normal';
+    [].forEach.call(o.h.querySelectorAll('.nw'), function (s) { s.style.whiteSpace = 'normal'; });
+  }
+  var t;
+  function later() { clearTimeout(t); t = setTimeout(fit, 150); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fit); else fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  window.addEventListener('load', function () { fit(); setTimeout(fit, 1200); });
+  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', later);
+  window.addEventListener('resize', later);
+  document.addEventListener('toggle', later, true);
+  if (window.MutationObserver) {
+    new MutationObserver(later).observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'lang'] });
+    var textWatch = new MutationObserver(later);
+    [].forEach.call(document.querySelectorAll('h2'), function (h) { textWatch.observe(h, { childList: true, subtree: true, characterData: true }); });
+  }
+})();
