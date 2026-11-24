@@ -1181,3 +1181,6 @@ button.sx-key.is-on b{color:#E2C46E}
 .fl-row dt{font:500 1.3rem/1.25 var(--serif);color:var(--ink);margin-bottom:6px}
 .fl-row dd{margin:0;color:var(--ink-2);font-size:1rem;line-height:1.65}
 @media(max-width:760px){.fl-list{grid-template-columns:1fr}}
+
+/* 24 Nov 2026 (Beth: "ugly crowded text", gap after "Why"): area-page Why heading is long, so it runs smaller and balanced */
+.inner .why-sticky #why-h{font-size:clamp(2rem,2.6vw,2.6rem);line-height:1.12;text-wrap:balance}
