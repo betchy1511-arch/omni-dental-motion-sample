@@ -1250,6 +1250,7 @@ button.sx-key.is-on b{color:#E2C46E}
 .to-top.show{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition-delay:0s}
 @media(hover:hover){.to-top:hover{background:var(--gold);color:var(--graphite);border-color:var(--gold)}}
 .to-top:focus-visible{outline:2px solid var(--graphite);outline-offset:3px;box-shadow:0 0 0 6px var(--white),0 10px 26px rgba(0,0,0,.22)}
-main:focus{outline:none}
+main:focus,h1[tabindex="-1"]:focus{outline:none}
+@media print{.to-top{display:none}}
 @media(max-width:1024px){.to-top{right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));width:44px;height:44px}}
 @media(prefers-reduced-motion:reduce){.to-top{transition:none}}
