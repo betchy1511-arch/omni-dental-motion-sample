@@ -1233,3 +1233,8 @@ button.sx-key.is-on b{color:#E2C46E}
 
 /* keep short phrases together in headings (Beth, 25 Nov 2026: no word alone on the last line) */
 .nw{white-space:nowrap}
+
+/* 25 Nov 2026: Blog added to the main menu (Beth). Tighter menu spacing on small laptops so Book Online stays inside the header */
+@media(min-width:1025px) and (max-width:1365px){.nav{gap:13px}.head-in{gap:12px}.nav > a,.nav .nav-dd-top{font-size:.875rem}}
+@media(min-width:1025px) and (max-width:1179px){.nav{gap:8px}.nav > a,.nav .nav-dd-top{font-size:.8125rem}.nav-dd-btn{width:22px}}
+@media(min-width:1280px) and (max-width:1365px){.nav{gap:9px}.head-in{gap:10px}}
