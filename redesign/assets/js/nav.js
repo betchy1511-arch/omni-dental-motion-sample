@@ -147,3 +147,26 @@ Array.prototype.forEach.call(document.querySelectorAll('.nav-dd'), function (dd)
     [].forEach.call(document.querySelectorAll('h2'), function (h) { textWatch.observe(h, { childList: true, subtree: true, characterData: true }); });
   }
 })();
+
+/* Back to top button (Beth 25 Nov 2026): shows after scrolling down, every page */
+(function () {
+  var b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'to-top notranslate';
+  b.setAttribute('aria-label', 'Back to top');
+  b.setAttribute('translate', 'no');
+  b.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function add() {
+    document.body.appendChild(b);
+    function check() { b.classList.toggle('show', (window.scrollY || document.documentElement.scrollTop) > 600); }
+    window.addEventListener('scroll', check, { passive: true });
+    check();
+  }
+  b.addEventListener('click', function () {
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
+    var skip = document.querySelector('.head a, header a');
+    if (skip) setTimeout(function () { skip.focus({ preventScroll: true }); }, still ? 0 : 700);
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', add); else add();
+})();

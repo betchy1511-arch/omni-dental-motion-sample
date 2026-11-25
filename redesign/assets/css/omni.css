@@ -1245,3 +1245,10 @@ button.sx-key.is-on b{color:#E2C46E}
 @media(min-width:1025px) and (max-width:1439px){html.lang-es .head-phone{display:none}}
 @media(min-width:1600px){html.lang-es .nav{gap:14px}html.lang-es .head-in{gap:14px}html.lang-es .nav > a,html.lang-es .nav .nav-dd-top{font-size:.875rem}}
 @media(min-width:1025px) and (max-width:1179px){html.lang-es .nav{gap:3px}html.lang-es .head-in{gap:8px}html.lang-es .nav > a,html.lang-es .nav .nav-dd-top{font-size:.72rem}}
+/* Back to top button (Beth 25 Nov 2026) */
+.to-top{position:fixed;z-index:41;right:calc(24px + env(safe-area-inset-right,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));width:48px;height:48px;border-radius:50%;display:grid;place-items:center;padding:0;cursor:pointer;background:var(--graphite);color:var(--gold-2);border:1.5px solid var(--gold-line);box-shadow:0 10px 26px rgba(0,0,0,.22);opacity:0;visibility:hidden;transform:translateY(12px);pointer-events:none;transition:opacity .35s,transform .35s var(--ease),visibility 0s linear .35s,background .25s,color .25s}
+.to-top.show{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition-delay:0s}
+.to-top:hover{background:var(--gold);color:var(--graphite);border-color:var(--gold)}
+.to-top:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(max-width:1024px){.to-top{right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.to-top{transition:none}}
