@@ -1238,3 +1238,10 @@ button.sx-key.is-on b{color:#E2C46E}
 @media(min-width:1025px) and (max-width:1365px){.nav{gap:13px}.head-in{gap:12px}.nav > a,.nav .nav-dd-top{font-size:.875rem}}
 @media(min-width:1025px) and (max-width:1179px){.nav{gap:8px}.nav > a,.nav .nav-dd-top{font-size:.8125rem}.nav-dd-btn{width:22px}}
 @media(min-width:1280px) and (max-width:1365px){.nav{gap:9px}.head-in{gap:10px}}
+/* 25 Nov 2026: Spanish view (ES switch) has longer menu words; header buttons never wrap, and the menu tightens a little in Spanish */
+.head-cta .btn,html.lang-es .head-cta .btn{white-space:nowrap}
+@media(min-width:1025px) and (max-width:1599px){html.lang-es .nav{gap:12px}html.lang-es .head-in{gap:12px}html.lang-es .nav > a,html.lang-es .nav .nav-dd-top{font-size:.875rem}}
+@media(min-width:1025px) and (max-width:1279px){html.lang-es .nav{gap:7px}html.lang-es .nav > a,html.lang-es .nav .nav-dd-top{font-size:.78rem}}
+@media(min-width:1025px) and (max-width:1439px){html.lang-es .head-phone{display:none}}
+@media(min-width:1600px){html.lang-es .nav{gap:14px}html.lang-es .head-in{gap:14px}html.lang-es .nav > a,html.lang-es .nav .nav-dd-top{font-size:.875rem}}
+@media(min-width:1025px) and (max-width:1179px){html.lang-es .nav{gap:3px}html.lang-es .head-in{gap:8px}html.lang-es .nav > a,html.lang-es .nav .nav-dd-top{font-size:.72rem}}
