@@ -150,23 +150,34 @@ Array.prototype.forEach.call(document.querySelectorAll('.nav-dd'), function (dd)
 
 /* Back to top button (Beth 25 Nov 2026): shows after scrolling down, every page */
 (function () {
+  var root = document.documentElement;
   var b = document.createElement('button');
   b.type = 'button';
   b.className = 'to-top notranslate';
-  b.setAttribute('aria-label', 'Back to top');
   b.setAttribute('translate', 'no');
   b.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function label() {
+    var es = root.classList.contains('lang-es');
+    var t = es ? 'Volver arriba' : 'Back to top';
+    b.setAttribute('aria-label', t);
+    b.title = t;
+  }
   function add() {
     document.body.appendChild(b);
-    function check() { b.classList.toggle('show', (window.scrollY || document.documentElement.scrollTop) > 600); }
+    label();
+    if (window.MutationObserver) new MutationObserver(label).observe(root, { attributes: true, attributeFilter: ['class', 'lang'] });
+    function check() { b.classList.toggle('show', (window.scrollY || root.scrollTop) > 600); }
     window.addEventListener('scroll', check, { passive: true });
     check();
   }
   b.addEventListener('click', function () {
     var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
-    var skip = document.querySelector('.head a, header a');
-    if (skip) setTimeout(function () { skip.focus({ preventScroll: true }); }, still ? 0 : 700);
+    var target = document.querySelector('main') || document.querySelector('h1');
+    if (target) {
+      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    }
+    window.scrollTo({ top: 0, behavior: still ? 'instant' : 'smooth' });
   });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', add); else add();
 })();
